@@ -1,0 +1,4 @@
+[submodule "submodule-html-slides"]
+	path = submodule-html-slides
+	url = https://github.com/publik-void/html-slides.git
+	branch = main
