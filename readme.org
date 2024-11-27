@@ -3,6 +3,8 @@
 ~index.html~ is the file that contains the presentation. Some scripts may need
 to be bundled before it displays properly when opening it in a browser.
 
+Currently also available at [[https://publik-void.github.io]].
+
 * Exporting to PDF
 
 #+begin_src sh
