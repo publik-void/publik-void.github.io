@@ -1,0 +1,32 @@
+* Viewing the presentation
+
+~index.html~ is the file that contains the presentation. Some scripts may need
+to be bundled before it displays properly when opening it in a browser.
+
+* Exporting to PDF
+
+#+begin_src sh
+chromium \
+  --headless=new \
+  --print-to-pdf=slides.pdf \
+  --generate-pdf-document-outline \
+  slides.html
+#+end_src
+
+* Development
+
+#+begin_src sh
+
+# Setup
+npm install
+
+# To run a development server
+npm run server
+
+# To bundle manually
+npm bundle-dev
+
+# To bundle from scratch and in production mode
+npm bundle
+
+#+end_src
