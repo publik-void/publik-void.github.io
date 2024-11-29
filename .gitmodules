@@ -2,3 +2,6 @@
 	path = submodule-html-slides
 	url = https://github.com/publik-void/html-slides.git
 	branch = main
+[submodule "submodule-dynamic-3d-plots"]
+	path = submodule-dynamic-3d-plots
+	url = https://github.com/publik-void/dynamic-3d-plots.git

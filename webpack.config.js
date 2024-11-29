@@ -7,11 +7,15 @@ module.exports = {
   entry: [
     path.resolve(__dirname, "src", "trajectory-plot-0.js")
   ],
-  mode: "development",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "trajectory-plot-0.js",
     publicPath: ""
+  },
+  mode: "development",
+  performance: {
+    maxAssetSize: 5000000,
+    maxEntrypointSize: 5000000
   },
   devServer: {
     static: {

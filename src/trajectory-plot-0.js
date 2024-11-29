@@ -1,42 +1,20 @@
-import * as THREE from 'three';
+import * as d3p from "dynamic-3d-plots";
 
-console.log("asd1");
+var HtmlSlides = HtmlSlides || {};
+
+HtmlSlides.trajectoryPlot0 = {};
+
+HtmlSlides.trajectoryPlot0.create = async function() {
+  const trajectoryData =
+    await d3p.loadSensorData("./data/trajectory-0.json");
+
+  const container = document.getElementById("trajectory-plot-0");
+
+  d3p.attachTrajectoryPlot(container, trajectoryData);
+};
 
 document.addEventListener("DOMContentLoaded", function() {
-
-const container = document.getElementById("trajectory-plot-0");
-
-// console.log("asd2");
-console.log(container);
-
-const scene = new THREE.Scene();
-
-// scene.background = new THREE.Color(0x00ffffff);
-
-
-const camera = new THREE.PerspectiveCamera(75,
-  container.clientWidth / container.clientHeight, 0.1, 1000);
-
-const renderer = new THREE.WebGLRenderer({alpha: true});
-renderer.setSize(
-  container.clientWidth, container.clientHeight);
-renderer.setAnimationLoop( animate );
-container.appendChild(renderer.domElement);
-
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
-
-camera.position.z = 5;
-
-function animate() {
-
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-
-        renderer.render( scene, camera );
-
-}
-
+  HtmlSlides.trajectoryPlot0.create();
 });
+
+

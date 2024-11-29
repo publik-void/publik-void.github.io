@@ -6,6 +6,9 @@
       </title>
 
     <link rel="stylesheet" type="text/css"
+      href="submodule-html-slides/styles/normalize/normalize.css">
+
+    <link rel="stylesheet" type="text/css"
       href="submodule-html-slides/styles/slides/fit-height-4x3.css">
 
     <link rel="stylesheet" type="text/css"
@@ -185,7 +188,7 @@
     </div>
 
     <div class="slide">
-      <h2> Objectives </h2>
+      <h2> Objective </h2>
       <ul>
         <li> Robust assessment of motor performance </li>
         <li> Based on body-worn sensor recordings in real-life settings </li>
@@ -193,8 +196,30 @@
       </ul>
     </div>
 
-    <div class="slide image-fill">
+    <div class="slide image-fill hide-cursor">
       <div id="trajectory-plot-0"> </div>
+    </div>
+
+    <div class="slide">
+      <h2> Gait features </h2>
+
+      <img
+        src="images/diagram-lateral-step-deviation-alpha.png"
+        alt="Lateral Step Deviation">
+
+      <ul>
+        <li> Currently ~1700 different features </li>
+        <ul>
+          <li> High redundancy </li>
+          <li> Mostly transformations of 35 precomputed features </li>
+          <li> Custom implementations: </li>
+          <ul>
+            <li> Frequency domain measures </li>
+            <li> Entropy measures </li>
+          </ul>
+          <li> Possibility for further additions </li>
+        </ul>
+      </ul>
     </div>
 
     <div class="slide">
@@ -206,6 +231,7 @@
           <li> 36 healthy controls </li>
         </ul>
       </ul>
+
       <ul>
         <li> Rank and combine gait features for: </li>
         <ul>
@@ -216,16 +242,51 @@
     </div>
 
     <div class="slide">
-      <h2> Deliverable 2 </h2>
-      <ul>
-        <li> Develop an mHealth Technologies system </li>
-        <ul>
-          <li> Based on mHT sensors, controlled via smartphone? </li>
-        </ul>
-        <ul class="hence">
-          <li> <span class="bold">Needs clarification</span> </li>
-        </ul>
+      <h2> Status of deliverable 1 </h2>
+        <div>
+          <span class="bold">Done:</span>
+          <ul>
+            <li> Testing of discriminatory power of gait features </li>
+            <ul>
+              <li> Cross-sectionally (controls vs. patients, patient subgroups)
+                </li>
+              <li> Longitudinally (1- or 2-year follow-ups) </li>
+              <li> In the lab and real-life </li>
+            </ul>
+          </ul>
+        </div>
+
+        <div>
+          <span class="bold">Pending:</span>
+          <ul>
+            <li> Thoroughly "vet" best gait features for reliability </li>
+            <li> Final ranking incl. composite measures </li>
+          </ul>
+        </div>
       </ul>
+    </div>
+
+    <div class="slide">
+      <h2> Deliverable 2 </h2>
+      <div class="row jc-space-between">
+        <ul>
+          <li> Develop an mHT system </li>
+          <ul>
+            <li> Based on mHT sensors, <br>
+              controlled via smartphone? </li>
+          </ul>
+          <ul class="hence">
+            <li> <span class="bold">Needs clarification</span> </li>
+          </ul>
+        </ul>
+
+        <img
+          class="framed"
+          style="width: 40%"
+          src="images/shoe-sensor-mounting-0-alpha.png"
+          alt="mHT sensor">
+      </div>
+
       <ul>
         <li> Prospective study (n≈10) to validate </li>
         <ul>
@@ -283,15 +344,15 @@
       </object>
     </div>
 
-    <div class="slide">
-      <h2> Pertinent training topics </h2>
-      <ul>
-        <li> Inertial measurement unit signal processing </li>
-        <li> n-of-few / n-of-1 statistics </li>
-        <li> Small-data machine learning </li>
-        <li> Mobile application development </li>
-      </ul>
-    </div>
+    <!-- <div class="slide"> -->
+    <!--   <h2> Pertinent training topics </h2> -->
+    <!--   <ul> -->
+    <!--     <li> Inertial measurement unit signal processing </li> -->
+    <!--     <li> n-of-few / n-of-1 statistics </li> -->
+    <!--     <li> Small-data machine learning </li> -->
+    <!--     <li> Mobile application development </li> -->
+    <!--   </ul> -->
+    <!-- </div> -->
 
     <div class="slide thanks inverse">
       <h2> Thank you! </h2>
