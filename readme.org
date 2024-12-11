@@ -8,6 +8,12 @@ Currently also available at [[https://publik-void.github.io]].
 * Exporting to PDF
 
 #+begin_src sh
+npm run export
+#+end_src
+
+Or:
+
+#+begin_src sh
 chromium \
   --headless=new \
   --print-to-pdf=slides.pdf \

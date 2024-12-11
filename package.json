@@ -4,13 +4,15 @@
   "scripts": {
     "serve": "webpack serve",
     "bundle": "rm -rf dist && webpack --mode production",
-    "bundle-dev": "webpack"
+    "bundle-dev": "webpack",
+    "export": "html-export-pdf-cli ./index.html -o slides.pdf"
   },
   "author": "Lasse Schlör",
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
+    "html-export-pdf-cli": "^1.2.0",
     "path-browserify": "^1.0.1",
     "sass": "^1.81.0",
     "sass-loader": "^16.0.3",
