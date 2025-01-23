@@ -203,6 +203,43 @@
       </ul>
     </div>
 
+    <div class="slide">
+      <h2> Spinocerebellar Ataxia (SCA) </h2>
+
+      <ul>
+        <li> Inherited neurodegenerative disease </li>
+        <li> Affects the cerebellum and spinal cord </li>
+        <!-- <li> Impairs coordination and movement </li> -->
+        <!-- <li> &gt;40 identified subtypes </li> -->
+        <li> Rare disease: &le;5 people per 100,000 </li>
+      </ul>
+
+      <hr/>
+
+      <div class="row ai-center jc-space-between">
+        <div class="col ai-start jc-space-between" style="width: 30%">
+          <ul><li> Increased gait variability </li></ul>
+          <ul><li> Widened base of support </li></ul>
+          <ul><li> Impaired foot placement </li></ul>
+          <ul><li> Loss of trunk control </li></ul>
+        </div>
+
+        <div
+            class="framed ai-center jc-center"
+            style="width: 66vh; height: 50vh; display: flex">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube-nocookie.com/embed/dnOWLDcUvCU?si=EdckKcqtK18xlJAD&amp;mute=1&amp;controls=0"
+            title="Ataxic gait video"
+            frameborder="0"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+
     <div class="slide image-fill">
       <div id="trajectory-plot-0"> </div>
     </div>
@@ -226,15 +263,16 @@
 
       <ul>
         <li> <span class="bold"> Main dataset: </span>
-          real-life movement recordings from Tübingen </li>
+          gait recordings from Tübingen </li>
         <ul>
           <li> 27 spinocerebellar (pre-)ataxia patients </li>
           <li> 36 healthy controls </li>
+          <li> Lab-based &amp; real-life </li>
           <li> Yearly follow-ups over several years </li>
         </ul>
       </ul>
 
-      <hr />
+      <hr/>
 
       <ul>
         <li> Existing lab-based movement recordings (PROSPAX) </li>
@@ -272,7 +310,8 @@
       <h2> Composite features </h2>
 
       <ul>
-        <li> Plan: Find the optimal combination of features </li>
+        <li> <span class="bold"> Plan: </span>
+          Find the optimal combination of features </li>
         <li> That fits the expected longitudinal delta the closest </li>
         <ul>
           <li> (controls: 0/year, patients: 1/year) </li>
@@ -280,7 +319,7 @@
       </ul>
       <ol>
         <li> Reduce feature space (e.g. factor analysis) </li>
-        <li> Least-squares / SVM / k-Means, … </li>
+        <li> Least-squares / SVM / k-NN / … </li>
       </ol>
     </div>
 
@@ -288,7 +327,8 @@
       <h2> Latent variable models </h2>
 
       <ul>
-        <li> Plan: Model the disease progression as a latent variable </li>
+        <li> <span class="bold"> Plan: </span>
+          Model the disease progression as a latent variable </li>
         <li> Model predictions can serve as a test for treatment effect </li>
       </ul>
 
@@ -305,7 +345,8 @@
       <h2> Context sensitivity </h2>
 
       <div class="col ai-start">
-        Plan: Compute context proxies for every walking bout:
+        <div> <span class="bold"> Plan: </span>
+          Compute context proxies for every walking bout: </div>
         <ul>
           <li> Macroscopic characteristics of the walking bout </li>
           <ul>
@@ -313,6 +354,7 @@
           </ul>
           <li> Time of day </li>
           <li> Weather </li>
+          <li> … </li>
         </ul>
       </div>
 
@@ -331,7 +373,8 @@
       <h2> Further gait features </h2>
 
       <div class="col ai-start">
-        Plan: Find further gait features sensitive to ataxia
+        <div> <span class="bold"> Plan: </span>
+          Find further gait features sensitive to ataxia </div>
         <ul>
           <li> Polynomial transforms for overall foot trajectory </li>
           <li> Jerk score </li>
