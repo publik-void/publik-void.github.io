@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="context figure cross-sectional-box-plot" width="240" height="160" viewBox="0 0 240 160" preserveAspectRatio="xMidYMid"><style>@page {
+  size: 240px 160px;  margin: 0px;  padding: 0px;}</style><style>svg {
+  /* Reference background color, should be opaque, even if SVG background is
+   * transparent */
+  --background: white;
+
+  /* Colors from D3 `schemeTableau10` */
+  --c0: #4e79a7;
+  --c1: #f28e2c;
+  --c2: #e15759;
+  --c3: #76b7b2;
+  --c4: #59a14f;
+  --c5: #edc949;
+  --c6: #af7aa1;
+  --c7: #ff9da7;
+  --c8: #9c755f;
+  --c9: #bab0ab;
+
+  font-size: 12px;
+}
+
+.fill-c0 { fill: var(--c0); }
+.fill-c1 { fill: var(--c1); }
+.fill-c2 { fill: var(--c2); }
+.fill-c3 { fill: var(--c3); }
+.fill-c4 { fill: var(--c4); }
+.fill-c5 { fill: var(--c5); }
+.fill-c6 { fill: var(--c6); }
+.fill-c7 { fill: var(--c7); }
+.fill-c8 { fill: var(--c8); }
+.fill-c9 { fill: var(--c9); }
+
+.stroke-c0 { stroke: var(--c0); }
+.stroke-c1 { stroke: var(--c1); }
+.stroke-c2 { stroke: var(--c2); }
+.stroke-c3 { stroke: var(--c3); }
+.stroke-c4 { stroke: var(--c4); }
+.stroke-c5 { stroke: var(--c5); }
+.stroke-c6 { stroke: var(--c6); }
+.stroke-c7 { stroke: var(--c7); }
+.stroke-c8 { stroke: var(--c8); }
+.stroke-c9 { stroke: var(--c9); }
+
+.fill-black { fill: black; }
+.fill-white { fill: white; }
+.fill-gray { fill: gray; }
+
+.stroke-black { stroke: black; }
+.stroke-white { stroke: white; }
+.stroke-gray { stroke: gray; }
+
+.weak { opacity: .5; }
+.weaker { opacity: .25; }
+.weakest { opacity: .125; }
+
+.dashed { stroke-dasharray: 2px 2px; }
+
+.small {
+  font-size: .75em;
+}
+
+.smaller {
+  font-size: .6em;
+}
+
+text {
+  stroke: none;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+/* NOTE: This is not ideal, but it's hard to get something better working across 
+ * browsers. The subscript done in this way appears at different offsets to the
+ * non-subscript text depending on its `alignment-baseline`. When it is
+ * `middle`, the subscript text also appears more in the middle. However, maybe
+ * that's okay, since I tend to use `middle` when things appear in tight rows, I 
+ * guess. I won't try to get a superscript working. */
+tspan.subscript {
+  font-size: .5em;
+  vertical-align: baseline;
+  alignment-baseline: inherit;
+  dominant-baseline: inherit;
+}
+
+.figure > .background {
+  fill: var(--background);
+}
+
+.curve {
+  fill: none;
+  stroke-width: 1.75px;
+  /* stroke-linecap: round; */
+}
+
+.assoc {
+  fill: none;
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.assoc.thick {
+  stroke-width: calc(1px * 1.5);
+}
+
+.span {
+  fill: #aaaaaa;
+  stroke: #aaaaaa;
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.label, .panel, .span {
+  font-family: sans-serif;
+}
+
+.label, .panel {
+  fill: #777777;
+}
+
+.panel .frame {
+  stroke: #aaaaaa;
+  fill: var(--background);
+  fill-opacity: .5;
+}
+
+.tick {
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.tick.major {
+  font-size: .75em;
+}
+
+.grid line {
+  stroke: #cccccc;
+  stroke-width: 1px;
+  stroke-dasharray: 0px 2.4px;
+  stroke-linecap: round;
+}
+
+.grid line.origin {
+  /* stroke: #777777; */
+  stroke-dasharray: none;
+}
+
+</style><g class="context plot"><g class="grid"><g class="span y-axis"><g class="tick grid"><g><line x1="20" y1="100.60566436286548" x2="220" y2="100.60566436286548"/></g><g><line x1="20" y1="72.44358412985095" x2="220" y2="72.44358412985095"/></g><g><line x1="20" y1="44.28150389683644" x2="220" y2="44.28150389683644"/></g></g></g></g><g class="content"><g><g class="box-plot"><g class="scatter"><circle class="marker fill-c0 weak" cx="51.81818181818181" cy="80.58553790211509" r="2.5"/></g><path class="area fill-c0 weak" d="M35.909,99.488L67.727,99.488L67.727,107.284L35.909,107.284Z"/><g class="span"><g class="tick major"><g><line x1="51.81818181818181" y1="112.8169014084507" x2="56.81818181818181" y2="112.8169014084507"/><line x1="51.81818181818181" y1="112.8169014084507" x2="46.81818181818181" y2="112.8169014084507"/></g></g><line x1="51.81818181818181" y1="112.8169014084507" x2="51.81818181818181" y2="107.28394802982288"/></g><g class="span"><g class="tick major"><g><line x1="51.81818181818181" y1="93.43089496975685" x2="56.81818181818181" y2="93.43089496975685"/><line x1="51.81818181818181" y1="93.43089496975685" x2="46.81818181818181" y2="93.43089496975685"/></g></g><line x1="51.81818181818181" y1="99.48753130989917" x2="51.81818181818181" y2="93.43089496975685"/></g><g class="span"><g class="tick major"><g><line x1="35.90909090909091" y1="107.28394802982288" x2="67.72727272727272" y2="107.28394802982288"/></g><g><line x1="35.90909090909091" y1="103.00988834437526" x2="67.72727272727272" y2="103.00988834437526"/></g><g><line x1="35.90909090909091" y1="99.48753130989917" x2="67.72727272727272" y2="99.48753130989917"/></g></g><line x1="35.90909090909091" y1="107.28394802982288" x2="35.90909090909091" y2="99.48753130989917"/></g><g class="span"><line x1="67.72727272727272" y1="107.28394802982288" x2="67.72727272727272" y2="99.48753130989917"/></g></g><g class="box-plot"><g class="scatter"/><path class="area fill-c1 weak" d="M81.364,88.704L113.182,88.704L113.182,102.16L81.364,102.16Z"/><g class="span"><g class="tick major"><g><line x1="97.27272727272727" y1="108.54286542149661" x2="102.27272727272727" y2="108.54286542149661"/><line x1="97.27272727272727" y1="108.54286542149661" x2="92.27272727272727" y2="108.54286542149661"/></g></g><line x1="97.27272727272727" y1="108.54286542149661" x2="97.27272727272727" y2="102.15966038191075"/></g><g class="span"><g class="tick major"><g><line x1="97.27272727272727" y1="85.28870211791714" x2="102.27272727272727" y2="85.28870211791714"/><line x1="97.27272727272727" y1="85.28870211791714" x2="92.27272727272727" y2="85.28870211791714"/></g></g><line x1="97.27272727272727" y1="88.70387301533289" x2="97.27272727272727" y2="85.28870211791714"/></g><g class="span"><g class="tick major"><g><line x1="81.36363636363636" y1="102.15966038191075" x2="113.18181818181817" y2="102.15966038191075"/></g><g><line x1="81.36363636363636" y1="95.60417154267603" x2="113.18181818181817" y2="95.60417154267603"/></g><g><line x1="81.36363636363636" y1="88.70387301533289" x2="113.18181818181817" y2="88.70387301533289"/></g></g><line x1="81.36363636363636" y1="102.15966038191075" x2="81.36363636363636" y2="88.70387301533289"/></g><g class="span"><line x1="113.18181818181817" y1="102.15966038191075" x2="113.18181818181817" y2="88.70387301533289"/></g></g><g class="box-plot"><g class="scatter"/><path class="area fill-c1 weak" d="M126.818,67.144L158.636,67.144L158.636,88.49L126.818,88.49Z"/><g class="span"><g class="tick major"><g><line x1="142.72727272727272" y1="101.50187459058967" x2="147.72727272727272" y2="101.50187459058967"/><line x1="142.72727272727272" y1="101.50187459058967" x2="137.72727272727272" y2="101.50187459058967"/></g></g><line x1="142.72727272727272" y1="101.50187459058967" x2="142.72727272727272" y2="88.49023886522777"/></g><g class="span"><g class="tick major"><g><line x1="142.72727272727272" y1="53.26675692088225" x2="147.72727272727272" y2="53.26675692088225"/><line x1="142.72727272727272" y1="53.26675692088225" x2="137.72727272727272" y2="53.26675692088225"/></g></g><line x1="142.72727272727272" y1="67.14418487074583" x2="142.72727272727272" y2="53.26675692088225"/></g><g class="span"><g class="tick major"><g><line x1="126.81818181818178" y1="88.49023886522777" x2="158.63636363636363" y2="88.49023886522777"/></g><g><line x1="126.81818181818178" y1="87.0635602102599" x2="158.63636363636363" y2="87.0635602102599"/></g><g><line x1="126.81818181818178" y1="67.14418487074583" x2="158.63636363636363" y2="67.14418487074583"/></g></g><line x1="126.81818181818178" y1="88.49023886522777" x2="126.81818181818178" y2="67.14418487074583"/></g><g class="span"><line x1="158.63636363636363" y1="88.49023886522777" x2="158.63636363636363" y2="67.14418487074583"/></g></g><g class="box-plot"><g class="scatter"/><path class="area fill-c1 weak" d="M172.273,53.448L204.091,53.448L204.091,69.878L172.273,69.878Z"/><g class="span"><g class="tick major"><g><line x1="188.18181818181816" y1="71.51139091169111" x2="193.18181818181816" y2="71.51139091169111"/><line x1="188.18181818181816" y1="71.51139091169111" x2="183.18181818181816" y2="71.51139091169111"/></g></g><line x1="188.18181818181816" y1="71.51139091169111" x2="188.18181818181816" y2="69.87848792260263"/></g><g class="span"><g class="tick major"><g><line x1="188.18181818181816" y1="39.54929577464789" x2="193.18181818181816" y2="39.54929577464789"/><line x1="188.18181818181816" y1="39.54929577464789" x2="183.18181818181816" y2="39.54929577464789"/></g></g><line x1="188.18181818181816" y1="53.4480834290929" x2="188.18181818181816" y2="39.54929577464789"/></g><g class="span"><g class="tick major"><g><line x1="172.27272727272725" y1="69.87848792260263" x2="204.09090909090907" y2="69.87848792260263"/></g><g><line x1="172.27272727272725" y1="66.48867568175386" x2="204.09090909090907" y2="66.48867568175386"/></g><g><line x1="172.27272727272725" y1="53.4480834290929" x2="204.09090909090907" y2="53.4480834290929"/></g></g><line x1="172.27272727272725" y1="69.87848792260263" x2="172.27272727272725" y2="53.4480834290929"/></g><g class="span"><line x1="204.09090909090907" y1="69.87848792260263" x2="204.09090909090907" y2="53.4480834290929"/></g></g></g><g><g class="span"><g class="tick major"><g><text class="" text-anchor="middle" alignment-baseline="text-top" dominant-baseline="text-top" transform="translate(74.54545454545455, 31) rotate(0)">*</text></g></g><g class="tick delimiter"><g><line x1="60.90909090909091" y1="30" x2="60.90909090909091" y2="32"/></g><g><line x1="88.18181818181819" y1="30" x2="88.18181818181819" y2="32"/></g></g><line x1="60.90909090909091" y1="30" x2="88.18181818181819" y2="30"/></g><g class="span"><g class="tick major"><g><text class="" text-anchor="middle" alignment-baseline="text-top" dominant-baseline="text-top" transform="translate(119.99999999999999, 31) rotate(0)">*</text></g></g><g class="tick delimiter"><g><line x1="106.36363636363635" y1="30" x2="106.36363636363635" y2="32"/></g><g><line x1="133.63636363636363" y1="30" x2="133.63636363636363" y2="32"/></g></g><line x1="106.36363636363635" y1="30" x2="133.63636363636363" y2="30"/></g></g></g><g class="frame"><g class="span x-axis"><g class="tick major"><g><line x1="51.81818181818181" y1="120" x2="51.81818181818181" y2="116"/><text class="" text-anchor="middle" alignment-baseline="hanging" dominant-baseline="hanging" transform="translate(51.81818181818181, 124) rotate(0)"><tspan x="0" dy=".35em" alignment-baseline="middle" dominant-baseline="middle">All</tspan><tspan x="0" dy="1.25em" alignment-baseline="middle" dominant-baseline="middle">Healthy</tspan></text></g><g><line x1="97.27272727272727" y1="120" x2="97.27272727272727" y2="116"/><text class="" text-anchor="middle" alignment-baseline="hanging" dominant-baseline="hanging" transform="translate(97.27272727272727, 124) rotate(0)"><tspan x="0" dy=".35em" alignment-baseline="middle" dominant-baseline="middle">(-∞, 3)</tspan><tspan x="0" dy="1.25em" alignment-baseline="middle" dominant-baseline="middle">Patients</tspan></text></g><g><line x1="142.72727272727275" y1="120" x2="142.72727272727275" y2="116"/><text class="" text-anchor="middle" alignment-baseline="hanging" dominant-baseline="hanging" transform="translate(142.72727272727275, 124) rotate(0)"><tspan x="0" dy=".35em" alignment-baseline="middle" dominant-baseline="middle">[3, 5)</tspan><tspan x="0" dy="1.25em" alignment-baseline="middle" dominant-baseline="middle">Patients</tspan></text></g><g><line x1="188.18181818181816" y1="120" x2="188.18181818181816" y2="116"/><text class="" text-anchor="middle" alignment-baseline="hanging" dominant-baseline="hanging" transform="translate(188.18181818181816, 124) rotate(0)"><tspan x="0" dy=".35em" alignment-baseline="middle" dominant-baseline="middle">[5, ∞)</tspan><tspan x="0" dy="1.25em" alignment-baseline="middle" dominant-baseline="middle">Patients</tspan></text></g></g><g class="tick label"><g><text class="small" text-anchor="middle" alignment-baseline="text-top" dominant-baseline="text-top" transform="translate(120, 154) rotate(0)">Task: <tspan class="mono" alignment-baseline="baseline" dominant-baseline="baseline">ps</tspan>, stratified by: <tspan class="mono" alignment-baseline="baseline">sara_pg</tspan></text></g></g><line x1="20" y1="120" x2="220" y2="120"/></g><g class="span x-axis"><g class="tick major"><g><line x1="51.81818181818181" y1="18" x2="51.81818181818181" y2="22"/></g><g><line x1="97.27272727272727" y1="18" x2="97.27272727272727" y2="22"/></g><g><line x1="142.72727272727275" y1="18" x2="142.72727272727275" y2="22"/></g><g><line x1="188.18181818181816" y1="18" x2="188.18181818181816" y2="22"/></g></g><g class="tick label"><g><text class="small" text-anchor="middle" alignment-baseline="text-top" dominant-baseline="text-top" transform="translate(120, 12) rotate(0)"><tspan class="mono" alignment-baseline="baseline" dominant-baseline="baseline">lateral_step_deviation_abs_normed/μ/μ</tspan></text></g></g><line x1="20" y1="18" x2="220" y2="18"/></g><g class="span y-axis"><g class="tick minor"><g><line x1="20" y1="93.56514430461185" x2="22" y2="93.56514430461185"/></g><g><line x1="20" y1="86.52462424635821" x2="22" y2="86.52462424635821"/></g><g><line x1="20" y1="79.48410418810458" x2="22" y2="79.48410418810458"/></g><g><line x1="20" y1="65.40306407159731" x2="22" y2="65.40306407159731"/></g><g><line x1="20" y1="58.362544013343694" x2="22" y2="58.362544013343694"/></g><g><line x1="20" y1="51.32202395509006" x2="22" y2="51.32202395509006"/></g></g><g class="tick major"><g><line x1="20" y1="100.60566436286548" x2="24" y2="100.60566436286548"/><text class="" text-anchor="end" alignment-baseline="middle" dominant-baseline="middle" transform="translate(16, 100.60566436286548) rotate(0)">.2</text></g><g><line x1="20" y1="72.44358412985095" x2="24" y2="72.44358412985095"/><text class="" text-anchor="end" alignment-baseline="middle" dominant-baseline="middle" transform="translate(16, 72.44358412985095) rotate(0)">.4</text></g><g><line x1="20" y1="44.28150389683644" x2="24" y2="44.28150389683644"/><text class="" text-anchor="end" alignment-baseline="middle" dominant-baseline="middle" transform="translate(16, 44.28150389683644) rotate(0)">.6</text></g></g><line x1="20" y1="120" x2="20" y2="18"/></g><g class="span y-axis"><g class="tick minor"><g><line x1="220" y1="93.56514430461185" x2="218" y2="93.56514430461185"/></g><g><line x1="220" y1="86.52462424635821" x2="218" y2="86.52462424635821"/></g><g><line x1="220" y1="79.48410418810458" x2="218" y2="79.48410418810458"/></g><g><line x1="220" y1="65.40306407159731" x2="218" y2="65.40306407159731"/></g><g><line x1="220" y1="58.362544013343694" x2="218" y2="58.362544013343694"/></g><g><line x1="220" y1="51.32202395509006" x2="218" y2="51.32202395509006"/></g></g><g class="tick major"><g><line x1="220" y1="100.60566436286548" x2="216" y2="100.60566436286548"/><text class="" text-anchor="start" alignment-baseline="middle" dominant-baseline="middle" transform="translate(224, 100.60566436286548) rotate(0)">.2</text></g><g><line x1="220" y1="72.44358412985095" x2="216" y2="72.44358412985095"/><text class="" text-anchor="start" alignment-baseline="middle" dominant-baseline="middle" transform="translate(224, 72.44358412985095) rotate(0)">.4</text></g><g><line x1="220" y1="44.28150389683644" x2="216" y2="44.28150389683644"/><text class="" text-anchor="start" alignment-baseline="middle" dominant-baseline="middle" transform="translate(224, 44.28150389683644) rotate(0)">.6</text></g></g><line x1="220" y1="120" x2="220" y2="18"/></g></g></g></svg>

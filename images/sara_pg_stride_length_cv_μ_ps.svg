@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="context figure cross-sectional-box-plot" width="240" height="160" viewBox="0 0 240 160" preserveAspectRatio="xMidYMid"><style>@page {
+  size: 240px 160px;  margin: 0px;  padding: 0px;}</style><style>svg {
+  /* Reference background color, should be opaque, even if SVG background is
+   * transparent */
+  --background: white;
+
+  /* Colors from D3 `schemeTableau10` */
+  --c0: #4e79a7;
+  --c1: #f28e2c;
+  --c2: #e15759;
+  --c3: #76b7b2;
+  --c4: #59a14f;
+  --c5: #edc949;
+  --c6: #af7aa1;
+  --c7: #ff9da7;
+  --c8: #9c755f;
+  --c9: #bab0ab;
+
+  font-size: 12px;
+}
+
+.fill-c0 { fill: var(--c0); }
+.fill-c1 { fill: var(--c1); }
+.fill-c2 { fill: var(--c2); }
+.fill-c3 { fill: var(--c3); }
+.fill-c4 { fill: var(--c4); }
+.fill-c5 { fill: var(--c5); }
+.fill-c6 { fill: var(--c6); }
+.fill-c7 { fill: var(--c7); }
+.fill-c8 { fill: var(--c8); }
+.fill-c9 { fill: var(--c9); }
+
+.stroke-c0 { stroke: var(--c0); }
+.stroke-c1 { stroke: var(--c1); }
+.stroke-c2 { stroke: var(--c2); }
+.stroke-c3 { stroke: var(--c3); }
+.stroke-c4 { stroke: var(--c4); }
+.stroke-c5 { stroke: var(--c5); }
+.stroke-c6 { stroke: var(--c6); }
+.stroke-c7 { stroke: var(--c7); }
+.stroke-c8 { stroke: var(--c8); }
+.stroke-c9 { stroke: var(--c9); }
+
+.fill-black { fill: black; }
+.fill-white { fill: white; }
+.fill-gray { fill: gray; }
+
+.stroke-black { stroke: black; }
+.stroke-white { stroke: white; }
+.stroke-gray { stroke: gray; }
+
+.weak { opacity: .5; }
+.weaker { opacity: .25; }
+.weakest { opacity: .125; }
+
+.dashed { stroke-dasharray: 2px 2px; }
+
+.small {
+  font-size: .75em;
+}
+
+.smaller {
+  font-size: .6em;
+}
+
+text {
+  stroke: none;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+/* NOTE: This is not ideal, but it's hard to get something better working across 
+ * browsers. The subscript done in this way appears at different offsets to the
+ * non-subscript text depending on its `alignment-baseline`. When it is
+ * `middle`, the subscript text also appears more in the middle. However, maybe
+ * that's okay, since I tend to use `middle` when things appear in tight rows, I 
+ * guess. I won't try to get a superscript working. */
+tspan.subscript {
+  font-size: .5em;
+  vertical-align: baseline;
+  alignment-baseline: inherit;
+  dominant-baseline: inherit;
+}
+
+.figure > .background {
+  fill: var(--background);
+}
+
+.curve {
+  fill: none;
+  stroke-width: 1.75px;
+  /* stroke-linecap: round; */
+}
+
+.assoc {
+  fill: none;
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.assoc.thick {
+  stroke-width: calc(1px * 1.5);
+}
+
+.span {
+  fill: #aaaaaa;
+  stroke: #aaaaaa;
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.label, .panel, .span {
+  font-family: sans-serif;
+}
+
+.label, .panel {
+  fill: #777777;
+}
+
+.panel .frame {
+  stroke: #aaaaaa;
+  fill: var(--background);
+  fill-opacity: .5;
+}
+
+.tick {
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.tick.major {
+  font-size: .75em;
+}
+
+.grid line {
+  stroke: #cccccc;
+  stroke-width: 1px;
+  stroke-dasharray: 0px 2.4px;
+  stroke-linecap: round;
+}
+
+.grid line.origin {
+  /* stroke: #777777; */
+  stroke-dasharray: none;
+}
+
+</style><g class="context plot"><g class="grid"><g class="span y-axis"><g class="tick grid"><g><line x1="20" y1="96.09666060019332" x2="220" y2="96.09666060019332"/></g><g><line x1="20" y1="69.01962303233773" x2="220" y2="69.01962303233773"/></g><g><line x1="20" y1="41.942585464482164" x2="220" y2="41.942585464482164"/></g></g></g></g><g class="content"><g><g class="box-plot"><g class="scatter"><circle class="marker fill-c0 weak" cx="51.81818181818181" cy="85.52602008015236" r="2.5"/><circle class="marker fill-c0 weak" cx="51.81818181818181" cy="75.853023686606" r="2.5"/></g><path class="area fill-c0 weak" d="M35.909,98.093L67.727,98.093L67.727,104.604L35.909,104.604Z"/><g class="span"><g class="tick major"><g><line x1="51.81818181818181" y1="112.8169014084507" x2="56.81818181818181" y2="112.8169014084507"/><line x1="51.81818181818181" y1="112.8169014084507" x2="46.81818181818181" y2="112.8169014084507"/></g></g><line x1="51.81818181818181" y1="112.8169014084507" x2="51.81818181818181" y2="104.60400315057534"/></g><g class="span"><g class="tick major"><g><line x1="51.81818181818181" y1="93.5885712183797" x2="56.81818181818181" y2="93.5885712183797"/><line x1="51.81818181818181" y1="93.5885712183797" x2="46.81818181818181" y2="93.5885712183797"/></g></g><line x1="51.81818181818181" y1="98.09342872265483" x2="51.81818181818181" y2="93.5885712183797"/></g><g class="span"><g class="tick major"><g><line x1="35.90909090909091" y1="104.60400315057534" x2="67.72727272727272" y2="104.60400315057534"/></g><g><line x1="35.90909090909091" y1="100.91422663340009" x2="67.72727272727272" y2="100.91422663340009"/></g><g><line x1="35.90909090909091" y1="98.09342872265483" x2="67.72727272727272" y2="98.09342872265483"/></g></g><line x1="35.90909090909091" y1="104.60400315057534" x2="35.90909090909091" y2="98.09342872265483"/></g><g class="span"><line x1="67.72727272727272" y1="104.60400315057534" x2="67.72727272727272" y2="98.09342872265483"/></g></g><g class="box-plot"><g class="scatter"><circle class="marker fill-c1 weak" cx="97.27272727272727" cy="75.63995465345576" r="2.5"/></g><path class="area fill-c1 weak" d="M81.364,93.883L113.182,93.883L113.182,99.954L81.364,99.954Z"/><g class="span"><g class="tick major"><g><line x1="97.27272727272727" y1="102.71314522759995" x2="102.27272727272727" y2="102.71314522759995"/><line x1="97.27272727272727" y1="102.71314522759995" x2="92.27272727272727" y2="102.71314522759995"/></g></g><line x1="97.27272727272727" y1="102.71314522759995" x2="97.27272727272727" y2="99.95389434003908"/></g><g class="span"><g class="tick major"><g><line x1="97.27272727272727" y1="91.10234874888023" x2="102.27272727272727" y2="91.10234874888023"/><line x1="97.27272727272727" y1="91.10234874888023" x2="92.27272727272727" y2="91.10234874888023"/></g></g><line x1="97.27272727272727" y1="93.88259205842037" x2="97.27272727272727" y2="91.10234874888023"/></g><g class="span"><g class="tick major"><g><line x1="81.36363636363636" y1="99.95389434003908" x2="113.18181818181817" y2="99.95389434003908"/></g><g><line x1="81.36363636363636" y1="96.89869196575327" x2="113.18181818181817" y2="96.89869196575327"/></g><g><line x1="81.36363636363636" y1="93.88259205842037" x2="113.18181818181817" y2="93.88259205842037"/></g></g><line x1="81.36363636363636" y1="99.95389434003908" x2="81.36363636363636" y2="93.88259205842037"/></g><g class="span"><line x1="113.18181818181817" y1="99.95389434003908" x2="113.18181818181817" y2="93.88259205842037"/></g></g><g class="box-plot"><g class="scatter"/><path class="area fill-c1 weak" d="M126.818,86.571L158.636,86.571L158.636,95.524L126.818,95.524Z"/><g class="span"><g class="tick major"><g><line x1="142.72727272727272" y1="101.05217380984949" x2="147.72727272727272" y2="101.05217380984949"/><line x1="142.72727272727272" y1="101.05217380984949" x2="137.72727272727272" y2="101.05217380984949"/></g></g><line x1="142.72727272727272" y1="101.05217380984949" x2="142.72727272727272" y2="95.52366233826757"/></g><g class="span"><g class="tick major"><g><line x1="142.72727272727272" y1="74.65676542285469" x2="147.72727272727272" y2="74.65676542285469"/><line x1="142.72727272727272" y1="74.65676542285469" x2="137.72727272727272" y2="74.65676542285469"/></g></g><line x1="142.72727272727272" y1="86.57081829859784" x2="142.72727272727272" y2="74.65676542285469"/></g><g class="span"><g class="tick major"><g><line x1="126.81818181818178" y1="95.52366233826757" x2="158.63636363636363" y2="95.52366233826757"/></g><g><line x1="126.81818181818178" y1="94.65804958850151" x2="158.63636363636363" y2="94.65804958850151"/></g><g><line x1="126.81818181818178" y1="86.57081829859784" x2="158.63636363636363" y2="86.57081829859784"/></g></g><line x1="126.81818181818178" y1="95.52366233826757" x2="126.81818181818178" y2="86.57081829859784"/></g><g class="span"><line x1="158.63636363636363" y1="95.52366233826757" x2="158.63636363636363" y2="86.57081829859784"/></g></g><g class="box-plot"><g class="scatter"/><path class="area fill-c1 weak" d="M172.273,43.48L204.091,43.48L204.091,89.553L172.273,89.553Z"/><g class="span"><g class="tick major"><g><line x1="188.18181818181816" y1="89.82297467648692" x2="193.18181818181816" y2="89.82297467648692"/><line x1="188.18181818181816" y1="89.82297467648692" x2="183.18181818181816" y2="89.82297467648692"/></g></g><line x1="188.18181818181816" y1="89.82297467648692" x2="188.18181818181816" y2="89.5528274806274"/></g><g class="span"><g class="tick major"><g><line x1="188.18181818181816" y1="39.54929577464789" x2="193.18181818181816" y2="39.54929577464789"/><line x1="188.18181818181816" y1="39.54929577464789" x2="183.18181818181816" y2="39.54929577464789"/></g></g><line x1="188.18181818181816" y1="43.48038497710678" x2="188.18181818181816" y2="39.54929577464789"/></g><g class="span"><g class="tick major"><g><line x1="172.27272727272725" y1="89.5528274806274" x2="204.09090909090907" y2="89.5528274806274"/></g><g><line x1="172.27272727272725" y1="71.61934274208693" x2="204.09090909090907" y2="71.61934274208693"/></g><g><line x1="172.27272727272725" y1="43.48038497710678" x2="204.09090909090907" y2="43.48038497710678"/></g></g><line x1="172.27272727272725" y1="89.5528274806274" x2="172.27272727272725" y2="43.48038497710678"/></g><g class="span"><line x1="204.09090909090907" y1="89.5528274806274" x2="204.09090909090907" y2="43.48038497710678"/></g></g></g><g><g class="span"><g class="tick major"><g><text class="" text-anchor="middle" alignment-baseline="text-top" dominant-baseline="text-top" transform="translate(74.54545454545455, 31) rotate(0)">*</text></g></g><g class="tick delimiter"><g><line x1="60.90909090909091" y1="30" x2="60.90909090909091" y2="32"/></g><g><line x1="88.18181818181819" y1="30" x2="88.18181818181819" y2="32"/></g></g><line x1="60.90909090909091" y1="30" x2="88.18181818181819" y2="30"/></g><g class="span"><g class="tick major"><g><text class="" text-anchor="middle" alignment-baseline="text-top" dominant-baseline="text-top" transform="translate(165.45454545454547, 31) rotate(0)">*</text></g></g><g class="tick delimiter"><g><line x1="151.81818181818184" y1="30" x2="151.81818181818184" y2="32"/></g><g><line x1="179.0909090909091" y1="30" x2="179.0909090909091" y2="32"/></g></g><line x1="151.81818181818184" y1="30" x2="179.0909090909091" y2="30"/></g></g></g><g class="frame"><g class="span x-axis"><g class="tick major"><g><line x1="51.81818181818181" y1="120" x2="51.81818181818181" y2="116"/><text class="" text-anchor="middle" alignment-baseline="hanging" dominant-baseline="hanging" transform="translate(51.81818181818181, 124) rotate(0)"><tspan x="0" dy=".35em" alignment-baseline="middle" dominant-baseline="middle">All</tspan><tspan x="0" dy="1.25em" alignment-baseline="middle" dominant-baseline="middle">Healthy</tspan></text></g><g><line x1="97.27272727272727" y1="120" x2="97.27272727272727" y2="116"/><text class="" text-anchor="middle" alignment-baseline="hanging" dominant-baseline="hanging" transform="translate(97.27272727272727, 124) rotate(0)"><tspan x="0" dy=".35em" alignment-baseline="middle" dominant-baseline="middle">(-∞, 3)</tspan><tspan x="0" dy="1.25em" alignment-baseline="middle" dominant-baseline="middle">Patients</tspan></text></g><g><line x1="142.72727272727275" y1="120" x2="142.72727272727275" y2="116"/><text class="" text-anchor="middle" alignment-baseline="hanging" dominant-baseline="hanging" transform="translate(142.72727272727275, 124) rotate(0)"><tspan x="0" dy=".35em" alignment-baseline="middle" dominant-baseline="middle">[3, 5)</tspan><tspan x="0" dy="1.25em" alignment-baseline="middle" dominant-baseline="middle">Patients</tspan></text></g><g><line x1="188.18181818181816" y1="120" x2="188.18181818181816" y2="116"/><text class="" text-anchor="middle" alignment-baseline="hanging" dominant-baseline="hanging" transform="translate(188.18181818181816, 124) rotate(0)"><tspan x="0" dy=".35em" alignment-baseline="middle" dominant-baseline="middle">[5, ∞)</tspan><tspan x="0" dy="1.25em" alignment-baseline="middle" dominant-baseline="middle">Patients</tspan></text></g></g><g class="tick label"><g><text class="small" text-anchor="middle" alignment-baseline="text-top" dominant-baseline="text-top" transform="translate(120, 154) rotate(0)">Task: <tspan class="mono" alignment-baseline="baseline" dominant-baseline="baseline">ps</tspan>, stratified by: <tspan class="mono" alignment-baseline="baseline">sara_pg</tspan></text></g></g><line x1="20" y1="120" x2="220" y2="120"/></g><g class="span x-axis"><g class="tick major"><g><line x1="51.81818181818181" y1="18" x2="51.81818181818181" y2="22"/></g><g><line x1="97.27272727272727" y1="18" x2="97.27272727272727" y2="22"/></g><g><line x1="142.72727272727275" y1="18" x2="142.72727272727275" y2="22"/></g><g><line x1="188.18181818181816" y1="18" x2="188.18181818181816" y2="22"/></g></g><g class="tick label"><g><text class="small" text-anchor="middle" alignment-baseline="text-top" dominant-baseline="text-top" transform="translate(120, 12) rotate(0)"><tspan class="mono" alignment-baseline="baseline" dominant-baseline="baseline">stride_length/cv/μ</tspan></text></g></g><line x1="20" y1="18" x2="220" y2="18"/></g><g class="span y-axis"><g class="tick minor"><g><line x1="20" y1="89.32740120822942" x2="22" y2="89.32740120822942"/></g><g><line x1="20" y1="82.55814181626553" x2="22" y2="82.55814181626553"/></g><g><line x1="20" y1="75.78888242430162" x2="22" y2="75.78888242430162"/></g><g><line x1="20" y1="62.25036364037385" x2="22" y2="62.25036364037385"/></g><g><line x1="20" y1="55.48110424840995" x2="22" y2="55.48110424840995"/></g><g><line x1="20" y1="48.71184485644606" x2="22" y2="48.71184485644606"/></g></g><g class="tick major"><g><line x1="20" y1="96.09666060019332" x2="24" y2="96.09666060019332"/><text class="" text-anchor="end" alignment-baseline="middle" dominant-baseline="middle" transform="translate(16, 96.09666060019332) rotate(0)">.02</text></g><g><line x1="20" y1="69.01962303233773" x2="24" y2="69.01962303233773"/><text class="" text-anchor="end" alignment-baseline="middle" dominant-baseline="middle" transform="translate(16, 69.01962303233773) rotate(0)">.04</text></g><g><line x1="20" y1="41.942585464482164" x2="24" y2="41.942585464482164"/><text class="" text-anchor="end" alignment-baseline="middle" dominant-baseline="middle" transform="translate(16, 41.942585464482164) rotate(0)">.06</text></g></g><line x1="20" y1="120" x2="20" y2="18"/></g><g class="span y-axis"><g class="tick minor"><g><line x1="220" y1="89.32740120822942" x2="218" y2="89.32740120822942"/></g><g><line x1="220" y1="82.55814181626553" x2="218" y2="82.55814181626553"/></g><g><line x1="220" y1="75.78888242430162" x2="218" y2="75.78888242430162"/></g><g><line x1="220" y1="62.25036364037385" x2="218" y2="62.25036364037385"/></g><g><line x1="220" y1="55.48110424840995" x2="218" y2="55.48110424840995"/></g><g><line x1="220" y1="48.71184485644606" x2="218" y2="48.71184485644606"/></g></g><g class="tick major"><g><line x1="220" y1="96.09666060019332" x2="216" y2="96.09666060019332"/><text class="" text-anchor="start" alignment-baseline="middle" dominant-baseline="middle" transform="translate(224, 96.09666060019332) rotate(0)">.02</text></g><g><line x1="220" y1="69.01962303233773" x2="216" y2="69.01962303233773"/><text class="" text-anchor="start" alignment-baseline="middle" dominant-baseline="middle" transform="translate(224, 69.01962303233773) rotate(0)">.04</text></g><g><line x1="220" y1="41.942585464482164" x2="216" y2="41.942585464482164"/><text class="" text-anchor="start" alignment-baseline="middle" dominant-baseline="middle" transform="translate(224, 41.942585464482164) rotate(0)">.06</text></g></g><line x1="220" y1="120" x2="220" y2="18"/></g></g></g></svg>
