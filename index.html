@@ -558,5 +558,222 @@
       <h2> Thank you! </h2>
     </div>
 
+    <!-- Appendix slides, notes… ------------------------------------------- -->
+
+    <div class="slide numberless image-fill">
+      <img
+        src="images/longitudinal-delta-plot-stride-length-seemann-cv-ps-pre-sym.svg"
+        alt="Longitudinal Delta Plot">
+    </div>
+
+    <div class="slide numberless image-fill">
+      <img
+        src="images/longitudinal-delta-plot-stride-length-apdm-μ-cv-all-μ-ps-pre-sym.svg"
+        alt="Longitudinal Delta Plot">
+    </div>
+
+    <div class="slide numberless">
+      <h2> Discussion points </h2>
+      <ol>
+        <li> Reproduced Jens' lab-based analysis </li>
+        <li> Ranking table overview </li>
+        <li> Year selection makes large difference </li>
+        <ul class="hence">
+          <li> <span class="bold">May - July:</span>
+            Trajectories &amp; n-of-1 (tightly related) </li>
+          <li> <span class="bold">August - October:</span>
+            Uppsala IRT </li>
+          <li> What to consider sufficient prerequisites for the study? </li>
+        </ul>
+        <li> Extended feature set </li>
+        <li> ABC score </li>
+        <ul>
+          <li> Description of 41 items? </li>
+          <li> Clinical overlap with SARA? </li>
+        </ul>
+      </ol>
+    </div>
+
+    <div class="slide numberless">
+      <h2> Metrics in the ranking tables </h2>
+
+      <table class="small">
+        <tr>
+          <th> <span class="mono">y1_ess_y1</span>,<br>
+            <span class="mono">y2_ess_y1</span> </th>
+          <td> 1-year est. sample size based on 1- and 2-year comparison
+            </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">pooled_ess</span> </th>
+          <td> 1-year meta-ESS pooled from 1-, 2-, and 3-year comparisons </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">y1±</span>, <span class="mono">y2±</span>,
+            <span class="mono">y3±</span> </th>
+          <td> Sign (<span class="mono">+</span> or <span class="mono">-</span>)
+            of change in the 1-, 2-, and 3-year comparison </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">pooled_ΔΔ_sara_ρ</span>,<br>
+            <span class="mono">pooled_ΔΔ_abc_ρ</span>,<br>
+            <span class="mono">pooled_ΔΔ_inas_ρ</span></th>
+          <td> Spearman correlation of change in SARA, ABC, INAS with
+            change in outcome, pooled from 1-, 2-, and 3-year comparisons </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">y2_ΔΔ_sara_pg_ρ</span> </th>
+          <td> 2-year SARAp&amp;g Spearman correlation </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">hc_&lt;0_r_rb</span>,<br>
+            <span class="mono">&lt;0_≥0&lt;5_r_rb</span>,<br>
+            <span class="mono">≥0&lt;5_≥5_r_rb</span></th>
+          <td>
+            Cross-sectional effect sizes:
+            <ul>
+              <li> HCs vs. patients before disease onset </li>
+              <li> Patients before disease onset vs. up to 5 years into disease
+                </li>
+              <li> Patients up to 5 years into disease vs. more than 5 years
+                </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">agr</span> </th>
+          <td> Score of agreement in direction of the various effects </td>
+        </tr>
+      </table>
+
+      <div class="small">
+        Tables are filtered to include the most reliable outcomes, e.g.:
+        <ul>
+          <li> No meaningful effect in HCs </li>
+          <li> Sample large enough </li>
+          <li> … </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide numberless">
+      <h2> Context strata </h2>
+      <table class="small">
+        <tr>
+          <th> Keywords </th>
+          <th> Covariate </th>
+          <th> Threshold(s) </th>
+        </tr>
+        <tr>
+          <th> <span class="mono">slow</span> /
+            <span class="mono">fast</span> </th>
+          <td> Gait speed </td>
+          <td> 1.2m/s </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">sporadic</span> /
+            <span class="mono">continuous</span> </th>
+          <td> Number of steps in a 1-minute window </td>
+          <td> 45 </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">straight</span> /
+            <span class="mono">curvy</span> </th>
+          <td> Number of turns in a 1-minute window </td>
+          <td> 1 </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">short</span> /
+            <span class="mono">long</span> </th>
+          <td> Walking bout duration </td>
+          <td> 30s </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="slide">
+      <h2> Trajectory modeling: first steps </h2>
+
+      <ul>
+        <li> Panel models consider relationships: </li>
+        <ul>
+          <li> Between individuals </li>
+          <li> Across time </li>
+          <li> And model both a general and individual trends </li>
+        </ul>
+      </ul>
+
+      <ul>
+        <li> At present: Static fixed-effects panel model </li>
+        <ul>
+          <li> Per-subject intercept </li>
+          <li> No per-subject slope (yet) </li>
+        </ul>
+        <li> One outcome at a time </li>
+      </ul>
+
+      <ul class="hence">
+        <li> Start from here for exam project </li>
+        <li> Move on to latent variables etc. afterwards </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h2> "Basis" functions </h2>
+      <div class="col">
+
+        General baseline on patients and healthy controls:
+
+        <div class="row">
+          β₀ ×
+          <img
+            style="width: 30%"
+            class="framed"
+            src="images/basis-intercept-term.svg"
+            alt="Basis function" />
+          + β₁ ×
+          <img
+            style="width: 30%"
+            class="framed"
+            src="images/basis-linear-term.svg"
+            alt="Basis function" />
+        </div>
+
+        Onset and saturation, only on patients:
+
+        <div class="row">
+          β₂ ×
+          <img
+            style="width: 30%"
+            class="framed"
+            src="images/basis-softplus-onset.svg"
+            alt="Basis function" />
+          + β₃ ×
+          <img
+            style="width: 30%"
+            class="framed"
+            src="images/basis-softplus-saturation.svg"
+            alt="Basis function" />
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2> Discussion points </h2>
+
+      <ul>
+        <li> Include genotype? </li>
+        <li> If so, as 1-dimensional covariate: </li>
+        <ul>
+          <li> Repeat length? </li>
+          <li> Survival curve slope? </li>
+        </ul>
+      </ul>
+
+      <ul>
+        <li> How much attrition bias do we have? </li>
+        <li> "Saturation" could be more severe cases dropping out earlier </li>
+      </ul>
+    </div>
   </body>
 </html>
