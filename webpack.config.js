@@ -1,15 +1,15 @@
 const path = require("path");
-
-// const scripts_to_bundle = ["tra"]; // TODO: Make this list here instead of
-                                      // repeating file names below
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: [
-    path.resolve(__dirname, "src", "trajectory-plot-0.js")
-  ],
+  entry: {
+    "trajectory-plot": path.resolve(__dirname, "src", "trajectory-plot-0.js"),
+    mathjax: path.resolve(__dirname, "node_modules",
+      "mathjax-full/es5/tex-mml-chtml.js")
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "trajectory-plot-0.js",
+    filename: "[name].js",
     publicPath: ""
   },
   mode: "development",
@@ -50,4 +50,17 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(
+            __dirname,
+            "node_modules/mathjax-full/es5/output/chtml/fonts/woff-v2"
+          ),
+          to: path.resolve(__dirname, "dist/output/chtml/fonts/woff-v2")
+        },
+      ],
+    }),
+  ],
 };
