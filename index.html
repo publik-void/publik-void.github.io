@@ -4,9 +4,10 @@
     <meta charset="utf-8"/>
     <!-- <title> PhD: Individually tailored digital-motor outcomes in real life -->
     <!--   </title> -->
-    <title> Hamdan et al., 2024: Item performance of the scale for the
-      assessment and rating of ataxia in rare and ultra-rare genetic ataxia
-    </title>
+    <!-- <title> Hamdan et al., 2024: Item performance of the scale for the -->
+    <!--   assessment and rating of ataxia in rare and ultra-rare genetic ataxia -->
+    <!-- </title> -->
+    <title> Methods for Panel Data: Exam Project </title>
 
     <link rel="stylesheet" type="text/css"
       href="submodule-html-slides/styles/normalize/normalize.css">
@@ -20,7 +21,7 @@
     <link rel="stylesheet" type="text/css"
       href="submodule-html-slides/styles/slides-theme-0/slides-theme-0.css">
 
-    <!-- <script src="dist/trajectory-plot-0.js"></script> -->
+    <script src="dist/trajectory-plot-0.js"></script>
     <script src="dist/mathjax.js"></script>
 
     <script src="submodule-html-slides/scripts/control.js"></script>
@@ -38,22 +39,24 @@
         </div>
         <div class="rjust">
           Department of Statistical Sciences <br>
-          Bologna, 2025-07-08
+          Bologna, 2025-07-16
         </div>
       </div>
 
-      <div class="cjust">
-        <h1> Hamdan et al., 2024: <span class="italic"> Item performance of the
-          scale for the assessment and rating of ataxia in rare and ultra-rare
-          genetic ataxia </span></h1>
-        <span class="dim small">
-          Course exam presentation – Generalized Linear Models </span>
-      </div>
+      <!-- <h1> PhD: Individually tailored digital-motor outcomes in real life </h1> -->
+      <!-- <div class="cjust"> -->
+      <!--   <!-1- <h1> Hamdan et al., 2024: <span class="italic"> Item performance of the -1-> -->
+      <!--   <!-1-   scale for the assessment and rating of ataxia in rare and ultra-rare -1-> -->
+      <!--   <!-1-   genetic ataxia </span></h1> -1-> -->
+      <!--   <!-1- <span class="dim small"> -1-> -->
+      <!--   <!-1-   Course exam presentation – Generalized Linear Models </span> -1-> -->
+      <!-- </div> -->
+      <h1> Methods for Panel Data: <br> Exam Project </h1>
 
       <div class="col" style="height: 20%">
-          <img
-            src="images/logo-unibo.svg"
-            alt="University of Bologna logo" />
+        <img
+          src="images/logo-unibo.svg"
+          alt="University of Bologna logo" />
       </div>
 
       <!-- <div class="col" style="height: 30%"> -->
@@ -81,204 +84,562 @@
       <!-- </div> -->
     </div>
 
-    <div class="slide">
-      <h2> Ataxia </h2>
-      <ul>
-        <li> Rare neurodegenerative disease </li>
-        <li> Impairs coordination and movement </li>
-      </ul>
-
-      <ul>
-        <li> Principal clinical rating scale: <br>
-          Scale for the Assessment and Rating of Ataxia
-          <span class="bold"> (SARA) </span> </li>
-      </ul>
-    </div>
-
-    <div class="slide numberless">
-      <h2> SARA </h2>
-
-      <table>
-        <tr>
-          <th> Item </th>
-          <th> Possible responses </th>
-          <!-- <th> Remarks </th> -->
-        </tr>
-        <tr>
-          <td> 1) Gait </td>
-          <td> 0 - 8 </td>
-          <!-- <td rowspan="4"> Integers, where <br> 0 is least severe </td> -->
-        </tr>
-        <tr>
-          <td> 2) Stance </td>
-          <td> 0 - 6 </td>
-        </tr>
-        <tr>
-          <td> 3) Sitting </td>
-          <td> 0 - 4 </td>
-        </tr>
-        <tr>
-          <td> 4) Speech disturbance </td>
-          <td> 0 - 6 </td>
-        </tr>
-        <tr>
-          <td> 5) Finger chase </td>
-          <td> 0 - 4 </td>
-          <!-- <td rowspan="4"> Rated twice (l&amp;r), <br> then mean is taken </td> -->
-        </tr>
-        <tr>
-          <td> 6) Nose-finger test </td>
-          <td> 0 - 4 </td>
-        </tr>
-        <tr>
-          <td> 7) Fast alternating hand movements </td>
-          <td> 0 - 4 </td>
-        </tr>
-        <tr>
-          <td> 8) Heel-shin slide </td>
-          <td> 0 - 4 </td>
-        </tr>
-        <tr>
-          <th> Total </th>
-          <th> 0 - 40 </th>
-          <!-- <th> </th> -->
-        </tr>
-      </table>
+    <div class="slide section inverse">
+      <h2> Introduction </h2>
     </div>
 
     <div class="slide">
-      <h2> Research question </h2>
-      <div>
-        Is SARA, and its individual items,
+      <h2 style="font-size: 1.5em"> Individualized treatments for rare diseases:
+        <br> Trial design challenges </h2>
+
+      <ul>
+        <li> For each disease (or subtype): </li>
         <ul>
-          <li> A good performing clinical outcome assessment? </li>
-          <li> Applicable across rare and ultra-rare ataxia subpopulations?
-            </li>
+          <li> Small number of patients worldwide </li>
+          <li> Treatment may be taylor-made and have a slow effect </li>
         </ul>
-      </div>
-    </div>
+      </ul>
 
-    <div class="slide">
-      <h2> Graded response model (IRT) </h2>
-      <div>
-        \[ P\left( Y_{ij} \ge k \mid \Psi_i \right) =
-          \mathrm{logit}^{-1}\left( a_j \left( \Psi_i - b_{jk} \right) \right)
-        \]
-      </div>
-      <table class="small">
-        <tr>
-          <th>\(i\)</th>
-          <td> Number of participant </td>
-        </tr>
-        <tr>
-          <th>\(j\)</th>
-          <td> Number of SARA item </td>
-        </tr>
-        <tr>
-          <th>\(k\)</th>
-          <td> A score for an item </td>
-        </tr>
-        <tr>
-          <th>\(Y_{ij}\)</th>
-          <td> Observed score for participant \(i\) and item \(j\) </td>
-        </tr>
-        <tr>
-          <th>\(\Psi_i\)</th>
-          <td> Latent disease severity for participant \(i\), with
-            \(\Psi_i \sim \mathcal{N}\left( 0, 1 \right)\) assumed </td>
-        </tr>
-        <tr>
-          <th>\(a_j\)</th>
-          <td> Discrimination parameter of item \(j\), to be estimated </td>
-        </tr>
-        <tr>
-          <th>\(b_{jk}\)</th>
-          <td> "Difficulty" parameter of score \(k\) of item \(j\), to be
-            estimated </td>
-        </tr>
-      </table>
-      <div>
-        \[ P\left( Y_{ij} = k \mid \Psi_i \right) =
-          P\left( Y_{ij} \ge k \right) - P\left( Y_{ij} \ge k + 1 \right) \]
-      </div>
-    </div>
-
-    <div class="slide">
-      <h2> Graded response model (IRT) </h2>
-      <div>
-        \[ P\left( Y_{ij} \ge k \mid \Psi_i \right) =
-          \mathrm{logit}^{-1}\left( a_j \left( \Psi_i - b_{jk} \right) \right)
-        \]
-      </div>
       <ul class="hence">
-        <li> <span class="italic"> Proportional Odds Model </span>,
-          with \(q = 1\) and reparameterized: </li>
+        <li> Traditional clinical trial design not feasible </li>
+        <li> Traditional N-of-1 trials not feasible </li>
       </ul>
-      <div>
-        \[ \mathrm{logit}\left( P\left( X_i \le s \mid \mathbf{y} \right) \right) =
-          \alpha_{i0(s)} - \sum\limits_{j=1}^q \alpha_{ij} y_j\]
-      </div>
-    </div>
-
-    <div class="slide image-fill">
-      <img
-        src="images/2024-05-hamdan-figure-1.svg"
-        alt="Hamdan et al. 2024 Figure 1">
-    </div>
-
-    <div class="slide image-fill">
-      <img
-        src="images/2024-05-hamdan-figure-3.svg"
-        alt="Hamdan et al. 2024 Figure 3">
-    </div>
-
-    <div class="slide image-fill">
-      <img
-        src="images/2024-05-hamdan-figure-4.svg"
-        alt="Hamdan et al. 2024 Figure 4">
-    </div>
-
-    <div class="slide image-fill numberless">
-      <img
-        src="images/2024-05-hamdan-figure-5.svg"
-        alt="Hamdan et al. 2024 Figure 5">
     </div>
 
     <div class="slide">
-      <h2> Limitations </h2>
+      <h2> Concrete case: Genetic ataxia </h2>
 
       <div>
+        Spinocerebellar ataxia (<span class="bold">SCA</span>):
         <ul>
-          <li> \(\Psi_i \sim \mathcal{N}\left( 0, 1 \right)\) warranted? </li>
-        </ul>
-        <ul class="hence">
-          <li> Authors: </li>
-          <ul>
-            <li> The same has been done for other clinical rating scales </li>
-            <li> No evidence of misspecification in model fit assessments </li>
-          </ul>
+          <li> Rare genetic neurodegenerative disease </li>
+          <li> Antisense oligonucleotide treatments
+            (<span class="bold">ASO</span>s) underway </li>
         </ul>
       </div>
 
       <div>
+        Diagnostic outcomes:
         <ul>
-          <li> Data was longitudinal, thus not i.i.d. </li>
-        </ul>
-        <ul class="hence">
-          <li> Authors published longitudinal IRT model later in 2024 </li>
-        </ul>
-      </div>
-
-      <div>
-        <ul>
-          <li> Assumption that all response categories for an item share the
-            same slope is often violated in clinical scales </li>
-        </ul>
-        <ul class="hence">
-          <li> Not discussed in article, supplements, or follow-up article </li>
+          <li> Clinical and patient-reported scores (e.g.
+            <span class="bold">SARA</span>, <span class="bold">ABC</span>) </li>
+          <li> Digital-motor outcomes (<span class="bold">DMO</span>s)
         </ul>
       </div>
     </div>
+
+    <div class="slide">
+      <h2 style="font-size: 1.5em"> Paired-samples tests (Seemann et al. 2025)
+        </h2>
+      <div class="col">
+        <img
+          src="images/2025-seemann-figure-2-a.png"
+          alt="Seemann et al. 2024 Figure 2A">
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2 style="font-size: 1.5em"> Paired-samples tests (Seemann et al. 2025)
+        </h2>
+      <div class="col">
+        <img
+          src="images/2025-seemann-figure-2-b.png"
+          alt="Seemann et al. 2024 Figure 2A">
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2> Objective </h2>
+
+      <div>
+        Instead of single year pairs, use panel methods to consider the full
+        multi-year trajectories of outcomes to get:
+        <ul>
+          <li> Better sample size estimates </li>
+          <li> Future prediction intervals </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Data &amp; Methods </h2>
+    </div>
+
+    <div class="slide">
+      <h2> Data </h2>
+      <img
+        src="images/lateral_step_deviation_apdm_abs_normed_μ.μ.all.μ.ps.pdf"
+        alt="Raw data, lateral step deviation, preferred speed task">
+    </div>
+
+    <div class="slide">
+      <h2> Model </h2>
+
+      <div class="small">
+        Choice:
+        <ul>
+          <li> Fixed-effects panel model </li>
+          <li> Two nonlinear transformations of
+            \( \Delta\mathrm{EDO}_\mathrm{o} \): "\( \mathrm{BOn} \)" and
+            "\( \mathrm{BSat} \)"</li>
+          <li> Small selection of further time-invariant covariates as
+            interactions </li>
+        </ul>
+        <ul class="hence">
+          <li> Detailed reasoning in report </li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <img
+          src="images/softplus_onset.pdf"
+          alt="Basis function BOn">
+        <img
+          src="images/softplus_saturation.pdf"
+          alt="Basis function BSat">
+      </div>
+
+      <div class="small cjust">
+        \( y_{it} = \beta_1\mathrm{BOn}_{it} +
+        \beta_2\mathrm{BSat}_{it} +
+        \beta_3\mathrm{BOn}_{it}\left(\mathrm{EDO}_\mathrm{o}\right)_{i} +
+        \beta_4\mathrm{BOn}_{it}\mathrm{Gender}_{i} +
+        \beta_4\mathrm{BOn}_{it}\mathrm{BMI}_{i} +
+        \epsilon_{it} \)
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2> Simulation </h2>
+
+      <ul>
+        <li> Omitted interaction terms: \( y_{it} = \beta_1\mathrm{BOn}_{it} +
+          \beta_2\mathrm{BSat}_{it}  + \epsilon_{it} \) </li>
+        <li> But let true progression rate vary randomly by patient </li>
+        <li> Included optional assumption violations </li>
+      </ul>
+
+      <div class="col" style="height: 60%">
+        <img
+          src="images/simulated-data-example.pdf"
+          alt="Simulated dataset example">
+      </div>
+
+      <!-- <div> -->
+      <!--   Optional assumption violations: -->
+      <!--   <ul> -->
+      <!--     <li> Onset estimation error </li> -->
+      <!--     <li> Separate pre-/post-onset residual variance </li> -->
+      <!--     <li> Non-normal residuals </li> -->
+      <!--     <li> Serially correlated residuals </li> -->
+      <!--     <li> Selection bias </li> -->
+      <!--   </ul> -->
+      <!-- </div> -->
+    </div>
+
+    <div class="slide">
+      <h2 style="font-size: 1.4em"> Prediction intervals &amp; sample size
+        estimates </h2>
+
+      <div>
+        Due to concerns about ill-behaved data:
+        <ul>
+          <li> Semi-parametric stratified cluster bootstrap </li>
+          <li> Monte Carlo power analysis </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Results &amp; Discussion </h2>
+    </div>
+
+    <div class="slide">
+      <h2> Finite-sample properties </h2>
+
+      <div class="col">
+        <div class="row">
+          <img
+            src="images/softplus_onset.bias.n_patients-cropped.pdf"
+            alt="Bias over N">
+          <img
+            src="images/softplus_onset.mse.n_patients-cropped.pdf"
+            alt="MSE over N">
+          <img
+            src="images/softplus_onset.coverage.n_patients.pdf"
+            alt="CI Coverage over N">
+        </div>
+        <div class="row">
+          <img
+            src="images/softplus_onset.bias.n_time_points_min-cropped.pdf"
+            alt="Bias over T">
+          <img
+            src="images/softplus_onset.mse.n_time_points_min-cropped.pdf"
+            alt="MSE over T">
+          <img
+            src="images/softplus_onset.coverage.n_time_points_min.pdf"
+            alt="CI Coverage over T">
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2> Example fits &amp; PIs </h2>
+
+      <div class="col">
+        <table class="smaller" style="position: absolute; left: 21%; top: 45%">
+          <tr>
+            <th> Outcome </th>
+            <td> <span class="bold">Gait Speed</span>  </td>
+          </tr>
+          <tr>
+            <th> BOn (<span class="italic">p</span>) </th>
+            <td> -0.011 (0.92)  </td>
+          </tr>
+          <tr>
+            <th> BSat (<span class="italic">p</span>) </th>
+            <td> -0.22 (2.2e-07)  </td>
+          </tr>
+          <tr>
+            <th> BOn × Gender (<span class="italic">p</span>) </th>
+            <td> -0.095 (0.00028) </td>
+          </tr>
+          <tr>
+            <th> BOn × BMI (<span class="italic">p</span>) </th>
+            <td> -0.0061 (0.10) </td>
+          </tr>
+          <tr>
+            <th> BOn × EDOo (<span class="italic">p</span>) </th>
+            <td> 0.0043 (0.00013) </td>
+          </tr>
+          <tr>
+            <th> Breusch-Pagan <span class="italic">p</span> </th>
+            <td> 3.2e-09 </td>
+          </tr>
+          <tr>
+            <th> Hausman <span class="italic">p</span> </th>
+            <td> 1.8e-30 </td>
+          </tr>
+        </table>
+        <img
+          style="width: 100%"
+          src="images/predictions-gait_speed_apdm_μ.μ.all.μ.ps.pdf"
+          alt="Predictions: Gait Speed">
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2> Example fits &amp; PIs </h2>
+
+      <div class="col">
+        <table class="smaller" style="position: absolute; left: 21%; top: 26%">
+          <tr>
+            <th> Outcome </th>
+            <td> <span class="bold">Lateral step deviation</span>  </td>
+          </tr>
+          <tr>
+            <th> BOn (<span class="italic">p</span>) </th>
+            <td> 0.66 (0.13) </td>
+          </tr>
+          <tr>
+            <th> BSat (<span class="italic">p</span>) </th>
+            <td> -0.14 (0.42) </td>
+          </tr>
+          <tr>
+            <th> BOn × Gender (<span class="italic">p</span>) </th>
+            <td> 0.041 (0.71) </td>
+          </tr>
+          <tr>
+            <th> BOn × BMI (<span class="italic">p</span>) </th>
+            <td> -0.015 (0.35) </td>
+          </tr>
+          <tr>
+            <th> BOn × EDOo (<span class="italic">p</span>) </th>
+            <td> -0.002 (0.68) </td>
+          </tr>
+          <tr>
+            <th> Breusch-Pagan <span class="italic">p</span> </th>
+            <td> 1.3e-11 </td>
+          </tr>
+          <tr>
+            <th> Hausman <span class="italic">p</span> </th>
+            <td> 0.19 </td>
+          </tr>
+        </table>
+        <img
+          style="width: 100%"
+          src="images/predictions-lateral_step_deviation_apdm_abs_normed_μ.μ.all.μ.ps.pdf"
+          alt="Predictions: Gait Speed">
+      </div>
+    </div>
+
+    <div class="slide">
+      <h2> Sample size estimates </h2>
+
+      <div class="col ai-center">
+        <table class="small">
+          <tr>
+            <th> Outcome </th>
+            <th> R² </th>
+            <th> ESS </th>
+            <th> ESS (Seemann et al. 2025) </th>
+          </tr>
+          <tr>
+            <td> SARA </td>
+            <td> 0.54 </td>
+            <td> 144 </td>
+            <td> 147 </td>
+          </tr>
+          <tr>
+            <td> SARAp&amp;g </td>
+            <td> 0.55 </td>
+            <td> 459 </td>
+            <td> 179 </td>
+          </tr>
+          <tr>
+            <td> ABC </td>
+            <td> 0.48 </td>
+            <td> 110 </td>
+            <td> – </td>
+          </tr>
+          <tr>
+            <td> Speed </td>
+            <td> 0.60 </td>
+            <td> 60 </td>
+            <td> 66 </td>
+          </tr>
+          <tr>
+            <td> StrideL CV </td>
+            <td> 0.50 </td>
+            <td> 106 </td>
+            <td> 67 </td>
+          </tr>
+          <tr>
+            <td> LateralStepDev </td>
+            <td> 0.21 </td>
+            <td> &gt; 500 </td>
+            <td> 51 </td>
+          </tr>
+          <tr>
+            <td> SPcmp </td>
+            <td> 0.25 </td>
+            <td> 72 </td>
+            <td> 39 </td>
+          </tr>
+          <tr>
+            <td> CoRoM SD </td>
+            <td> 0.04 </td>
+            <td> &gt; 500 </td>
+            <td> – </td>
+          </tr>
+          <tr>
+            <td> ToeOutAng SD </td>
+            <td> 0.09 </td>
+            <td> &gt; 500 </td>
+            <td> – </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- <div class="slide"> -->
+    <!--   <h2> Ataxia </h2> -->
+    <!--   <ul> -->
+    <!--     <li> Rare neurodegenerative disease </li> -->
+    <!--     <li> Impairs coordination and movement </li> -->
+    <!--   </ul> -->
+
+    <!--   <ul> -->
+    <!--     <li> Principal clinical rating scale: <br> -->
+    <!--       Scale for the Assessment and Rating of Ataxia -->
+    <!--       <span class="bold"> (SARA) </span> </li> -->
+    <!--   </ul> -->
+    <!-- </div> -->
+
+    <!-- <div class="slide numberless"> -->
+    <!--   <h2> SARA </h2> -->
+
+    <!--   <table> -->
+    <!--     <tr> -->
+    <!--       <th> Item </th> -->
+    <!--       <th> Possible responses </th> -->
+    <!--       <!-1- <th> Remarks </th> -1-> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <td> 1) Gait </td> -->
+    <!--       <td> 0 - 8 </td> -->
+    <!--       <!-1- <td rowspan="4"> Integers, where <br> 0 is least severe </td> -1-> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <td> 2) Stance </td> -->
+    <!--       <td> 0 - 6 </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <td> 3) Sitting </td> -->
+    <!--       <td> 0 - 4 </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <td> 4) Speech disturbance </td> -->
+    <!--       <td> 0 - 6 </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <td> 5) Finger chase </td> -->
+    <!--       <td> 0 - 4 </td> -->
+    <!--       <!-1- <td rowspan="4"> Rated twice (l&amp;r), <br> then mean is taken </td> -1-> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <td> 6) Nose-finger test </td> -->
+    <!--       <td> 0 - 4 </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <td> 7) Fast alternating hand movements </td> -->
+    <!--       <td> 0 - 4 </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <td> 8) Heel-shin slide </td> -->
+    <!--       <td> 0 - 4 </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <th> Total </th> -->
+    <!--       <th> 0 - 40 </th> -->
+    <!--       <!-1- <th> </th> -1-> -->
+    <!--     </tr> -->
+    <!--   </table> -->
+    <!-- </div> -->
+
+    <!-- <div class="slide"> -->
+    <!--   <h2> Research question </h2> -->
+    <!--   <div> -->
+    <!--     Is SARA, and its individual items, -->
+    <!--     <ul> -->
+    <!--       <li> A good performing clinical outcome assessment? </li> -->
+    <!--       <li> Applicable across rare and ultra-rare ataxia subpopulations? -->
+    <!--         </li> -->
+    <!--     </ul> -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="slide"> -->
+    <!--   <h2> Graded response model (IRT) </h2> -->
+    <!--   <div> -->
+    <!--     \[ P\left( Y_{ij} \ge k \mid \Psi_i \right) = -->
+    <!--       \mathrm{logit}^{-1}\left( a_j \left( \Psi_i - b_{jk} \right) \right) -->
+    <!--     \] -->
+    <!--   </div> -->
+    <!--   <table class="small"> -->
+    <!--     <tr> -->
+    <!--       <th>\(i\)</th> -->
+    <!--       <td> Number of participant </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <th>\(j\)</th> -->
+    <!--       <td> Number of SARA item </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <th>\(k\)</th> -->
+    <!--       <td> A score for an item </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <th>\(Y_{ij}\)</th> -->
+    <!--       <td> Observed score for participant \(i\) and item \(j\) </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <th>\(\Psi_i\)</th> -->
+    <!--       <td> Latent disease severity for participant \(i\), with -->
+    <!--         \(\Psi_i \sim \mathcal{N}\left( 0, 1 \right)\) assumed </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <th>\(a_j\)</th> -->
+    <!--       <td> Discrimination parameter of item \(j\), to be estimated </td> -->
+    <!--     </tr> -->
+    <!--     <tr> -->
+    <!--       <th>\(b_{jk}\)</th> -->
+    <!--       <td> "Difficulty" parameter of score \(k\) of item \(j\), to be -->
+    <!--         estimated </td> -->
+    <!--     </tr> -->
+    <!--   </table> -->
+    <!--   <div> -->
+    <!--     \[ P\left( Y_{ij} = k \mid \Psi_i \right) = -->
+    <!--       P\left( Y_{ij} \ge k \right) - P\left( Y_{ij} \ge k + 1 \right) \] -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="slide"> -->
+    <!--   <h2> Graded response model (IRT) </h2> -->
+    <!--   <div> -->
+    <!--     \[ P\left( Y_{ij} \ge k \mid \Psi_i \right) = -->
+    <!--       \mathrm{logit}^{-1}\left( a_j \left( \Psi_i - b_{jk} \right) \right) -->
+    <!--     \] -->
+    <!--   </div> -->
+    <!--   <ul class="hence"> -->
+    <!--     <li> <span class="italic"> Proportional Odds Model </span>, -->
+    <!--       with \(q = 1\) and reparameterized: </li> -->
+    <!--   </ul> -->
+    <!--   <div> -->
+    <!--     \[ \mathrm{logit}\left( P\left( X_i \le s \mid \mathbf{y} \right) \right) = -->
+    <!--       \alpha_{i0(s)} - \sum\limits_{j=1}^q \alpha_{ij} y_j\] -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="slide image-fill"> -->
+    <!--   <img -->
+    <!--     src="images/2024-05-hamdan-figure-1.svg" -->
+    <!--     alt="Hamdan et al. 2024 Figure 1"> -->
+    <!-- </div> -->
+
+    <!-- <div class="slide image-fill"> -->
+    <!--   <img -->
+    <!--     src="images/2024-05-hamdan-figure-3.svg" -->
+    <!--     alt="Hamdan et al. 2024 Figure 3"> -->
+    <!-- </div> -->
+
+    <!-- <div class="slide image-fill"> -->
+    <!--   <img -->
+    <!--     src="images/2024-05-hamdan-figure-4.svg" -->
+    <!--     alt="Hamdan et al. 2024 Figure 4"> -->
+    <!-- </div> -->
+
+    <!-- <div class="slide image-fill numberless"> -->
+    <!--   <img -->
+    <!--     src="images/2024-05-hamdan-figure-5.svg" -->
+    <!--     alt="Hamdan et al. 2024 Figure 5"> -->
+    <!-- </div> -->
+
+    <!-- <div class="slide"> -->
+    <!--   <h2> Limitations </h2> -->
+
+    <!--   <div> -->
+    <!--     <ul> -->
+    <!--       <li> \(\Psi_i \sim \mathcal{N}\left( 0, 1 \right)\) warranted? </li> -->
+    <!--     </ul> -->
+    <!--     <ul class="hence"> -->
+    <!--       <li> Authors: </li> -->
+    <!--       <ul> -->
+    <!--         <li> The same has been done for other clinical rating scales </li> -->
+    <!--         <li> No evidence of misspecification in model fit assessments </li> -->
+    <!--       </ul> -->
+    <!--     </ul> -->
+    <!--   </div> -->
+
+    <!--   <div> -->
+    <!--     <ul> -->
+    <!--       <li> Data was longitudinal, thus not i.i.d. </li> -->
+    <!--     </ul> -->
+    <!--     <ul class="hence"> -->
+    <!--       <li> Authors published longitudinal IRT model later in 2024 </li> -->
+    <!--     </ul> -->
+    <!--   </div> -->
+
+    <!--   <div> -->
+    <!--     <ul> -->
+    <!--       <li> Assumption that all response categories for an item share the -->
+    <!--         same slope is often violated in clinical scales </li> -->
+    <!--     </ul> -->
+    <!--     <ul class="hence"> -->
+    <!--       <li> Not discussed in article, supplements, or follow-up article </li> -->
+    <!--     </ul> -->
+    <!--   </div> -->
+    <!-- </div> -->
 
     <!-- <div class="slide"> -->
     <!--   <h2> My background </h2> -->
@@ -768,15 +1129,15 @@
     <div class="slide section inverse">
       <h2> Thank you! </h2>
 
-      <div class="smaller ljust">
-        <span class="bold"> Full reference: </span> <br>
-        Hamdan A, Hooker AC, Chen X, et al. <br>
-        <span class="italic"> Item performance of the scale for the assessment
-          and rating of ataxia in rare and ultra-rare genetic ataxias. </span>
-          <br>
-        CPT Pharmacometrics Syst Pharmacol. 2024;13(8):1327-1340. <br>
-        <a href="https://doi.org/10.1002/psp4.13162">doi:10.1002/psp4.13162</a>
-      </div>
+      <!-- <div class="smaller ljust"> -->
+      <!--   <span class="bold"> Full reference: </span> <br> -->
+      <!--   Hamdan A, Hooker AC, Chen X, et al. <br> -->
+      <!--   <span class="italic"> Item performance of the scale for the assessment -->
+      <!--     and rating of ataxia in rare and ultra-rare genetic ataxias. </span> -->
+      <!--     <br> -->
+      <!--   CPT Pharmacometrics Syst Pharmacol. 2024;13(8):1327-1340. <br> -->
+      <!--   <a href="https://doi.org/10.1002/psp4.13162">doi:10.1002/psp4.13162</a> -->
+      <!-- </div> -->
     </div>
 
     <!-- Appendix slides, notes… ------------------------------------------- -->
