@@ -1,9 +1,12 @@
-* Viewing the presentation
+* Presentations and posters for the PhD project "Individually tailored digital-motor outcomes in real life"
 
-~index.html~ is the file that contains the presentation. Some scripts may need
-to be bundled before it displays properly when opening it in a browser.
+For the time being, this repository is mirrored on GitHub as
+~publik-void.github.io~ to host the presentations and posters for public online
+access.
 
-Currently also available at [[https://publik-void.github.io]].
+~index.html~ contains a list of links to individual presentations or posters and
+represents the "landing page" when accessing [[https://publik-void.github.io]].
+
 
 * Exporting to PDF
 
@@ -14,9 +17,12 @@ npm run export
 Or:
 
 #+begin_src sh
+mkdir -p pdf
+
+# substitute `slides` to match the file to be exported
 chromium \
   --headless=new \
-  --print-to-pdf=slides.pdf \
+  --print-to-pdf=pdf/slides.pdf \
   --generate-pdf-document-outline \
   slides.html
 #+end_src
@@ -24,17 +30,33 @@ chromium \
 * Development
 
 #+begin_src sh
-
 # Setup
 npm install
 
 # To run a development server
 npm run server
+#+end_src
 
+For some of the presentations, some scripts may need to be bundled before they
+display properly when opening them in a browser.
+
+#+begin_src sh
 # To bundle manually
 npm bundle-dev
 
 # To bundle from scratch and in production mode
 npm bundle
-
 #+end_src
+
+A git hook that bundles and ~git add~s the scripts automatically before every
+commit can be created by putting the following into ~.git/hooks/pre-commit~:
+#+begin_src sh
+#!/bin/sh
+
+# Run the npm bundle command
+npm run bundle
+
+# Add the generated files from `dist/` to the commit
+git add dist/*
+#+end_src
+

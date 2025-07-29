@@ -5,7 +5,7 @@
     "serve": "webpack serve",
     "bundle": "rm -rf dist && webpack --mode production",
     "bundle-dev": "webpack",
-    "export": "html-export-pdf-cli ./index.html -o slides.pdf"
+    "export": "mkdir -p pdf && for f in ./*.html; do html-export-pdf-cli \"$f\" -o \"pdf/$(basename \"$f\" .html).pdf\"; done"
   },
   "author": "Lasse Schlör",
   "devDependencies": {
