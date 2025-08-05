@@ -48,8 +48,8 @@ npm bundle-dev
 npm bundle
 #+end_src
 
-A git hook that bundles and ~git add~s the scripts automatically before every
-commit can be created by putting the following into ~.git/hooks/pre-commit~:
+A git hook that bundles and includes the scripts automatically in every commit
+can be created by putting the following into ~.git/hooks/pre-commit~:
 #+begin_src sh
 #!/bin/sh
 

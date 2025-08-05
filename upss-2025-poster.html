@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
 
-    <title> Individually tailored digital-motor outcomes in real life </title>
+    <title> Longitudinal latent outcome modeling in "N-of-few" </title>
 
     <link rel="stylesheet" type="text/css"
       href="submodule-html-slides/styles/normalize/normalize.css">
@@ -17,24 +17,866 @@
     <link rel="stylesheet" type="text/css"
       href="submodule-html-slides/styles/theme-0/theme-0.css">
 
+    <style>
+      h2 { font-size: 1.75em; }
+      h3 { font-size: 1.25em; }
+    </style>
+
     <script src="dist/mathjax.js"></script>
   </head>
 
-  <body>
+  <body style="font-size: 6px">
     <div class="poster">
-      <div class="col debug" style="width: 100%; height: 10%">
-        <h1> Header </h1>
-      </div>
-      <div class="row no-gap" style="width: 100%; height: 80%">
-        <div class="col debug" style="width: 50%; height: 100%">
-          First column
+      <div class="col jc-space-between" style="width: 100%; height: 100%">
+
+        <!-- Header -->
+        <div class="col no-gap jc-space-between" style="height: 8.5%">
+          <h1 class="no-wrap" style="font-size: 25px"> Longitudinal latent
+            outcome modeling in
+            &ldquo;<span class="italic">N</span>-of-few&rdquo;</h1>
+          <span class="dim" style="font-size: 20.5px">Tackling trial design
+            challenges of individualized treatments for rare motor diseases
+            using multivariate digital motor outcomes</span>
         </div>
-        <div class="col debug" style="width: 50%; height: 100%">
-          Second column
+
+        <!-- Body -->
+        <div class="row ai-start" style="flex: 1">
+          <div class="col" style="width: 33.333333%">
+            <div class="fill">
+              <h2> Background </h2>
+
+              <p>
+                In the context of individualized treatments for rare diseases,
+                traditional clinical trials are often not feasible due to a
+                limited sample size. Since treatments may take substantial time
+                to show effects, traditional N-of-1 crossover designs tend to be
+                impractical as well.
+              </p>
+
+              <p>
+                A model of patients' disease severity over time constitutes one
+                potential alternative. A deviation from the expected progression
+                could thus represent evidence for a treatment effect, albeit
+                without proof of causality. To obtain a reliable, temporally
+                stable approximation of true disease severity, a rich set of
+                proxy measures is likely advantageous.
+              </p>
+
+              <p>
+                This work focuses on a dataset of spinocerebellar ataxia
+                patients and healthy controls with yearly follow-ups. In addition
+                to clinician- and patient-rated outcomes, the data include
+                sensor-based recordings of subjects' walking, both under
+                laboratory settings as well as in their everyday lives.
+              </p>
+
+              <p>
+                The final objective is to have a model capable of showing a
+                hypothetical treatment effect after 1-2 years in 1-5 treated
+                patients.
+              </p>
+            </div>
+
+            <div class="fill">
+              <h2> Data </h2>
+
+              <h3> Gait feature extraction </h3>
+
+              <img
+                class="fill"
+                src="images/gait-feature-extraction.svg"
+                alt="Gait feature extraction" />
+
+              <p>
+                Per-stride gait features are extracted from the raw sensor data
+                by algorithmic pipelines. These are then aggregated to
+                per-walking-bout features, and in turn to per-visit features,
+                which constitute the digital motor outcomes (DMOs) to be used
+                alongside other per-visit meaures. The aggregation steps can
+                include stratification by walking environment proxies to further
+                refine the resulting set of DMOs.
+              </p>
+
+              <h3> Per-visit outcomes </h3>
+
+              <p>
+                Shown below as an example is the DMO
+                <span class="italic">lateral step deviation</span>, plotted over
+                time relative to the estimated disease onset for every visit of
+                every subject.
+              </p>
+
+              <img
+                class="fill"
+                src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-lateral-step-deviation-apdm-abs-normed-μ-μ-all-μ-ps.svg"
+                alt="Lateral step deviation over time since disease onset">
+            </div>
+
+            <div class="fill">
+              <h2> Previous results </h2>
+
+              <h3> Cross-sectional comparison </h3>
+
+              <div class="row no-gap">
+                <img
+                  style="width: 50%"
+                  src="images/cross-sectional-box-plot-hc-vs-by-sara-lateral-step-deviation-apdm-abs-normed-μ-μ-all-μ-ps.svg"
+                  alt="Cross-sectional box plot: lateral step deviation" />
+                <img
+                  style="width: 50%"
+                  src="images/cross-sectional-box-plot-hc-vs-by-sara-sara-ps.svg"
+                  alt="Cross-sectional box plot: lateral step deviation" />
+              </div>
+
+              <div class="row ai-start no-gap">
+                <p>
+                  In a cross-sectional comparison of healthy controls vs.
+                  patients (further stratified by the clinical score SARA),
+                  various DMOs such as e.g. the <span class="italic">lateral
+                  step deviation</span> show significant differences.
+                </p>
+
+                <img
+                  style="width: 25%"
+                  src="images/cross-sectional-box-plot-legend-hc-vs-by-sara.svg"
+                  alt="Cross-sectional box plot: lateral step deviation" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col" style="width: 66.666666%">
+            <div class="row ai-start" style="flex: 1">
+              <div class="col">
+                <div class="fill">
+                  <h3> Paired-samples longitudinal comparison </h3>
+
+                  <img
+                    class="fill"
+                    src="images/longitudinal-delta-plot-lateral-step-deviation-apdm-abs-normed-μ-μ-all-μ-ps-pre-sym.svg"
+                    alt="Cross-sectional box plot: lateral step deviation" />
+
+                  <p>
+                    In a classic paired-samples longitudinal comparison, both
+                    the clinical assessments as well as the DMOs
+                    (<span class="italic">lateral step deviation</span> shown
+                    above again as an example) only begin to show significant
+                    changes after several years. The sample sizes required to
+                    show a meaningful treatment effect after a single year are
+                    estimated to be on the order of several hundreds.
+                  </p>
+
+                  <h3> Paired-samples longitudinal change correlation </h3>
+
+                  <p>
+                    Shown below is the 1-, 2-, and 3-year change of the
+                    <span class="italic">lateral step deviation</span> plotted
+                    against the change of the clinical score SARA. A correlation
+                    only starts to take hold after 3 years, further
+                    corroborating the temporal instability.
+                  </p>
+
+                  <img
+                    class="fill"
+                    src="images/longitudinal-delta-delta-plot-sara-lateral-step-deviation-apdm-abs-normed-μ-μ-all-μ-ps-pre-sym.svg"
+                    alt="Cross-sectional box plot: lateral step deviation" />
+
+                  <h3> Outcome ranking </h3>
+
+                  <p>
+                    Due to the combinatorics of using a multitude of stride
+                    features, transformations thereof, context strata, and
+                    aggregation modalities, the number of available candidate
+                    DMOs is enormous. A rough assessment based on the
+                    cross-sectional and longitudinal analyses allows to screen
+                    and rank the DMOs for their suitability. The table below is
+                    an excerpt of such a ranking, sorted by the main metric
+                    <span class="mono">ess</span>, the pooled estimated 1-year
+                    sample size.
+                  </p>
+
+                </div>
+              </div>
+              <div class="col">
+                <div class="fill">
+                  <h2> Preliminary results </h2>
+
+                  <h3> Single-outcome trajectory modeling </h3>
+
+                  <div class="row no-gap">
+                    <img
+                      class="fill"
+                      src="images/predictions-lateral_step_deviation_apdm_abs_normed_μ.μ.all.μ.ps.pdf.svg"
+                      alt="Cross-sectional box plot: lateral step deviation" />
+                  </div>
+
+                  <p>
+                    A fixed-effects panel model allows to model the full
+                    trajectories of individual outcomes and to obtain relatively
+                    reliable future prediction intervals (using non-parametric
+                    estimators, as the data are ill-behaved in various ways). As
+                    single DMOs such as the
+                    <span class="italic">lateral step deviation</span> exhibit
+                    substantial variance, the resultung intervals are large.
+                    Furthermore, this particular choice of model lacks the
+                    partial pooling of a true mixed-effects model, and
+                    moreover does not allow to estimate the time point along the
+                    independent axis where the outcome starts to deviate from
+                    the healthy baseline, leading to misspecification in some
+                    cases.
+                  </p>
+
+                  <h3> Optimized composite outcome measures </h3>
+
+                  <p>
+                    Combining multiple outcomes into a single, more reliable
+                    measure of disease severity can be formulated as an
+                    optimization problem. As an initial attempt, several sets of
+                    top-ranking features were hand-picked. On each set, a
+                    regression of the change around the within-subject mean to
+                    the corresponding change in diseased time was performed. The
+                    resulting outcomes are listed in the ranking table (see
+                    below) as
+                    <span class="mono">test_dw_instance_compound_</span>… and do
+                    indeed show favorable characteristics.
+                  </p>
+
+                </div>
+                <div class="fill">
+                  <h2> Discussion &amp; Outlook </h2>
+
+                  <p>
+                    With limited numbers of both subjects and time points, the
+                    reliability of the outcome measures becomes the key factor
+                    determining the statistical power. Considered as a whole,
+                    the rich pool of available outcomes has the potential to
+                    contain sufficient information to achieve the "N-of-few"
+                    goal.
+                  </p>
+
+                  <p style="margin-bottom: 0">
+                    Instead of combining outcomes into a single measure and
+                    modeling its trajectory, the logical next step would be a
+                    model that encompasses both simultaneously: A longitudinal
+                    model of latent disease severity. This model would consider
+                    as much information as possible when predicting a patient's
+                    future disease progression. Namely:
+                    <ul>
+                      <li> The patient's own historical progression </li>
+                      <li> Other patients' and controls' progression patterns
+                        </li>
+                      <li> Multiple outcome measures </li>
+                    </ul>
+                  </p>
+
+                  <p>
+                    <span class="bold">Key considerations:</span>
+                    <ul>
+                      <li> Few covariates other than time </li>
+                      <li> Generally sigmoidal shape with unknown asymptotes and
+                        offset </li>
+                      <li> Ill-behavedness: </li>
+                      <ul>
+                        <li> Heteroskedasticity </li>
+                        <li> Selection/attrition bias ("informative drop-out"?) </li>
+                        <li> Disease onset estimate has non-negligible error </li>
+                        <li> Disease onset estimate is not available for some 
+                          patients </li>
+                      </ul>
+                      <li> Modeling on walking-bout level instead of visit level
+                        is an option </li>
+                      <li> Non-Bayesian approaches (e.g. structural equation
+                        modeling) will likely still require Monte Carlo methods
+                        due to ill-behavedness </li>
+                    </ul>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+            <div class="col">
+
+              <table
+                  class="mono"
+                  style="font-size: .75em; white-space: pre-wrap">
+                <tr>
+                  <th rowspan="2" style="text-align:left">outcome</th>
+                  <th rowspan="2" style="text-align:right">ess</th>
+                  <th style="text-align:center" colspan="3">rb_lgt</th>
+                  <th style="text-align:center" colspan="3">rb_crs</th>
+                  <th style="text-align:center" colspan="2">ρ_ΔΔ_2y</th>
+                  <th rowspan="2" style="text-align:center">agr</th>
+                </tr>
+                <tr>
+                  <th rowspan="1" style="text-align:center">1y</th>
+                  <th rowspan="1" style="text-align:center">2y</th>
+                  <th rowspan="1" style="text-align:center">3y</th>
+                  <th rowspan="1" style="text-align:center">sym</th>
+                  <th rowspan="1" style="text-align:center">sara&#60;8</th>
+                  <th rowspan="1" style="text-align:center">sara≥8</th>
+                  <th rowspan="1" style="text-align:center">sara</th>
+                  <th rowspan="1" style="text-align:center">-abc</th>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #195eb3">test_dw_instance_compound_5</span>                                                              </td>
+                  <td style="text-align:right">39</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.86</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.75</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.96</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.84</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.17</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.77</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.32</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.12</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #e5a509">test_dw_instance_compound_3</span>                                                              </td>
+                  <td style="text-align:right">45</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.82</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.66</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.93</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.77</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.046</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.7</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.26</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.26</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #25a268">test_dw_instance_compound_2</span>                                                              </td>
+                  <td style="text-align:right">55</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.77</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.78</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.78</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.17</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.67</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.58</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.21</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #803d9b">coeff_swings_sensor_lumbar_acc_dft_x_3_abs_d3_abs_μ</span>             /<span style="color: #e5a509">γ</span>         /<span style="color: #33d079">short</span>      /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">63</td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.67</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.82</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.54</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.33</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.46</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.056</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.27</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.21</span></td>
+                  <td style="text-align:center">.71</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #a51c2c">test_dw_instance_compound_4</span>                                                              </td>
+                  <td style="text-align:right">66</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.79</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.36</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.78</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.64</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.53</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.33</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.2</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #0097a7">agg_adjacent_swings_resampled_sensor_lumbar_acc_x_r_d1_abs_μ</span>    /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">74</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.71</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.45</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.76</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.47</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.048</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.72</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.5</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.06</span></td>
+                  <td style="text-align:center">.71</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #3583e4">agg_adjacent_swings_resampled_sensor_lumbar_gyr_x_r_abs_d3_abs_μ</span>/<span style="color: #e5a509">γ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">81</td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.76</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.58</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.38</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.41</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.18</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.011</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.066</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #f6d22c">agg_adjacent_swings_resampled_sensor_lumbar_acc_x_r_μ</span>           /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">83</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.62</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.62</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.67</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.47</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.13</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.72</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.32</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.0055</span></td>
+                  <td style="text-align:center">.86</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #33d079">swing_duration_d3_abs_μ</span>                                         /<span style="color: #803d9b">cv</span>        /<span style="color: #bf60ca">all</span>        /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">85</td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.77</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.39</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.71</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.31</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.093</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.29</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.21</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.077</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #bf60ca">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_μ</span>       /<span style="color: #25a268">σ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">86</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.68</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.46</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.54</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.47</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.19</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.52</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.036</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.2</span></td>
+                  <td style="text-align:center">.86</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #ed333b">coeff_swings_sensor_acc_dft_z_2_real_μ</span>                          /<span style="color: #a51c2c">μ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">86</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.6</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.45</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.14</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.59</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.19</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.18</span></td>
+                  <td style="text-align:center">.86</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #26c6da">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_d1_abs_μ</span>/<span style="color: #25a268">σ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">88</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.72</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.4</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.41</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.51</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.3</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.49</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.062</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.32</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #195eb3">shannon_entropy_3_walking_segments_sensor_feet_gyr_z</span>            /<span style="color: #0097a7">curvy_long</span>/<span style="color: #a51c2c">μ</span>            </td>
+                  <td style="text-align:right">88</td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.59</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.64</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.45</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.49</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.22</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.34</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.016</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #e5a509">agg_adjacent_swings_resampled_sensor_lumbar_acc_x_r_abs_μ</span>       /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">88</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.58</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.66</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.46</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.11</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.74</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.3</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.21</span></td>
+                  <td style="text-align:center">.86</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #25a268">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_d3_abs_μ</span>/<span style="color: #25a268">σ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">89</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.71</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.42</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.38</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.48</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.31</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.47</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.11</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.093</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #803d9b">coeff_swings_sensor_acc_dft_x_1_real_abs_μ</span>                      /<span style="color: #803d9b">cv</span>        /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">89</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.57</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.81</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.44</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.029</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.49</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.0013</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.19</span></td>
+                  <td style="text-align:center">.86</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #a51c2c">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_μ</span>           /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">89</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.68</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.44</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.12</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.77</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.31</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.26</span></td>
+                  <td style="text-align:center">.86</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #0097a7">coeff_swings_sensor_acc_dft_x_3_angle_d1_abs_μ</span>                  /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">90</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.52</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.84</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.52</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.34</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.033</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.41</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.14</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.027</span></td>
+                  <td style="text-align:center">.71</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #3583e4">stance_apdm_d2_abs_μ</span>                                            /<span style="color: #e5a509">γ</span>         /<span style="color: #33d079">short</span>      /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">90</td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.78</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.64</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.74</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.4</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.33</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.033</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.16</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #f6d22c">swing_apdm_d2_abs_μ</span>                                             /<span style="color: #e5a509">γ</span>         /<span style="color: #33d079">short</span>      /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">90</td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.78</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.64</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.74</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.4</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.33</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.033</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.16</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #33d079">maximum_pitch_apdm_d1_abs_μ</span>                                     /<span style="color: #e5a509">γ</span>         /<span style="color: #33d079">short</span>      /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">90</td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.93</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.39</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.63</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.3</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.35</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.033</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.4</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.011</span></td>
+                  <td style="text-align:center">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><span style="color: #bf60ca">stance_duration_μ</span>                                               /<span style="color: #803d9b">cv</span>        /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+                  <td style="text-align:right">90</td>
+                  <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.76</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.38</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.033</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.73</span></td>
+                  <td style="text-align:center"><span style="color: #195eb3">.25</span></td>
+                  <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+                  <td style="text-align:center">.71</td>
+                </tr>
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #a51c2c">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_μ</span>           /<span style="color: #25a268">σ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">91</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.67</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.51</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.52</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.46</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.24</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.44</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.0013</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.13</span></td> -->
+                <!--   <td style="text-align:center">1</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #ed333b">coeff_swings_sensor_acc_dft_z_2_real_abs_μ</span>                      /<span style="color: #a51c2c">μ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">91</td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.64</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.65</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.56</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.46</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.14</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.59</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.19</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.18</span></td> -->
+                <!--   <td style="text-align:center">.86</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #26c6da">coeff_swings_sensor_acc_dft_x_1_abs_μ</span>                           /<span style="color: #803d9b">cv</span>        /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">91</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.65</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.85</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.65</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.45</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.24</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.3</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.014</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.093</span></td> -->
+                <!--   <td style="text-align:center">.86</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #ed333b">coeff_swings_sensor_acc_dft_z_2_real_abs_μ</span>                      /<span style="color: #a51c2c">μ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">92</td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.65</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.6</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.74</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.33</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.31</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.66</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.12</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.15</span></td> -->
+                <!--   <td style="text-align:center">.71</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #ed333b">coeff_swings_sensor_acc_dft_z_2_real_μ</span>                          /<span style="color: #a51c2c">μ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">93</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.65</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.56</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.76</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.32</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.31</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.66</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.11</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.033</span></td> -->
+                <!--   <td style="text-align:center">.71</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #195eb3">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_d2_abs_μ</span>/<span style="color: #25a268">σ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">93</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.71</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.44</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.38</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.46</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.31</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.48</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.11</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.21</span></td> -->
+                <!--   <td style="text-align:center">1</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #e5a509">shannon_entropy_index_walking_segments_sensor_feet_gyr_z</span>        /<span style="color: #0097a7">curvy_long</span>/<span style="color: #a51c2c">μ</span>            </td> -->
+                <!--   <td style="text-align:right">94</td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.65</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.64</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.52</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.46</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.19</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.48</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.32</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.13</span></td> -->
+                <!--   <td style="text-align:center">.86</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #26c6da">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_d1_abs_μ</span>/<span style="color: #a51c2c">μ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">94</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.62</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.52</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.43</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.51</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.25</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.5</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.16</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.31</span></td> -->
+                <!--   <td style="text-align:center">1</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #25a268">double_support_apdm_μ</span>                                           /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">95</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.69</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.46</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.49</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.73</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.22</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.72</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.13</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.37</span></td> -->
+                <!--   <td style="text-align:center">.86</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #26c6da">coeff_swings_sensor_acc_dft_x_1_abs_μ</span>                           /<span style="color: #803d9b">cv</span>        /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">95</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.76</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.51</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.43</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.7</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.45</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.39</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.1</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.044</span></td> -->
+                <!--   <td style="text-align:center">1</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #803d9b">agg_adjacent_swings_resampled_sensor_lumbar_acc_x_r_abs_d2_abs_μ</span>/<span style="color: #a51c2c">μ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">96</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.66</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.5</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.56</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.59</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.18</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.84</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.24</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.088</span></td> -->
+                <!--   <td style="text-align:center">.86</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #25a268">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_d3_abs_μ</span>/<span style="color: #a51c2c">μ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">97</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.65</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.49</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.43</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.51</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.28</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.5</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.24</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.35</span></td> -->
+                <!--   <td style="text-align:center">1</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #a51c2c">swing_apdm_μ</span>                                                    /<span style="color: #803d9b">cv</span>        /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">98</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.72</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.58</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.49</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.72</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.13</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.69</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.15</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.32</span></td> -->
+                <!--   <td style="text-align:center">.86</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #195eb3">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_d2_abs_μ</span>/<span style="color: #a51c2c">μ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">98</td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.64</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.51</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.41</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.51</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.27</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.49</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.22</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.31</span></td> -->
+                <!--   <td style="text-align:center">1</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #195eb3">shannon_entropy_3_walking_segments_sensor_feet_gyr_z</span>            /<span style="color: #3583e4">curvy</span>     /<span style="color: #a51c2c">μ</span>            </td> -->
+                <!--   <td style="text-align:right">98</td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.73</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.4</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.3</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.5</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.24</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.48</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.094</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.093</span></td> -->
+                <!--   <td style="text-align:center">1</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #0097a7">stride_length_apdm_μ</span>                                            /<span style="color: #a51c2c">μ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">98</td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.58</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.56</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.52</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.38</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #195eb3">.074</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.64</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.17</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.13</span></td> -->
+                <!--   <td style="text-align:center">.86</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!--   <td style="text-align:left"><span style="color: #3583e4">agg_adjacent_swings_resampled_sensor_lumbar_acc_z_r_abs_d3_abs_μ</span>/<span style="color: #e5a509">γ</span>         /<span style="color: #33d079">short</span>      /<span style="color: #a51c2c">μ</span></td> -->
+                <!--   <td style="text-align:right">98</td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.69</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.53</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.41</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.63</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.24</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.21</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.57</span></td> -->
+                <!--   <td style="text-align:center"><span style="color: #e5a509">-.15</span></td> -->
+                <!--   <td style="text-align:center">1</td> -->
+                <!-- </tr> -->
+              </table>
+
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col debug" style="width: 100%; height: 10%">
-        Footer
+
+        <!-- Footer -->
+        <div class="row jc-space-between ai-stretch" style="height: 8%">
+          <div class="contain boxed" style="height: 100%">
+            <p class="ljust">
+              <span class="larger">Lasse Schlör <br></span>
+              <a href="mailto:lasse-schloer@unibo.it">lasse-schloer@unibo.it</a>
+                <br>
+              <span class="dim">
+                <br>
+                MSCA MMM Doctoral Network <br>
+                <br>
+                mHealth Technologies srl <br>
+                <br>
+                Department of Electrical, Electronic, and Information
+                  Engineering <br>
+                University of Bologna <br>
+              </span>
+            </p>
+          </div>
+          <a class="contain" href="https://medicine-made-to-measure.eu">
+            <img
+              src="images/logo-mmm.svg"
+              alt="Medicine Made to Measure logo" />
+          </a>
+          <a class="contain" href="https://mhealthtechnologies.it">
+            <img
+              src="images/logo-mht-alpha.png"
+              alt="mHealth Technologies logo" />
+          </a>
+          <a class="contain" href="https://www.unibo.it">
+            <img
+              src="images/logo-unibo.svg"
+              alt="University of Bologna logo" />
+          </a>
+          <a
+            class="col jc-start"
+            style="width: 12%; height: 100%"
+            href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/projects-details/43108390/101120256/HORIZON">
+            <img
+              style="float: right; width: 100%"
+              src="images/flag-eu.svg"
+              alt="EU flag">
+            <p class="dim small no-margin">
+              Funded by the European Union’s Horizon Europe Marie
+              Skłodowska-Curie Actions scheme, GA no. 101120256.
+            </p>
+          </a>
+        </div>
       </div>
     </div>
   </body>
