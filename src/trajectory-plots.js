@@ -2,9 +2,9 @@ import * as d3p from "dynamic-3d-plots";
 
 var HtmlSlides = HtmlSlides || {};
 
-HtmlSlides.trajectoryPlot0 = {};
+HtmlSlides.trajectoryPlots = {};
 
-HtmlSlides.trajectoryPlot0.create = async function() {
+HtmlSlides.trajectoryPlots.create = async function() {
   const trajectoryData =
     await d3p.loadSensorData("./data/trajectory-0.json");
 
@@ -14,7 +14,7 @@ HtmlSlides.trajectoryPlot0.create = async function() {
 };
 
 document.addEventListener("DOMContentLoaded", function() {
-  HtmlSlides.trajectoryPlot0.create();
+  HtmlSlides.trajectoryPlots.create();
 });
 
 

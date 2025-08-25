@@ -1,14 +1,13 @@
 <!DOCTYPE html>
+
+<!-- VIM_CUSTOM_HTML_SLIDES_FOLDING -->
+
 <html>
   <head>
     <meta charset="utf-8"/>
 
     <title> PhD: Individually tailored digital-motor outcomes in real life
       </title>
-    <!-- <title> Hamdan et al., 2024: Item performance of the scale for the -->
-    <!--   assessment and rating of ataxia in rare and ultra-rare genetic ataxia -->
-    <!-- </title> -->
-    <!-- <title> Methods for Panel Data: Exam Project </title> -->
 
     <link rel="stylesheet" type="text/css"
       href="submodule-html-slides/styles/normalize/normalize.css">
@@ -22,12 +21,45 @@
     <link rel="stylesheet" type="text/css"
       href="submodule-html-slides/styles/theme-0/theme-0.css">
 
-    <script src="dist/trajectory-plot-0.js"></script>
+    <script src="dist/trajectory-plots.js"></script>
     <script src="dist/mathjax.js"></script>
 
-    <script src="submodule-html-slides/scripts/control.js"></script>
+    <script>
+      "use strict";
+
+      var HtmlSlides = HtmlSlides || {};
+
+      HtmlSlides.Substitions = {};
+
+      HtmlSlides.Substitions.makeMobilityLabWhitepaperFigureSubstitution =
+          function(description, page) {
+        const div = document.createElement('div');
+        div.classList.add('small', 'boxed', 'padded');
+
+        const p0 = document.createElement('p');
+        p0.innerHTML = description;
+        div.appendChild(p0);
+
+        const p1 = document.createElement('p');
+        p1.classList.add('dim');
+        p1.innerHTML = 'Figure not published in the online version of these ' +
+          'slides for copyright reasons. See the original in the ' +
+          '<a href=\"https://www.apdm.com/wp-content/uploads/2015/05/02' +
+              `-Mobility-Lab-Whitepaper.pdf#page=${page}\">` +
+            '<span class=\"underlined\">' +
+              `APDM Mobility Lab whitepaper, page ${page}` +
+            '</span>' +
+          '</a>' +
+          '.';
+        div.appendChild(p1);
+
+        return div
+      }
+    </script>
+
     <script src="submodule-html-slides/scripts/set-number-of-slides.js">
       </script>
+    <script src="submodule-html-slides/scripts/control.js"></script>
   </head>
 
   <body>
@@ -39,31 +71,17 @@
         </p>
         <p class="rjust no-wrap">
           University of Bologna <br>
-          Bologna, 2025-07-29
+          Bologna, 2025-08-21
         </p>
       </div>
 
       <h1> PhD: Individually tailored digital-motor outcomes in real life </h1>
-      <!-- <div class="cjust"> -->
-      <!--   <!-1- <h1> Hamdan et al., 2024: <span class="italic"> Item performance of the -1-> -->
-      <!--   <!-1-   scale for the assessment and rating of ataxia in rare and ultra-rare -1-> -->
-      <!--   <!-1-   genetic ataxia </span></h1> -1-> -->
-      <!--   <!-1- <span class="dim small"> -1-> -->
-      <!--   <!-1-   Course exam presentation – Generalized Linear Models </span> -1-> -->
-      <!-- </div> -->
-      <!-- <h1> Methods for Panel Data: <br> Exam Project </h1> -->
-
-      <!-- <div class="col" style="height: 20%"> -->
-      <!--   <img -->
-      <!--     src="images/logo-unibo.svg" -->
-      <!--     alt="University of Bologna logo" /> -->
-      <!-- </div> -->
 
       <div class="col" style="height: 30%">
         <div class="row jc-space-between">
           <a class="contain" href="https://www.unibo.it">
             <img
-              src="images/logo-unibo.svg"
+              src="images/logo-unibo-icon.svg"
               alt="University of Bologna logo" />
           </a>
           <a class="contain" href="https://mhealthtechnologies.it">
@@ -94,39 +112,319 @@
       </div>
     </div>
 
-    <div class="slide">
-      <p>
-        Note: This presentation is currently in a placeholder state. Old
-        versions can be found in the commit history of the
-        <a href="https://github.com/publik-void/publik-void.github.io"
-          class="underlined">Git repository</a>.
-      </p>
+    <div class="slide section inverse">
+      <h2> My Background </h2>
     </div>
 
-    <!-- <div class="slide section inverse"> -->
-    <!--   <h2> Introduction </h2> -->
-    <!-- </div> -->
+    <div class="slide headless">
+      <h3> My background in Tübingen </h3>
+
+      <a href="https://www.uni-tuebingen.de"
+          class="col ai-center"
+          style="height: 15%">
+        <img
+          src="images/logo-university-of-tuebingen.svg"
+          alt="University of Tübingen logo" />
+      </a>
+
+      <table class="small">
+        <tr>
+          <th> Until 2018 </th>
+          <td> B.Sc. in Computer Science </td>
+        </tr>
+        <tr>
+          <th> Until 2021 </th>
+          <td> M.Sc. in Computer Science </td>
+        </tr>
+        <tr>
+          <th> Until 2024 </th>
+          <td> Research Assistant in Cognitive Science </td>
+        </tr>
+      </table>
+
+      <a href="https://maps.app.goo.gl/TsDipsgU89d7Mfv7A" class="row">
+        <img
+          style="width: 45%"
+          class="framed"
+          src="images/place-tuebingen-location.jpg"
+          alt="Tübingen Location" />
+        <img
+          style="width: 45%"
+          class="framed"
+          src="images/place-tuebingen-neckarfront.jpg"
+          alt="Tübingen Neckarfront" />
+      </a>
+    </div>
+
+    <div class="slide image-fill headless no-number">
+      <h3> CCVEP decoding </h3>
+
+      <img
+        src="images/ccvep-codec-plot.svg"
+        alt="CCVEP codec" />
+    </div>
+
+    <div class="slide headless inverse">
+      <h3> Audio engineering </h3>
+
+      <div class="row">
+        <img
+          class="framed"
+          src="images/silicon-amp.png"
+          alt="Silicon Amp" />
+        <div class="row" style="width:55%">
+          <div class="col">
+            <img
+              class="framed"
+              src="images/circus-of-fools-another-world-within.jpg"
+              alt="Circus of Fools – Another World Within" />
+            <img
+              class="framed"
+              src="images/circus-of-fools-contracult.jpg"
+              alt="Circus of Fools – Contracult" />
+          </div>
+          <div class="col">
+            <img
+              class="framed"
+              src="images/circus-of-fools-rex.jpg"
+              alt="Circus of Fools – REX" />
+            <img
+              class="framed"
+              src="images/circus-of-fools-affair-of-the-poisons.jpg"
+              alt="Circus of Fools – Affair of the Poisons" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide headless">
+      <h3> Tools I like to work with </h3>
+
+      <div class="row" style="height: 40%">
+        <a href="https://www.gnu.org" class="contain">
+          <img
+            src="images/logo-gnu.svg"
+            alt="GNU logo" />
+        </a>
+        <a href="https://julialang.org" class="contain">
+          <img
+            src="images/logo-julia.svg"
+            alt="Julia logo" />
+        </a>
+        <a href="https://neovim.io" class="contain">
+          <img
+            src="images/logo-vim.svg"
+            alt="Vim logo" />
+        </a>
+      </div>
+    </div>
+
+    <div class="slide headless">
+      <h3> My background in Bologna </h3>
+
+      <a class="col" href="https://www.unibo.it" style="height: 30%">
+        <img
+          src="images/logo-unibo.svg"
+          alt="University of Bologna logo" />
+      </a>
+
+      <table class="small">
+        <tr>
+          <th> Since June 2024 </th>
+          <td> PhD in Health &amp; Technologies </td>
+        </tr>
+      </table>
+
+      <a href="https://maps.app.goo.gl/XwMTzAjTGfxyohR5A" class="row">
+        <img
+          style="width: 45%"
+          class="framed"
+          src="images/place-bologna-location.jpg"
+          alt="Bologna Location" />
+        <img
+          style="width: 45%"
+          class="framed"
+          src="images/place-bologna-piazza-maggiore.jpg"
+          alt="Bologna Piazza Maggiore" />
+      </a>
+    </div>
+
+    <div class="slide">
+      <h3> Medicine Made to Measure </h3>
+
+      <div class="row">
+        <div class="col jc-space-evenly ai-start">
+          <ul>
+            <li> Doctoral network </li>
+            <ul>
+              <li> Funded by the Marie Curie Actions Scheme </li>
+              <li> 10 PhD candidates </li>
+              <li> 22 participating organisations </li>
+            </ul>
+          </ul>
+          <ul>
+            <li> Aim: to develop </li>
+            <ul>
+              <li> ASO (antisense oligonucleotide) treatments </li>
+              <li> Tailored to single patients of nano-rare diseases </li>
+            </ul>
+          </ul>
+        </div>
+        <img
+          style="width: 15%"
+          src="images/logo-mmm.svg"
+          alt="Medicine Made to Measure logo" />
+      </div>
+    </div>
+
+    <div class="slide headless inverse">
+      <h3> MMM group photos </h3>
+
+      <div class="col">
+        <div class="contain" style="height: 50%">
+          <img
+            class="framed"
+            src="images/group-photo-mmm-general-assembly-2024-06.jpg"
+            alt="MMM group photo">
+          <p class="rjust small">
+            First General Assembly – Barcelona, June 2024
+          </p>
+        </div>
+        <div class="contain" style="height: 50%">
+          <img
+            class="framed"
+            src="images/group-photo-mmm-mid-term-2024-12.jpg"
+            alt="MMM group photo">
+          <p class="rjust small">
+            Mid-Term Meeting – Tübingen, December 2024
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Rare diseases </h3>
+
+      TODO
+    </div>
+
+    <div class="slide no-number image-fill headless">
+      <h3> MMM pipeline </h3>
+
+      <img
+        src="images/mmm-pipeline-alpha.png"
+        alt="MMM Pipeline">
+    </div>
+
+    <div class="slide">
+      <h3> Supervisors </h3>
+
+      <!-- TODO: Affiliations? -->
+
+      <div class="col">
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 5em"
+            src="images/profile-photo-sabato-mellone.png"
+            alt="Dr. Sabato Mellone">
+          <div>
+            <span class="bold"> Dr. Sabato Mellone </span><br>
+            <span class="dim"> University of Bologna </span>
+          </div>
+        </div>
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 5em"
+            src="images/profile-photo-matthis-synofzik.jpg"
+            alt="Matthis Synofzik">
+          <div>
+            <span class="bold"> Prof. Dr. Matthis Synofzik </span><br>
+            <span class="dim"> University of Tübingen </span>
+          </div>
+        </div>
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 5em"
+            src="images/profile-photo-mats-karlsson.jpg.webp"
+            alt="Prof. Dr. Mats Karlsson">
+          <div>
+            <span class="bold"> Prof. Dr. Mats Karlsson </span><br>
+            <span class="dim"> University of Uppsala </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Co-supervisors </h3>
+      <div class="col">
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 5em"
+            src="images/profile-photo-carlo-tacconi.jpeg"
+            alt="Carlo Tacconi">
+          <div>
+            <span class="bold"> Carlo Tacconi </span><br>
+            <span class="dim"> mHealth Technologies s.r.l., Bologna </span>
+          </div>
+        </div>
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 5em"
+            src="images/profile-photo-lorenzo-chiari.png"
+            alt="Prof. Dr. Lorenzo Chiari">
+          <div>
+            <span class="bold"> Prof. Dr. Lorenzo Chiari </span><br>
+            <span class="dim"> University of Bologna </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Secondments </h3>
+      <div class="row ai-start">
+        <img
+          class="framed"
+          src="images/place-map-bologna-tuebingen-uppsala.png"
+          alt="Bologna, Tübingen, and Uppsala">
+        <div class="col jc-space-between ai-start" style="height: 66%">
+          <ul>
+            <li> Uppsala, Sweden </li>
+            <ul>
+              <li> Aug 2025 - Sep 2025 </li>
+            </ul>
+          </ul>
+          <ul>
+            <li> Tübingen, Germany </li>
+            <ul>
+              <li> Sep 2024 - Nov 2024 </li>
+              <li> Three more months in the coming years </li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Introduction </h2>
+    </div>
+
+    <div class="slide">
+      <h3 style="font-size: 1.5em"> Individualized treatments for rare diseases:
+        <br> Trial design challenges </h3>
+
+      <ul>
+        <li> For each disease (or subtype): </li>
+        <ul>
+          <li> Small number of patients worldwide </li>
+          <li> Treatment may be taylor-made and have a slow effect </li>
+        </ul>
+      </ul>
+
+      <ul class="hence">
+        <li> Traditional clinical trial design not feasible </li>
+        <li> Traditional N-of-1 trials not feasible </li>
+      </ul>
+    </div>
 
     <!-- <div class="slide"> -->
-    <!--   <h2 style="font-size: 1.5em"> Individualized treatments for rare diseases: -->
-    <!--     <br> Trial design challenges </h2> -->
-
-    <!--   <ul> -->
-    <!--     <li> For each disease (or subtype): </li> -->
-    <!--     <ul> -->
-    <!--       <li> Small number of patients worldwide </li> -->
-    <!--       <li> Treatment may be taylor-made and have a slow effect </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-
-    <!--   <ul class="hence"> -->
-    <!--     <li> Traditional clinical trial design not feasible </li> -->
-    <!--     <li> Traditional N-of-1 trials not feasible </li> -->
-    <!--   </ul> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Concrete case: Genetic ataxia </h2> -->
+    <!--   <h3> Concrete case: Genetic ataxia </h3> -->
 
     <!--   <div> -->
     <!--     Spinocerebellar ataxia (<span class="bold">SCA</span>): -->
@@ -147,446 +445,1558 @@
     <!--   </div> -->
     <!-- </div> -->
 
-    <!-- <div class="slide"> -->
-    <!--   <h2 style="font-size: 1.5em"> Paired-samples tests (Seemann et al. 2025) -->
-    <!--     </h2> -->
-    <!--   <div class="col"> -->
-    <!--     <img -->
-    <!--       src="images/2025-seemann-figure-2-a.png" -->
-    <!--       alt="Seemann et al. 2024 Figure 2A"> -->
-    <!--   </div> -->
-    <!-- </div> -->
+    <div class="slide">
+      <h3> Spinocerebellar Ataxia (SCA) </h3>
+
+      <ul>
+        <li> Inherited neurodegenerative disease </li>
+        <li> Affects the cerebellum and spinal cord </li>
+        <!-- <li> Impairs coordination and movement </li> -->
+        <!-- <li> &gt;40 identified subtypes </li> -->
+        <li> Rare disease: &le;5 people per 100,000 </li>
+      </ul>
+
+      <hr/>
+
+      <div class="row ai-center jc-space-between">
+        <div class="col ai-start jc-space-between" style="width: 30%">
+          <ul><li> Increased gait variability </li></ul>
+          <ul><li> Widened base of support </li></ul>
+          <ul><li> Impaired foot placement </li></ul>
+          <ul><li> Loss of trunk control </li></ul>
+        </div>
+
+        <div
+            class="framed ai-center jc-center"
+            style="width: 66vh; height: 50vh; display: flex">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube-nocookie.com/embed/dnOWLDcUvCU?si=EdckKcqtK18xlJAD&amp;mute=1&amp;controls=0"
+            title="Ataxic gait video"
+            frameborder="0"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Deliverables </h3>
+
+      TODO
+    </div>
 
     <!-- <div class="slide"> -->
-    <!--   <h2 style="font-size: 1.5em"> Paired-samples tests (Seemann et al. 2025) -->
-    <!--     </h2> -->
-    <!--   <div class="col"> -->
-    <!--     <img -->
-    <!--       src="images/2025-seemann-figure-2-b.png" -->
-    <!--       alt="Seemann et al. 2024 Figure 2A"> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Objective </h2> -->
-
-    <!--   <div> -->
-    <!--     Instead of single year pairs, use panel methods to consider the full -->
-    <!--     multi-year trajectories of outcomes to get: -->
-    <!--     <ul> -->
-    <!--       <li> Better sample size estimates </li> -->
-    <!--       <li> Future prediction intervals </li> -->
-    <!--     </ul> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide section inverse"> -->
-    <!--   <h2> Data &amp; Methods </h2> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Data </h2> -->
-    <!--   <img -->
-    <!--     src="images/lateral_step_deviation_apdm_abs_normed_μ.μ.all.μ.ps.pdf.svg" -->
-    <!--     alt="Raw data, lateral step deviation, preferred speed task"> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Model </h2> -->
-
-    <!--   <div class="small"> -->
-    <!--     Choice: -->
-    <!--     <ul> -->
-    <!--       <li> Fixed-effects panel model </li> -->
-    <!--       <li> Two nonlinear transformations of -->
-    <!--         \( \Delta\mathrm{EDO}_\mathrm{o} \): "\( \mathrm{BOn} \)" and -->
-    <!--         "\( \mathrm{BSat} \)"</li> -->
-    <!--       <li> Small selection of further time-invariant covariates as -->
-    <!--         interactions </li> -->
-    <!--     </ul> -->
-    <!--     <ul class="hence"> -->
-    <!--       <li> Detailed reasoning in report </li> -->
-    <!--     </ul> -->
-    <!--   </div> -->
-
-    <!--   <div class="row"> -->
-    <!--     <img -->
-    <!--       style="width: 50%" -->
-    <!--       src="images/softplus_onset.pdf.svg" -->
-    <!--       alt="Basis function BOn"> -->
-    <!--     <img -->
-    <!--       style="width: 50%" -->
-    <!--       src="images/softplus_saturation.pdf.svg" -->
-    <!--       alt="Basis function BSat"> -->
-    <!--   </div> -->
-
-    <!--   <div class="small cjust"> -->
-    <!--     \( y_{it} = \beta_1\mathrm{BOn}_{it} + -->
-    <!--     \beta_2\mathrm{BSat}_{it} + -->
-    <!--     \beta_3\mathrm{BOn}_{it}\left(\mathrm{EDO}_\mathrm{o}\right)_{i} + -->
-    <!--     \beta_4\mathrm{BOn}_{it}\mathrm{Gender}_{i} + -->
-    <!--     \beta_4\mathrm{BOn}_{it}\mathrm{BMI}_{i} + -->
-    <!--     \epsilon_{it} \) -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Simulation </h2> -->
-
+    <!--   <h3> Deliverable 3.1 </h3> -->
     <!--   <ul> -->
-    <!--     <li> Omitted interaction terms: \( y_{it} = \beta_1\mathrm{BOn}_{it} + -->
-    <!--       \beta_2\mathrm{BSat}_{it}  + \epsilon_{it} \) </li> -->
-    <!--     <li> But let true progression rate vary randomly by patient </li> -->
-    <!--     <li> Included optional assumption violations </li> -->
-    <!--   </ul> -->
-
-    <!--   <div class="col" style="height: 70%"> -->
-    <!--     <img -->
-    <!--       src="images/simulated-data-example.pdf.svg" -->
-    <!--       alt="Simulated dataset example"> -->
-    <!--   </div> -->
-
-    <!--   <!-1- <div> -1-> -->
-    <!--   <!-1-   Optional assumption violations: -1-> -->
-    <!--   <!-1-   <ul> -1-> -->
-    <!--   <!-1-     <li> Onset estimation error </li> -1-> -->
-    <!--   <!-1-     <li> Separate pre-/post-onset residual variance </li> -1-> -->
-    <!--   <!-1-     <li> Non-normal residuals </li> -1-> -->
-    <!--   <!-1-     <li> Serially correlated residuals </li> -1-> -->
-    <!--   <!-1-     <li> Selection bias </li> -1-> -->
-    <!--   <!-1-   </ul> -1-> -->
-    <!--   <!-1- </div> -1-> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2 style="font-size: 1.4em"> Prediction intervals &amp; sample size -->
-    <!--     estimates </h2> -->
-
-    <!--   <div> -->
-    <!--     Due to concerns about ill-behaved data: -->
+    <!--     <li> Existing dataset of real-life movement recordings </li> -->
     <!--     <ul> -->
-    <!--       <li> Semi-parametric stratified cluster bootstrap </li> -->
-    <!--       <li> Monte Carlo power analysis </li> -->
+    <!--       <li> 27 spinocerebellar (pre-)ataxia patients </li> -->
+    <!--       <li> 36 healthy controls </li> -->
     <!--     </ul> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide section inverse"> -->
-    <!--   <h2> Results &amp; Discussion </h2> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Finite-sample properties </h2> -->
-
-    <!--   <div class="col"> -->
-    <!--     <div class="row"> -->
-    <!--       <img -->
-    <!--         src="images/softplus_onset.bias.n_patients-cropped.pdf.svg" -->
-    <!--         alt="Bias over N"> -->
-    <!--       <img -->
-    <!--         src="images/softplus_onset.mse.n_patients-cropped.pdf.svg" -->
-    <!--         alt="MSE over N"> -->
-    <!--       <img -->
-    <!--         src="images/softplus_onset.coverage.n_patients.pdf.svg" -->
-    <!--         alt="CI Coverage over N"> -->
-    <!--     </div> -->
-    <!--     <div class="row"> -->
-    <!--       <img -->
-    <!--         src="images/softplus_onset.bias.n_time_points_min-cropped.pdf.svg" -->
-    <!--         alt="Bias over T"> -->
-    <!--       <img -->
-    <!--         src="images/softplus_onset.mse.n_time_points_min-cropped.pdf.svg" -->
-    <!--         alt="MSE over T"> -->
-    <!--       <img -->
-    <!--         src="images/softplus_onset.coverage.n_time_points_min.pdf.svg" -->
-    <!--         alt="CI Coverage over T"> -->
-    <!--     </div> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Example fits &amp; PIs </h2> -->
-
-    <!--   <div class="col"> -->
-    <!--     <table class="smaller" style="position: absolute; left: 21%; top: 45%"> -->
-    <!--       <tr> -->
-    <!--         <th> Outcome </th> -->
-    <!--         <td> <span class="bold">Gait Speed</span>  </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BOn (<span class="italic">p</span>) </th> -->
-    <!--         <td> -0.011 (0.92)  </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BSat (<span class="italic">p</span>) </th> -->
-    <!--         <td> -0.22 (2.2e-07)  </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BOn × Gender (<span class="italic">p</span>) </th> -->
-    <!--         <td> -0.095 (0.00028) </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BOn × BMI (<span class="italic">p</span>) </th> -->
-    <!--         <td> -0.0061 (0.10) </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BOn × EDOo (<span class="italic">p</span>) </th> -->
-    <!--         <td> 0.0043 (0.00013) </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> Breusch-Pagan <span class="italic">p</span> </th> -->
-    <!--         <td> 3.2e-09 </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> Hausman <span class="italic">p</span> </th> -->
-    <!--         <td> 1.8e-30 </td> -->
-    <!--       </tr> -->
-    <!--     </table> -->
-    <!--     <img -->
-    <!--       style="width: 100%" -->
-    <!--       src="images/predictions-gait_speed_apdm_μ.μ.all.μ.ps.pdf.svg" -->
-    <!--       alt="Predictions: Gait Speed"> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Example fits &amp; PIs </h2> -->
-
-    <!--   <div class="col"> -->
-    <!--     <table class="smaller" style="position: absolute; left: 21%; top: 26%"> -->
-    <!--       <tr> -->
-    <!--         <th> Outcome </th> -->
-    <!--         <td> <span class="bold">Lateral step deviation</span>  </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BOn (<span class="italic">p</span>) </th> -->
-    <!--         <td> 0.66 (0.13) </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BSat (<span class="italic">p</span>) </th> -->
-    <!--         <td> -0.14 (0.42) </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BOn × Gender (<span class="italic">p</span>) </th> -->
-    <!--         <td> 0.041 (0.71) </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BOn × BMI (<span class="italic">p</span>) </th> -->
-    <!--         <td> -0.015 (0.35) </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> BOn × EDOo (<span class="italic">p</span>) </th> -->
-    <!--         <td> -0.002 (0.68) </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> Breusch-Pagan <span class="italic">p</span> </th> -->
-    <!--         <td> 1.3e-11 </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <th> Hausman <span class="italic">p</span> </th> -->
-    <!--         <td> 0.19 </td> -->
-    <!--       </tr> -->
-    <!--     </table> -->
-    <!--     <img -->
-    <!--       style="width: 100%" -->
-    <!--       src="images/predictions-lateral_step_deviation_apdm_abs_normed_μ.μ.all.μ.ps.pdf.svg" -->
-    <!--       alt="Predictions: Gait Speed"> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Sample size estimates </h2> -->
-
-    <!--   <div class="col ai-center"> -->
-    <!--     <table class="small"> -->
-    <!--       <tr> -->
-    <!--         <th> Outcome </th> -->
-    <!--         <th> R² </th> -->
-    <!--         <th> ESS </th> -->
-    <!--         <th> ESS (Seemann et al. 2025) </th> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <td> SARA </td> -->
-    <!--         <td> 0.54 </td> -->
-    <!--         <td> 144 </td> -->
-    <!--         <td> 147 </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <td> SARAp&amp;g </td> -->
-    <!--         <td> 0.55 </td> -->
-    <!--         <td> 459 </td> -->
-    <!--         <td> 179 </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <td> ABC </td> -->
-    <!--         <td> 0.48 </td> -->
-    <!--         <td> 110 </td> -->
-    <!--         <td> – </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <td> Speed </td> -->
-    <!--         <td> 0.60 </td> -->
-    <!--         <td> 60 </td> -->
-    <!--         <td> 66 </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <td> StrideL CV </td> -->
-    <!--         <td> 0.50 </td> -->
-    <!--         <td> 106 </td> -->
-    <!--         <td> 67 </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <td> LateralStepDev </td> -->
-    <!--         <td> 0.21 </td> -->
-    <!--         <td> &gt; 500 </td> -->
-    <!--         <td> 51 </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <td> SPcmp </td> -->
-    <!--         <td> 0.25 </td> -->
-    <!--         <td> 72 </td> -->
-    <!--         <td> 39 </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <td> CoRoM SD </td> -->
-    <!--         <td> 0.04 </td> -->
-    <!--         <td> &gt; 500 </td> -->
-    <!--         <td> – </td> -->
-    <!--       </tr> -->
-    <!--       <tr> -->
-    <!--         <td> ToeOutAng SD </td> -->
-    <!--         <td> 0.09 </td> -->
-    <!--         <td> &gt; 500 </td> -->
-    <!--         <td> – </td> -->
-    <!--       </tr> -->
-    <!--     </table> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Ataxia </h2> -->
-    <!--   <ul> -->
-    <!--     <li> Rare neurodegenerative disease </li> -->
-    <!--     <li> Impairs coordination and movement </li> -->
     <!--   </ul> -->
 
     <!--   <ul> -->
-    <!--     <li> Principal clinical rating scale: <br> -->
-    <!--       Scale for the Assessment and Rating of Ataxia -->
-    <!--       <span class="bold"> (SARA) </span> </li> -->
+    <!--     <li> Rank and combine gait features for: </li> -->
+    <!--     <ul> -->
+    <!--       <li> Sensitivity to longitudinal change </li> -->
+    <!--       <li> Robustness against variance </li> -->
+    <!--     </ul> -->
     <!--   </ul> -->
     <!-- </div> -->
 
-    <!-- <div class="slide numberless"> -->
-    <!--   <h2> SARA </h2> -->
-
-    <!--   <table> -->
-    <!--     <tr> -->
-    <!--       <th> Item </th> -->
-    <!--       <th> Possible responses </th> -->
-    <!--       <!-1- <th> Remarks </th> -1-> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <td> 1) Gait </td> -->
-    <!--       <td> 0 - 8 </td> -->
-    <!--       <!-1- <td rowspan="4"> Integers, where <br> 0 is least severe </td> -1-> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <td> 2) Stance </td> -->
-    <!--       <td> 0 - 6 </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <td> 3) Sitting </td> -->
-    <!--       <td> 0 - 4 </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <td> 4) Speech disturbance </td> -->
-    <!--       <td> 0 - 6 </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <td> 5) Finger chase </td> -->
-    <!--       <td> 0 - 4 </td> -->
-    <!--       <!-1- <td rowspan="4"> Rated twice (l&amp;r), <br> then mean is taken </td> -1-> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <td> 6) Nose-finger test </td> -->
-    <!--       <td> 0 - 4 </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <td> 7) Fast alternating hand movements </td> -->
-    <!--       <td> 0 - 4 </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <td> 8) Heel-shin slide </td> -->
-    <!--       <td> 0 - 4 </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> Total </th> -->
-    <!--       <th> 0 - 40 </th> -->
-    <!--       <!-1- <th> </th> -1-> -->
-    <!--     </tr> -->
-    <!--   </table> -->
-    <!-- </div> -->
-
     <!-- <div class="slide"> -->
-    <!--   <h2> Research question </h2> -->
-    <!--   <div> -->
-    <!--     Is SARA, and its individual items, -->
+    <!--   <h3> Deliverable 3.2 </h3> -->
+    <!--   <div class="row jc-space-between"> -->
     <!--     <ul> -->
-    <!--       <li> A good performing clinical outcome assessment? </li> -->
-    <!--       <li> Applicable across rare and ultra-rare ataxia subpopulations? -->
-    <!--         </li> -->
+    <!--       <li> Develop an mHT system </li> -->
+    <!--       <ul> -->
+    <!--         <li> Based on the top features </li> -->
+    <!--         <li> Custom algorithms </li> -->
+    <!--         <li> Sensors/placements choice </li> -->
+    <!--       </ul> -->
+    <!--       <ul class="hence"> -->
+    <!--         <li> <span class="bold">To be discussed</span> </li> -->
+    <!--       </ul> -->
     <!--     </ul> -->
+
+    <!--     <img -->
+    <!--       class="framed" -->
+    <!--       style="width: 40%" -->
+    <!--       src="images/shoe-sensor-mounting-0-alpha.png" -->
+    <!--       alt="mHT sensor"> -->
     <!--   </div> -->
+
+    <!--   <ul> -->
+    <!--     <li> Prospective study (n≈10) to validate </li> -->
+    <!--     <ul> -->
+    <!--       <li> Candidate outcome measures </li> -->
+    <!--       <li> Using the developed system </li> -->
+    <!--     </ul> -->
+    <!--   </ul> -->
     <!-- </div> -->
 
     <!-- <div class="slide"> -->
-    <!--   <h2> Graded response model (IRT) </h2> -->
-    <!--   <div> -->
-    <!--     \[ P\left( Y_{ij} \ge k \mid \Psi_i \right) = -->
-    <!--       \mathrm{logit}^{-1}\left( a_j \left( \Psi_i - b_{jk} \right) \right) -->
-    <!--     \] -->
-    <!--   </div> -->
-    <!--   <table class="small"> -->
-    <!--     <tr> -->
-    <!--       <th>\(i\)</th> -->
-    <!--       <td> Number of participant </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th>\(j\)</th> -->
-    <!--       <td> Number of SARA item </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th>\(k\)</th> -->
-    <!--       <td> A score for an item </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th>\(Y_{ij}\)</th> -->
-    <!--       <td> Observed score for participant \(i\) and item \(j\) </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th>\(\Psi_i\)</th> -->
-    <!--       <td> Latent disease severity for participant \(i\), with -->
-    <!--         \(\Psi_i \sim \mathcal{N}\left( 0, 1 \right)\) assumed </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th>\(a_j\)</th> -->
-    <!--       <td> Discrimination parameter of item \(j\), to be estimated </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th>\(b_{jk}\)</th> -->
-    <!--       <td> "Difficulty" parameter of score \(k\) of item \(j\), to be -->
-    <!--         estimated </td> -->
-    <!--     </tr> -->
-    <!--   </table> -->
-    <!--   <div> -->
-    <!--     \[ P\left( Y_{ij} = k \mid \Psi_i \right) = -->
-    <!--       P\left( Y_{ij} \ge k \right) - P\left( Y_{ij} \ge k + 1 \right) \] -->
-    <!--   </div> -->
+    <!--   <h3> Deliverable 3.3 </h3> -->
+    <!--   <ul> -->
+    <!--     <li> Narrow down to single-subject level </li> -->
+    <!--     <li> Using n=1 statistics and machine learning </li> -->
+    <!--   </ul> -->
     <!-- </div> -->
 
+    <div class="slide section inverse">
+      <h2> Gait feature extraction </h2>
+    </div>
+
+    <div class="slide">
+      <h3> Inertial measurement units </h3>
+
+      <div class="row ai-start">
+        <ul>
+          <li> Can be attached to various body parts </li>
+          <li> Measure movement </li>
+          <ul>
+            <li> Accelerometer </li>
+            <li> Gyroscope </li>
+            <li class="dim"> (Magnetometer, Barometer, …) </li>
+          </ul>
+        </ul>
+
+
+        <img
+          style="width: 30%"
+          class="framed"
+          src="images/shoe-sensor-mounting-0-alpha.png"
+          alt="Shoe sensor mounting" />
+      </div>
+
+      <hr>
+
+      <div class="col">
+        <p> IMU hardware suppliers: </p>
+        <table>
+          <tr>
+            <td class="cjust">
+              <img
+                style="height: .9em"
+                src="images/logo-mht-alpha.png"
+                alt="mHealth Technologies logo" />
+            </td>
+            <td>
+              mHealth Technologies
+            </td>
+          </tr>
+          <tr>
+            <td class="cjust">
+              <img
+                style="height: .9em"
+                src="images/logo-apdm.png"
+                alt="APDM logo" />
+            </td>
+            <td>
+              APDM
+            </td>
+          </tr>
+          <tr>
+            <td class="cjust">
+              <img
+                style="height: .9em"
+                src="images/icon-smartphone-landscape.svg"
+                alt="Generic smartphone icon" />
+            </td>
+            <td>
+              Any smartphone can be used as IMU
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Sensor configurations </h3>
+
+      <div class="row">
+        <div class="col">
+          <img
+            src="images/apdm-whitepaper-sensor-configuration-lower-back-and-feet.svg"
+            alt="Sensor configuration: Lower back and feet"
+            onerror="this.replaceWith(HtmlSlides.Substitions.
+              makeMobilityLabWhitepaperFigureSubstitution(
+                'Sensor configuration: Lower back and feet', 12))" />
+          <p class="dim"> Lower back and feet </p>
+        </div>
+        <div class="col">
+          <img
+            src="images/apdm-whitepaper-sensor-configuration-lower-back.svg"
+            alt="Sensor configuration: Lower back"
+            onerror="this.replaceWith(HtmlSlides.Substitions.
+              makeMobilityLabWhitepaperFigureSubstitution(
+                'Sensor configuration: Lower back', 12))" />
+          <p class="dim"> Lower back only </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide image-fill headless">
+      <h3> 3D IMU trajectory plot </h3>
+
+      <div id="trajectory-plot-0"> </div>
+    </div>
+
+    <div class="slide image-fill headless no-number">
+      <h3> Gait cycle analysis </h3>
+
+      <img
+        src="images/apdm-whitepaper-gait-cycle-analysis.png"
+        alt="Gait cycle analysis"
+        onerror="this.replaceWith(HtmlSlides.Substitions.
+          makeMobilityLabWhitepaperFigureSubstitution(
+            'Gait cycle analysis', 10))" />
+    </div>
+
+    <div class="slide">
+      <h3> Gait analysis pipelines </h3>
+
+      <table class="cjust">
+        <tr>
+          <th> Software </th>
+          <th> Mobility Lab </th>
+          <th> gaitmap </th>
+          <th> mobgap </th>
+        </tr>
+        <tr>
+          <th> Organization </th>
+          <td>
+            <img
+              style="width: 5em"
+              src="images/logo-apdm.png"
+              alt="APDM logo" />
+          </td>
+          <td>
+            <img
+              style="width: 5em"
+              src="images/logo-gaitmap.svg"
+              alt="gaitmap logo" />
+          </td>
+          <td>
+            <img
+              style="width: 5em"
+              src="images/logo-mobilise-d.svg"
+              alt="Mobilise-D logo" />
+          </td>
+        </tr>
+        <tr>
+          <th> Configuration </th>
+          <td> Feet &amp; trunk </td>
+          <td> Feet only </td>
+          <td> Trunk only </td>
+        </tr>
+        <tr>
+          <th> Open source </th>
+          <td> <span style="color: crimson">✗</span> </td>
+          <td> <span style="color: limegreen">✓</span> </td>
+          <td> <span style="color: limegreen">✓</span> </td>
+        </tr>
+        <tr>
+          <th> Validated<span class="dim">*</span> </th>
+          <td> <span style="color: limegreen">✓</span> </td>
+          <td> <span style="color: crimson">✗</span> </td>
+          <td> <span style="color: limegreen">✓</span> </td>
+        </tr>
+      </table>
+
+      <p class="dim small rjust">
+        *Note: <br>
+        Clinical validation is outcome- and population-specific. <br>
+        Only Mobility Lab has been validated in ataxias.
+      </p>
+    </div>
+
+    <div class="slide">
+      <h3> Gait cycle analysis </h3>
+
+      <img
+        src="images/apdm-whitepaper-full-body-gait-measures-gait-cycle-analysis.svg"
+        alt="Full body gait measures: Gait cycle analysis"
+        onerror="this.replaceWith(HtmlSlides.Substitions.
+          makeMobilityLabWhitepaperFigureSubstitution(
+            'Full body gait measures: Gait cycle analysis', 13))" />
+    </div>
+
+    <div class="slide">
+      <h3> Double support </h3>
+
+      <div class="col">
+        <img
+          src="images/apdm-whitepaper-full-body-gait-measures-double-support.svg"
+          alt="Full body gait measures: Double support"
+          onerror="this.replaceWith(HtmlSlides.Substitions.
+            makeMobilityLabWhitepaperFigureSubstitution(
+              'Full body gait measures: Double support', 13))" />
+        <img
+          src="images/apdm-whitepaper-full-body-gait-measures-terminal-double-support.svg"
+          alt="Full body gait measures: Terminal double support"
+          onerror="this.replaceWith(HtmlSlides.Substitions.
+            makeMobilityLabWhitepaperFigureSubstitution(
+              'Full body gait measures: Terminal double support', 13))" />
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Spatial analysis </h3>
+
+      <img
+        src="images/apdm-whitepaper-full-body-gait-measures-spatial-analysis.svg"
+        alt="Full body gait measures: Spatial analysis"
+        onerror="this.replaceWith(HtmlSlides.Substitions.
+          makeMobilityLabWhitepaperFigureSubstitution(
+            'Full body gait measures: Spatial analysis', 14))" />
+    </div>
+
+    <div class="slide">
+      <h3> Elevation at mid-swing </h3>
+
+      <img
+        src="images/apdm-whitepaper-full-body-gait-measures-elevation-at-midswing.svg"
+        alt="Full body gait measures: Elevation at mid-swing"
+        onerror="this.replaceWith(HtmlSlides.Substitions.
+          makeMobilityLabWhitepaperFigureSubstitution(
+            'Full body gait measures: Elevation at mid-swing', 14))" />
+    </div>
+
+    <div class="slide">
+      <h3> Foot contact angles </h3>
+
+      <img
+        src="images/apdm-whitepaper-full-body-gait-measures-foot-contact-angles.svg"
+        alt="Full body gait measures: Foot contact angles"
+        onerror="this.replaceWith(HtmlSlides.Substitions.
+          makeMobilityLabWhitepaperFigureSubstitution(
+            'Full body gait measures: Foot contact angles', 15))" />
+    </div>
+
+    <div class="slide">
+      <h3> Circumduction </h3>
+
+      <img
+        src="images/apdm-whitepaper-full-body-gait-measures-circumduction.svg"
+        alt="Full body gait measures: Circumduction"
+        onerror="this.replaceWith(HtmlSlides.Substitions.
+          makeMobilityLabWhitepaperFigureSubstitution(
+            'Full body gait measures: Circumduction', 14))" />
+    </div>
+
+    <div class="slide">
+      <h3> Lateral step variability </h3>
+
+      <img
+        src="images/apdm-whitepaper-full-body-gait-measures-lateral-step-variability.svg"
+        alt="Full body gait measures: Lateral step variability"
+        onerror="this.replaceWith(HtmlSlides.Substitions.
+          makeMobilityLabWhitepaperFigureSubstitution(
+            'Full body gait measures: Lateral step variability', 14))" />
+    </div>
+
+    <div class="slide">
+      <h3> Walking bouts </h3>
+
+      <div class="col boxed padded ai-start">
+        <p><span class="bold">Walking bouts</span></p>
+
+        <p>
+          Various possible definitions.
+        </p>
+
+        <p>
+          Here: Sequence of strides not interrupted for longer
+          than two median stride durations.
+        </p>
+      </div>
+
+      <div class="col boxed padded ai-start">
+        <p><span class="bold">Walking segments</span></p>
+
+        <p>
+          Subdivision of walking bouts into more homogeneous segments:
+        </p>
+        <ul>
+          <li> Drop first two and last two strides. </li>
+          <li> Split into as many segments of ≥25 strides as possible. </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Additional features </h3>
+
+      <div class="col smaller">
+        <div class="boxed padded">
+          <span class="bold"> Signal </span>
+          <div class="row">
+            <div class="boxed padded">
+              <span class="bold"> Position </span>
+              <ul>
+                <li> Left foot </li>
+                <li> Right foot </li>
+                <li> Trunk </li>
+              </ul>
+            </div>
+            <p class="bold dim"> × </p>
+            <div class="boxed padded">
+              <span class="bold"> Frame </span>
+              <ul>
+                <li> Sensor </li>
+                <li> Body </li>
+                <li> World </li>
+              </ul>
+            </div>
+            <p class="bold dim"> × </p>
+            <div class="boxed padded">
+              <span class="bold"> Quantity </span>
+              <ul>
+                <li> Acceleration </li>
+                <ul class="hence">
+                  <li> Velocity </li>
+                  <li> Position </li>
+                </ul>
+                <li> Angular velocity </li>
+                <ul class="hence">
+                  <li> Angle </li>
+                </ul>
+                <li class="dim"> (Magnetometer) </li>
+                <li class="dim"> (Barometer) </li>
+              </ul>
+            </div>
+            <p class="bold dim"> × </p>
+            <div class="boxed padded">
+              <span class="bold"> Dimension </span>
+              <ul>
+                <li> <span class="italic">x</span> </li>
+                <li> <span class="italic">y</span> </li>
+                <li> <span class="italic">z</span> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row jc-center ai-start">
+          <div class="col" style="width: auto">
+            <p class="bold dim"> ↓ </p>
+            <div class="boxed padded">
+              <span class="bold"> Window </span>
+              <div class="row">
+                <div class="boxed padded">
+                  <span class="bold"> Reference </span>
+                  <ul>
+                    <li> Left foot </li>
+                    <li> Right foot </li>
+                  </ul>
+                </div>
+                <p class="bold dim"> × </p>
+                <div class="boxed padded">
+                  <span class="bold"> Cycle segment </span>
+                  <ul>
+                    <li> Stride </li>
+                    <li> Swing </li>
+                    <li> Stance </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p class="bold dim"> ↓ </p>
+            <div class="boxed padded">
+              <span class="bold">Feature classes</span>
+              <ul>
+                <li> Stride-to-stride comparisons </li>
+                <li> Discrete transform coefficients </li>
+                <li> … </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col" style="width: auto">
+            <p class="bold dim"> ↓ </p>
+            <div class="boxed padded">
+              <span class="bold"> Window </span>
+              <ul>
+                <li> Walking bout </li>
+                <li> Walking segment </li>
+              </ul>
+            </div>
+            <p class="bold dim"> ↓ </p>
+            <div class="boxed padded">
+              <span class="bold">Feature classes</span>
+              <ul>
+                <li> Complexity measures </li>
+                <li> … </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Stride-to-stride comparisons </h3>
+
+      <ul>
+        <li> TODO </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Discrete transform coefficients </h3>
+
+      <ul>
+        <li> TODO </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Complexity measures </h3>
+
+      <ul>
+        <li> TODO </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Context stratification </h3>
+
+      <ul>
+        <li> TODO </li>
+      </ul>
+
+      TODO: Weather?
+    </div>
+
+    <div class="slide">
+      <h3> Feature transformation </h3>
+
+      TODO
+    </div>
+
+    <div class="slide">
+      <h3> Feature aggregation </h3>
+
+      TODO
+    </div>
+
+    <div class="slide">
+      <h3> Context strata </h3>
+
+      <table class="small">
+        <tr>
+          <th> Keywords </th>
+          <th> Covariate </th>
+          <th> Threshold(s) </th>
+        </tr>
+        <tr>
+          <th> <span class="mono">slow</span> /
+            <span class="mono">fast</span> </th>
+          <td> Gait speed </td>
+          <td> 1.2m/s </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">sporadic</span> /
+            <span class="mono">continuous</span> </th>
+          <td> Number of steps in a 1-minute window </td>
+          <td> 45 </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">straight</span> /
+            <span class="mono">curvy</span> </th>
+          <td> Number of turns in a 1-minute window </td>
+          <td> 1 </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">short</span> /
+            <span class="mono">long</span> </th>
+          <td> Walking bout duration </td>
+          <td> 30s </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="slide image-fill headless">
+      <h3> Gait feature extraction summary figure </h3>
+
+      <!-- TODO: Call it walking segment features? -->
+      <img
+        src="images/gait-feature-extraction.svg"
+        alt="Gait feature extraction" />
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Data </h2>
+    </div>
+
+    <div class="slide">
+      <h3> Dataset </h3>
+
+      <ul>
+        <li> Gait recordings from Tübingen University Hospital </li>
+        <ul>
+          <li> 27 genetic spinocerebellar (pre-)ataxia patients </li>
+          <li> 36 healthy controls </li>
+          <li> Lab-based &amp; real-life </li>
+          <li> Yearly follow-ups over several years </li>
+        </ul>
+      </ul>
+
+      <ul>
+        <li> Patients further categorized into: </li>
+        <ul>
+          <li> 6 pre-symptomatic (SARA 2 ± 1) </li>
+          <li> 21 symptomatic (SARA 10 ± 3) </li>
+        </ul>
+      </ul>
+
+      <ul>
+        <li> In total: </li>
+        <ul>
+          <li> ~200 visits </li>
+          <li> ~20000 walking segments </li>
+          <li> ~570,000 gait cycles </li>
+        </ul>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Other potential datasets </h3>
+
+      <ul>
+        <li> PROSPAX </li>
+        <ul>
+          <li> Lab-based movement recordings only </li>
+          <li> ≥25 spastic ataxia patients </li>
+          <li> ≥50 healthy controls </li>
+        </ul>
+      </ul>
+
+      <ul>
+        <li> Planned prospective study </li>
+        <ul>
+          <li> ≥10 ataxia (SCA or AT) patients </li>
+        </ul>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Outcomes </h3>
+
+      <ul>
+        <li> Clinician- / patient-rated scores (per visit) </li>
+        <ul>
+          <li> SARA </li>
+          <li> ABC </li>
+          <li> Others, but incomplete (SPRS, INAS, PGI, ADL) </li>
+        </ul>
+      </ul>
+
+      <ul>
+        <li> Digital motor outcomes </li>
+        <ul>
+          <li> Core temporal and spatial gait measures </li>
+          <li> Additional gait features </li>
+          <ul>
+            <li> (Discrete transform coefficients, …) </li>
+          </ul>
+          <li> Transformations, aggregations, and (per-visit) context
+            stratifications of the above </li>
+        </ul>
+        <ul class="hence">
+          <li> Large space of combinations, small fraction suitable </li>
+        </ul>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Further covariates </h3>
+
+      <ul>
+        <li> Demographics (age, gender) </li>
+        <li> Diagnosis / gene affected </li>
+        <li> Anthropometrics at first visit (weight, height, handedness, …) </li>
+        <li> Estimated age of disease onset (only 19 of 27 patients) </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> SARA score </h3>
+
+      <div class="col ai-center">
+        <div>
+          &ldquo;Scale for the assessment and rating of ataxia&rdquo;
+        </div>
+
+        <table class="small">
+          <tr>
+            <th> Item </th>
+            <th> Possible responses </th>
+            <!-- <th> Remarks </th> -->
+          </tr>
+          <tr>
+            <td> 1) Gait </td>
+            <td> 0 - 8 </td>
+            <!-- <td rowspan="4"> Integers, where <br> 0 is least severe </td> -->
+          </tr>
+          <tr>
+            <td> 2) Stance </td>
+            <td> 0 - 6 </td>
+          </tr>
+          <tr>
+            <td> 3) Sitting </td>
+            <td> 0 - 4 </td>
+          </tr>
+          <tr>
+            <td> 4) Speech disturbance </td>
+            <td> 0 - 6 </td>
+          </tr>
+          <tr>
+            <td> 5) Finger chase </td>
+            <td> 0 - 4 </td>
+            <!-- <td rowspan="4"> Rated twice (l&amp;r), <br> then mean is taken </td> -->
+          </tr>
+          <tr>
+            <td> 6) Nose-finger test </td>
+            <td> 0 - 4 </td>
+          </tr>
+          <tr>
+            <td> 7) Fast alternating hand movements </td>
+            <td> 0 - 4 </td>
+          </tr>
+          <tr>
+            <td> 8) Heel-shin slide </td>
+            <td> 0 - 4 </td>
+          </tr>
+          <tr>
+            <th> Total </th>
+            <th> 0 - 40 </th>
+            <!-- <th> </th> -->
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> ABC score </h3>
+      
+      TODO
+    </div>
+
+    <div class="slide">
+      <h3> Disease onset estimates </h3>
+
+      <div class="col ai-center no-gap">
+        <img
+          style="
+            --fade: 5em;
+            -webkit-mask-image: linear-gradient(
+              to bottom, #000 0 calc(100% - var(--fade)), transparent
+            );
+            mask-image: linear-gradient(
+              to bottom, #000 0 calc(100% - var(--fade)), transparent
+            );"
+          src="images/2014-tezenas-du-montcel-supplementary-data-table-2-a-head.svg"
+          alt="Tezenas du Montcel et al. 2014 Table 2A" />
+        <p class="small dim"> Tezenas du Montcel et al. 2014 </p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Data: Per-visit level </h3>
+      <img
+        src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-sara-sim-1-ps.svg"
+        alt="Raw data, lateral step deviation, preferred speed task">
+    </div>
+
+    <div class="slide">
+      <h3> Data: Per-visit level </h3>
+      <img
+        src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-abc41-ps.svg"
+        alt="Raw data, lateral step deviation, preferred speed task">
+    </div>
+
+    <div class="slide">
+      <h3> Data: Per-visit level </h3>
+      <img
+        src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-lateral-step-deviation-apdm-abs-normed-μ-μ-all-μ-ps.svg"
+        alt="Raw data, lateral step deviation, preferred speed task">
+    </div>
+
+    <div class="slide">
+      <h3> Qualitative characteristics </h3>
+
+      <ul>
+        <li> Generally constant over time in the absence of disease </li>
+        <ul>
+          <li> Effect of age, if present, is small </li>
+        </ul>
+        <li> Roughly linear rise at disease onset </li>
+        <li> Theoretical saturation not/barely represented in the dataset </li>
+        <ul>
+          <li> Clinical scales bounds not reached </li>
+          <li> DMOs said to saturate around SARA 12-15 </li>
+        </ul>
+      </ul>
+
+      <div>
+        Data are potentially &ldquo;ill-behaved&rdquo; in several ways:
+        <ul>
+          <li> Selection/attrition bias </li>
+          <li> Disease onset estimation error (and missingness) </li>
+          <li> Depending on model, residuals might be: </li>
+          <ul>
+            <li> Heteroskedastic </li>
+            <li> Non-normal </li>
+            <li> Serially correlated </li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Data: Per-walking-segment level </h3>
+
+      TODO
+    </div>
+
+    <div class="slide">
+      <h3> Simulating outcome data </h3>
+
+      TODO
+    </div>
+
+    <div class="slide">
+      <h3> Simulating outcome data </h3>
+
+      <img
+        src="images/simulated-data-example.pdf.svg"
+        alt="Simulated data example" />
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Traditional trial design </h2>
+    </div>
+
+    <div class="slide">
+      <h3> Cross-sectional testing </h3>
+
+      <div class="row no-gap ai-start">
+        <div class="col no-gap jc-start">
+          <img
+            src="images/cross-sectional-box-plot-hc-vs-by-sara-sara-sim-1-ps.svg"
+            alt="Cross-sectional box plot: SARA (with simulated controls data)" />
+          <img
+            src="images/cross-sectional-box-plot-hc-vs-by-sara-abc41-ps.svg"
+            alt="Cross-sectional box plot: ABC41" />
+          <img
+            style="height: 3em"
+            src="images/cross-sectional-box-plot-legend-hc-vs-by-sara.svg"
+            alt="Cross-sectional box plot: lateral step deviation" />
+        </div>
+        <div class="col no-gap jc-start">
+          <img
+            src="images/cross-sectional-box-plot-hc-vs-by-sara-stride-length-apdm-μ-cv-all-μ-ps.svg"
+            alt="Cross-sectional box plot: stride length CV" />
+          <img
+            src="images/cross-sectional-box-plot-hc-vs-by-sara-stride-length-apdm-d2-abs-μ-μ-all-μ-ps.svg"
+            alt="Cross-sectional box plot: stride length d2" />
+          <div class="col dim" style="height: 3em">
+            <p> (lab based) </p>
+          </div>
+        </div>
+        <div class="col no-gap jc-start">
+          <img
+            src="images/cross-sectional-box-plot-hc-vs-by-sara-stride-length-apdm-μ-cv-all-μ-dw.svg"
+            alt="Cross-sectional box plot: stride length CV" />
+          <img
+            src="images/cross-sectional-box-plot-hc-vs-by-sara-coeff-swings-sensor-acc-dft-z-3-angle-abs-d3-abs-μ-σ-curvy-short-μ-dw.svg"
+            alt="Cross-sectional box plot: stride length d2" />
+          <div class="col dim" style="height: 3em">
+            <p> (real life) </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3 style="font-size: 1.5em"> Longitudinal paired-samples testing </h3>
+
+      <div class="col ai-center">
+        <img
+          src="images/2025-seemann-figure-2-a.png"
+          alt="Seemann et al. 2025 Figure 2A" />
+        <p class="small dim"> Seemann et al. 2025 </p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3 style="font-size: 1.5em"> Longitudinal paired-samples testing </h3>
+
+      <div class="col ai-center">
+        <img
+          src="images/2025-seemann-figure-2-b.png"
+          alt="Seemann et al. 2025 Figure 2B">
+        <p class="small dim"> Seemann et al. 2025 </p>
+      </div>
+    </div>
+
+    <div class="slide image-fill headless no-number">
+      <h3> Longitudinal paired-samples testing </h3>
+
+      <img
+        src="images/longitudinal-delta-plot-sara-ps-pre-sym.svg"
+        alt="Longitudinal delta plot, lateral step deviation, preferred speed task">
+    </div>
+
+    <div class="slide image-fill headless no-number">
+      <h3> Longitudinal paired-samples testing </h3>
+
+      <img
+        src="images/longitudinal-delta-plot-stride-length-apdm-d2-abs-μ-μ-all-μ-ps-pre-sym.svg"
+        alt="Longitudinal delta plot, lateral step deviation, preferred speed task">
+    </div>
+
+    <div class="slide image-fill headless no-number">
+      <h3> Longitudinal paired-samples testing </h3>
+
+      <img
+        src="images/longitudinal-delta-plot-stride-length-apdm-d2-abs-μ-μ-all-μ-ps-hc.svg"
+        alt="Longitudinal delta plot, lateral step deviation, preferred speed task">
+    </div>
+
+    <div class="slide image-fill headless no-number">
+      <h3> Longitudinal paired-samples testing </h3>
+
+      <img
+        src="images/longitudinal-delta-plot-lateral-step-deviation-apdm-abs-normed-μ-μ-all-μ-ps-pre-sym.svg"
+        alt="Longitudinal delta plot, lateral step deviation, preferred speed task">
+    </div>
+
+    <div class="slide">
+      <h3> Pooled sample size estimates </h3>
+
+      <ul>
+        ESSs are unstable under varying:
+        <ul>
+          <li> Year pair selection criteria </li>
+          <li> Time between baseline and follow-up year </li>
+        </ul>
+      </ul>
+
+      <ul class="hence">
+        <li> Pool 1-, 2-, and 3-year effect sizes </li>
+        <ul>
+          <li> With inverse variance weighting </li>
+          <li> Pre-normalize to 1-year by linear interpolation </li>
+          <ul>
+            <li> Assumes outcomes change linearly on average </li>
+          </ul>
+        </ul>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Outcome ranking </h3>
+
+      <table
+          class="mono smallest"
+          style="white-space: pre-wrap">
+        <tr>
+          <th rowspan="2" style="text-align:left">outcome</th>
+          <th rowspan="2" style="text-align:right">ess</th>
+          <th style="text-align:center" colspan="3">rb_lgt</th>
+          <th style="text-align:center" colspan="3">rb_crs</th>
+          <th style="text-align:center" colspan="2">ρ_ΔΔ_2y</th>
+          <th rowspan="2" style="text-align:center">agr</th>
+        </tr>
+        <tr>
+          <th rowspan="1" style="text-align:center">1y</th>
+          <th rowspan="1" style="text-align:center">2y</th>
+          <th rowspan="1" style="text-align:center">3y</th>
+          <th rowspan="1" style="text-align:center">sym</th>
+          <th rowspan="1" style="text-align:center">sara&#60;8</th>
+          <th rowspan="1" style="text-align:center">sara≥8</th>
+          <th rowspan="1" style="text-align:center">sara</th>
+          <th rowspan="1" style="text-align:center">-abc</th>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #195eb3">test_dw_instance_compound_5</span>                                                              </td>
+          <td style="text-align:right">39</td>
+          <td style="text-align:center"><span style="color: #195eb3">.86</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.75</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.96</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.84</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.17</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.77</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.32</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.12</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #e5a509">test_dw_instance_compound_3</span>                                                              </td>
+          <td style="text-align:right">45</td>
+          <td style="text-align:center"><span style="color: #195eb3">.82</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.66</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.93</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.77</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.046</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.7</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.26</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.26</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #25a268">test_dw_instance_compound_2</span>                                                              </td>
+          <td style="text-align:right">55</td>
+          <td style="text-align:center"><span style="color: #195eb3">.77</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.78</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.78</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.17</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.67</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.58</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.21</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #803d9b">coeff_swings_sensor_lumbar_acc_dft_x_3_abs_d3_abs_μ</span>             /<span style="color: #e5a509">γ</span>         /<span style="color: #33d079">short</span>      /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">63</td>
+          <td style="text-align:center"><span style="color: #e5a509">-.67</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.82</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.54</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.33</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.46</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.056</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.27</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.21</span></td>
+          <td style="text-align:center">.71</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #a51c2c">test_dw_instance_compound_4</span>                                                              </td>
+          <td style="text-align:right">66</td>
+          <td style="text-align:center"><span style="color: #195eb3">.79</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.36</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.78</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.64</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.53</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.33</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.2</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #0097a7">agg_adjacent_swings_resampled_sensor_lumbar_acc_x_r_d1_abs_μ</span>    /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">74</td>
+          <td style="text-align:center"><span style="color: #195eb3">.71</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.45</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.76</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.47</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.048</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.72</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.5</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.06</span></td>
+          <td style="text-align:center">.71</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #3583e4">agg_adjacent_swings_resampled_sensor_lumbar_gyr_x_r_abs_d3_abs_μ</span>/<span style="color: #e5a509">γ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">81</td>
+          <td style="text-align:center"><span style="color: #e5a509">-.76</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.58</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.38</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.41</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.18</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.011</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.066</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #f6d22c">agg_adjacent_swings_resampled_sensor_lumbar_acc_x_r_μ</span>           /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">83</td>
+          <td style="text-align:center"><span style="color: #195eb3">.62</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.62</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.67</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.47</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.13</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.72</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.32</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.0055</span></td>
+          <td style="text-align:center">.86</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #33d079">swing_duration_d3_abs_μ</span>                                         /<span style="color: #803d9b">cv</span>        /<span style="color: #bf60ca">all</span>        /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">85</td>
+          <td style="text-align:center"><span style="color: #e5a509">-.77</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.39</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.71</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.31</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.093</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.29</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.21</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.077</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #bf60ca">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_μ</span>       /<span style="color: #25a268">σ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">86</td>
+          <td style="text-align:center"><span style="color: #195eb3">.68</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.46</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.54</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.47</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.19</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.52</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.036</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.2</span></td>
+          <td style="text-align:center">.86</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #ed333b">coeff_swings_sensor_acc_dft_z_2_real_μ</span>                          /<span style="color: #a51c2c">μ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">86</td>
+          <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.6</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.45</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.14</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.59</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.19</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.18</span></td>
+          <td style="text-align:center">.86</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #26c6da">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_d1_abs_μ</span>/<span style="color: #25a268">σ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">88</td>
+          <td style="text-align:center"><span style="color: #195eb3">.72</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.4</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.41</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.51</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.3</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.49</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.062</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.32</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #195eb3">shannon_entropy_3_walking_segments_sensor_feet_gyr_z</span>            /<span style="color: #0097a7">curvy_long</span>/<span style="color: #a51c2c">μ</span>            </td>
+          <td style="text-align:right">88</td>
+          <td style="text-align:center"><span style="color: #e5a509">-.59</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.64</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.45</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.49</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.22</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.34</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.016</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #e5a509">agg_adjacent_swings_resampled_sensor_lumbar_acc_x_r_abs_μ</span>       /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">88</td>
+          <td style="text-align:center"><span style="color: #195eb3">.58</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.66</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.46</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.11</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.74</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.3</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.21</span></td>
+          <td style="text-align:center">.86</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #25a268">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_abs_d3_abs_μ</span>/<span style="color: #25a268">σ</span>         /<span style="color: #f6d22c">long</span>       /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">89</td>
+          <td style="text-align:center"><span style="color: #195eb3">.71</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.42</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.38</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.48</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.31</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.47</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.11</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.093</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #803d9b">coeff_swings_sensor_acc_dft_x_1_real_abs_μ</span>                      /<span style="color: #803d9b">cv</span>        /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">89</td>
+          <td style="text-align:center"><span style="color: #195eb3">.57</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.81</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.44</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.029</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.49</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.0013</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.19</span></td>
+          <td style="text-align:center">.86</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #a51c2c">agg_adjacent_swings_resampled_sensor_lumbar_gyr_z_r_μ</span>           /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">89</td>
+          <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.68</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.44</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.12</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.77</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.31</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.26</span></td>
+          <td style="text-align:center">.86</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #0097a7">coeff_swings_sensor_acc_dft_x_3_angle_d1_abs_μ</span>                  /<span style="color: #25a268">σ</span>         /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">90</td>
+          <td style="text-align:center"><span style="color: #195eb3">.52</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.84</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.52</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.34</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.033</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.41</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.14</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.027</span></td>
+          <td style="text-align:center">.71</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #3583e4">stance_apdm_d2_abs_μ</span>                                            /<span style="color: #e5a509">γ</span>         /<span style="color: #33d079">short</span>      /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">90</td>
+          <td style="text-align:center"><span style="color: #e5a509">-.78</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.64</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.74</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.4</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.33</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.033</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.16</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #f6d22c">swing_apdm_d2_abs_μ</span>                                             /<span style="color: #e5a509">γ</span>         /<span style="color: #33d079">short</span>      /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">90</td>
+          <td style="text-align:center"><span style="color: #e5a509">-.78</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.64</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.74</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.4</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.33</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.033</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.16</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #33d079">maximum_pitch_apdm_d1_abs_μ</span>                                     /<span style="color: #e5a509">γ</span>         /<span style="color: #33d079">short</span>      /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">90</td>
+          <td style="text-align:center"><span style="color: #e5a509">-.93</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.39</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.63</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.3</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.35</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.033</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.4</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.011</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #bf60ca">stance_duration_μ</span>                                               /<span style="color: #803d9b">cv</span>        /<span style="color: #0097a7">curvy_long</span> /<span style="color: #a51c2c">μ</span></td>
+          <td style="text-align:right">90</td>
+          <td style="text-align:center"><span style="color: #195eb3">.65</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.76</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.38</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.63</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.033</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.73</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.25</span></td>
+          <td style="text-align:center"><span style="color: #e5a509">-.43</span></td>
+          <td style="text-align:center">.71</td>
+        </tr>
+        <tr>
+          <td colspan="11" class="cjust">(…)</td>
+        </tr>
+        <tr>
+          <td style="text-align:left"><span style="color: #0097a7">sara_sim_1</span>                                                                                      </td>
+          <td style="text-align:right">103</td>
+          <td style="text-align:center"><span style="color: #195eb3">.53</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.56</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.76</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">1</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.85</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">1</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">1</span></td>
+          <td style="text-align:center"><span style="color: #195eb3">.077</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td colspan="11" class="cjust">(…)</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="slide">
+      <h3> Outcome ranking: Metrics </h3>
+
+      <table class="small">
+        <tr>
+          <th> <span class="mono">ess</span> </th>
+          <td> 1-year estimated sample size (pooled from 1-, 2-, 3-year) </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">rb_lgt</span> </th>
+          <td> Longitudinal effect sizes (Wilcoxon signed-rank rank biserial) </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">rb_crs</span> </th>
+          <td> Cross-sectional effect sizes (Mann-Whitney rank biserial) </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">ρ_ΔΔ_2y</span></th>
+          <td> 2-year change correlation (Spearman) </td>
+        </tr>
+        <tr>
+          <th> <span class="mono">agr</span> </th>
+          <td> Mean agreement in sign of the effects </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="slide">
+      <h3> Outcome ranking: Filtering </h3>
+
+      <div>
+        Require:
+        <ul>
+          <li> A certain ability to discriminate symptomatic patients </li>
+          <li> Longitudinal patient p-values to be (somewhat) significant </li>
+          <li> Longitudinal patient sample size to not be extremely small </li>
+          <li> Longitudinal effects in controls to be non-significant or small
+            </li>
+          <li> A certain level of agreement between effect signs </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Outcome trajectory modeling </h2>
+    </div>
+
+    <div class="slide">
+      <h3> Linear model </h3>
+
+      <div class="row">
+        <img
+          width="45%"
+          src="images/softplus_onset.pdf.svg"
+          alt="BOn" />
+        <img
+          width="45%"
+          src="images/softplus_saturation.pdf.svg"
+          alt="BSat" />
+      </div>
+
+      <p class="small"> \[
+        y_{ij} = \beta_1\mathrm{BOn}_{ij} + \beta_2\mathrm{BSat}_{ij} +
+          \beta_3\mathrm{BOn}_{ij}\left(\mathrm{EDO}_\mathrm{o}\right)_{i} +
+          \beta_4\mathrm{BOn}_{ij}\mathrm{Gender}_{i} +
+          \beta_4\mathrm{BOn}_{ij}\mathrm{BMI}_{i}
+      \] </p>
+
+      <ul>
+        <li> Fixed-effects panel model (linear model with de-meaning) </li>
+        <li> Done as a course exercise </li>
+        <li> Non-parametric bootstrap &amp; Monte Carlo methods employed </li>
+      </ul>
+    </div>
+
+    <div class="slide image-fill headless">
+      <h3> Fixed-effects panel model predictions </h3>
+
+      <img
+        src="images/predictions-lateral_step_deviation_apdm_abs_normed_μ.μ.all.μ.ps.pdf.svg"
+        alt="Fixed-effects panel model: Lateral step deviation" />
+    </div>
+
+    <div class="slide">
+      <h3> Fit results </h3>
+
+      <table style="font-size: 60%">
+        <tr>
+          <th> Outcome (lab-based) </th>
+          <td> <span class="mono"> gait_speed_apdm_μ/μ/all/μ </span> </td>
+          <td> <span class="mono"> stride_length_apdm_μ/cv/all/μ </span> </td>
+        </tr>
+        <tr>
+          <th> \(R^2\) </th>
+          <td> 0.60 </td>
+          <td> 0.50 </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BOn}\) (\(p\)) </th>
+          <td> -0.011 (0.92) </td>
+          <td> 0.0083 (0.32) </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BSat}\) (\(p\))</th>
+          <td> -0.22 (2.2e-07) </td>
+          <td> 0.012 (0.00035) </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BOn} \times \mathrm{Gender}\) (\(p\))</th>
+          <td> -0.095 (0.00028) </td>
+          <td> 0.0044 (0.041) </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BOn} \times \mathrm{BMI}\) (\(p\))</th>
+          <td> -0.0061 (0.10) </td>
+          <td> 6e-04 (0.054) </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BOn} \times \mathrm{EDO_o}\) (\(p\))</th>
+          <td> 0.0043 (0.00013) </td>
+          <td> -0.00053 (5.3e-08) </td>
+        </tr>
+        <tr>
+          <th> ESS </th>
+          <td> 60 </td>
+          <td> 106 </td>
+        </tr>
+        <tr>
+          <th> ESS (Seemann et al. 2025) </th>
+          <td> 66 </td>
+          <td> 67 </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="slide">
+      <h3> Assumption violations </h3>
+
+      <div class="row">
+        <img
+          style="width: 35%"
+          src="images/softplus_onset.bias.n_patients-cropped.svg"
+          alt="Bias of BOn" />
+        <img
+          style="width: 35%"
+          src="images/softplus_saturation.bias.n_patients-cropped.svg"
+          alt="Bias of BSat" />
+        <img
+          style="width: 25%"
+          src="images/fixed-effects-panel-model-assumption-violations-legend.svg"
+          alt="Assumption violations legend" />
+      </div>
+
+      <div>
+        Here:
+        <ul>
+          <li> Simulated data </li>
+          <li> No bootstrapping </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Composite measures </h2>
+    </div>
+
+    <div class="slide">
+      <h3> Factor analysis </h3>
+
+      TODO: Include figure from Coni et al. 2019
+
+      <ul>
+        <li> Pilot test on visit level resulted in subpar composites </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Optimized composite measures </h3>
+
+      <ul>
+        <li> Idea: Formulate the search for the ideal combination of outcomes
+          as an optimization problem. </li>
+        <ul class="hence">
+          <li> E.g. Find linear combination that minimizes some loss. </li>
+          <li> Loss: E.g. Composite change vs. disease time change. </li>
+        </ul>
+      </ul>
+
+      <hr>
+
+      \[
+        \min_\beta \sum_{i, j} \left(
+          \left( t_{i j} - \bar{t}_{i \cdot} \right) \cdot
+            I_{\mathrm{symptomatic}}(i) -
+          \sum_{k} \left( y_{k i j} - \bar{y}_{k i \cdot} \right) \cdot \beta_k
+        \right)^2 + \Omega(\beta)
+      \]
+
+      <div>
+        <p>
+          This is a linear regression (with optional regularizer
+          \(\Omega(\beta)\))
+        </p>
+        <ul>
+          <li> From the de-meaned (and normalized) per-visit outcomes </li>
+          <li> To the de-meaned time since baseline, if symptomatic </li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <ul class="hence">
+        <li> \(\theta = \beta x\) is a generated regressor – likely suboptimal
+          compared to a jointly estimated latent variable model. </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      TODO: Discuss cross-sectional IRT work of Hamdan et al.
+    </div>
+
+    <div class="slide">
+      <h3> Graded response model (IRT) </h3>
+      <div>
+        \[ P\left( Y_{ij} \ge k \mid \Psi_i \right) =
+          \mathrm{logit}^{-1}\left( a_j \left( \Psi_i - b_{jk} \right) \right)
+        \]
+      </div>
+      <table class="small">
+        <tr>
+          <th>\(i\)</th>
+          <td> Number of participant </td>
+        </tr>
+        <tr>
+          <th>\(j\)</th>
+          <td> Number of SARA item </td>
+        </tr>
+        <tr>
+          <th>\(k\)</th>
+          <td> A score for an item </td>
+        </tr>
+        <tr>
+          <th>\(Y_{ij}\)</th>
+          <td> Observed score for participant \(i\) and item \(j\) </td>
+        </tr>
+        <tr>
+          <th>\(\Psi_i\)</th>
+          <td> Latent disease severity for participant \(i\), with
+            \(\Psi_i \sim \mathcal{N}\left( 0, 1 \right)\) assumed </td>
+        </tr>
+        <tr>
+          <th>\(a_j\)</th>
+          <td> Discrimination parameter of item \(j\), to be estimated </td>
+        </tr>
+        <tr>
+          <th>\(b_{jk}\)</th>
+          <td> "Difficulty" parameter of score \(k\) of item \(j\), to be
+            estimated </td>
+        </tr>
+      </table>
+      <div>
+        \[ P\left( Y_{ij} = k \mid \Psi_i \right) =
+          P\left( Y_{ij} \ge k \right) - P\left( Y_{ij} \ge k + 1 \right) \]
+      </div>
+    </div>
+
     <!-- <div class="slide"> -->
-    <!--   <h2> Graded response model (IRT) </h2> -->
+    <!--   <h3> Graded response model (IRT) </h3> -->
     <!--   <div> -->
     <!--     \[ P\left( Y_{ij} \ge k \mid \Psi_i \right) = -->
     <!--       \mathrm{logit}^{-1}\left( a_j \left( \Psi_i - b_{jk} \right) \right) -->
@@ -602,32 +2012,52 @@
     <!--   </div> -->
     <!-- </div> -->
 
-    <!-- <div class="slide image-fill"> -->
-    <!--   <img -->
-    <!--     src="images/2024-05-hamdan-figure-1.svg" -->
-    <!--     alt="Hamdan et al. 2024 Figure 1"> -->
-    <!-- </div> -->
+    <div class="slide image-fill headless">
+      <h3> Item characteristic curves </h3>
 
-    <!-- <div class="slide image-fill"> -->
-    <!--   <img -->
-    <!--     src="images/2024-05-hamdan-figure-3.svg" -->
-    <!--     alt="Hamdan et al. 2024 Figure 3"> -->
-    <!-- </div> -->
+      <img
+        src="images/2024-05-hamdan-figure-1.svg"
+        alt="Hamdan et al. 2024 Figure 1" />
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        Hamdan et al. 2024 </p>
+    </div>
 
-    <!-- <div class="slide image-fill"> -->
-    <!--   <img -->
-    <!--     src="images/2024-05-hamdan-figure-4.svg" -->
-    <!--     alt="Hamdan et al. 2024 Figure 4"> -->
-    <!-- </div> -->
+    <div class="slide image-fill headless">
+      <h3> Visual predictive check </h3>
 
-    <!-- <div class="slide image-fill numberless"> -->
-    <!--   <img -->
-    <!--     src="images/2024-05-hamdan-figure-5.svg" -->
-    <!--     alt="Hamdan et al. 2024 Figure 5"> -->
-    <!-- </div> -->
+      <img
+        src="images/2024-05-hamdan-figure-3.svg"
+        alt="Hamdan et al. 2024 Figure 3">
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        Hamdan et al. 2024 </p>
+    </div>
+
+    <div class="slide image-fill headless">
+      <h3> Fisher information </h3>
+
+      <img
+        src="images/2024-05-hamdan-figure-4.svg"
+        alt="Hamdan et al. 2024 Figure 4">
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        Hamdan et al. 2024 </p>
+    </div>
+
+    <div class="slide image-fill headless no-number">
+      <h3> Subpopulation analysis </h3>
+
+      <img
+        src="images/2024-05-hamdan-figure-5.svg"
+        alt="Hamdan et al. 2024 Figure 5">
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        Hamdan et al. 2024 </p>
+    </div>
 
     <!-- <div class="slide"> -->
-    <!--   <h2> Limitations </h2> -->
+    <!--   <h3> Limitations </h3> -->
 
     <!--   <div> -->
     <!--     <ul> -->
@@ -662,129 +2092,92 @@
     <!--   </div> -->
     <!-- </div> -->
 
-    <!-- <div class="slide"> -->
-    <!--   <h2> My background </h2> -->
-    <!--   <div class="row"> -->
-    <!--     <img -->
-    <!--       style="width: 40%" -->
-    <!--       class="framed" -->
-    <!--       src="images/tuebingen-location.jpg" -->
-    <!--       alt="Tübingen Location" /> -->
-    <!--     <img -->
-    <!--       style="width: 40%" -->
-    <!--       class="framed" -->
-    <!--       src="images/tuebingen-neckarfront.jpg" -->
-    <!--       alt="Tübingen Neckarfront" /> -->
-    <!--   </div> -->
+    <div class="slide section inverse">
+      <h2> Disease progression modeling </h2>
+    </div>
 
-    <!--   <table> -->
-    <!--     <tr> -->
-    <!--       <th> Until 2018 </th> -->
-    <!--       <td> B.Sc. in Computer Science </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> Until 2021 </th> -->
-    <!--       <td> M.Sc. in Computer Science </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> Until 2024 </th> -->
-    <!--       <td> Research Assistant in Cognitive Science </td> -->
-    <!--     </tr> -->
-    <!--   </table> -->
-    <!-- </div> -->
+    <div class="slide">
+      <h3> Latent disease severity model </h3>
 
-    <!-- <div class="slide"> -->
-    <!--   <h2> Medicine Made to Measure </h2> -->
-    <!--   <div class="row"> -->
-    <!--     <div class="col jc-space-evenly ai-start"> -->
-    <!--       <ul> -->
-    <!--         <li> Doctoral network </li> -->
-    <!--         <ul> -->
-    <!--           <li> Funded by the Marie Curie Actions Scheme </li> -->
-    <!--           <li> 10 PhD candidates </li> -->
-    <!--           <li> 22 participating organisations </li> -->
-    <!--         </ul> -->
-    <!--       </ul> -->
-    <!--       <ul> -->
-    <!--         <li> Aim: to develop </li> -->
-    <!--         <ul> -->
-    <!--           <li> ASO (antisense oligonucleotide) treatments </li> -->
-    <!--           <li> Tailored to single patients of nano-rare diseases </li> -->
-    <!--         </ul> -->
-    <!--       </ul> -->
-    <!--     </div> -->
-    <!--     <img -->
-    <!--       style="width: 15%" -->
-    <!--       src="images/logo-mmm.svg" -->
-    <!--       alt="Medicine Made to Measure logo" /> -->
-    <!--   </div> -->
-    <!-- </div> -->
+      <div class="small">
+        \[
+          \theta_{i j} = \begin{cases}
+            h \left(
+                \left( \beta + b_i \right) \left( t_{i j} - \tau_i \right)
+              \right) +
+              u_{i j} &amp;
+            i \in \mathrm{patients} \\
 
-    <!-- <div class="slide numberless image-fill"> -->
-    <!--   <img -->
-    <!--     src="images/mmm-pipeline-alpha.png" -->
-    <!--     alt="MMM Pipeline"> -->
-    <!-- </div> -->
+            0 &amp;
+            i \in \mathrm{controls}
+              \end{cases}
+        \]
+        \[
+        y_{k i j s} = \nu_k +
+          \lambda_k \theta_{i j} +
+          <!-- \sum_\kappa \alpha_{k \kappa} x_{\kappa i j s} + -->
+          \epsilon_{k i j s}
+        \]
+      </div>
 
-    <!-- <div class="slide"> -->
-    <!--   <h2> Supervisors </h2> -->
-    <!--   <div class="col"> -->
-    <!--     <div class="row jc-start ai-start"> -->
-    <!--       <img class="framed profile-photo" style="height: 5em" -->
-    <!--         src="images/profile-photo-sabato-mellone.png" -->
-    <!--         alt="Dr. Sabato Mellone"> -->
-    <!--       <div> -->
-    <!--         <span class="bold"> Dr. Sabato Mellone </span><br> -->
-    <!--         <span class="dim"> University of Bologna </span> -->
-    <!--       </div> -->
-    <!--     </div> -->
-    <!--     <div class="row jc-start ai-start"> -->
-    <!--       <img class="framed profile-photo" style="height: 5em" -->
-    <!--         src="images/profile-photo-matthis-synofzik.jpg" -->
-    <!--         alt="Matthis Synofzik"> -->
-    <!--       <div> -->
-    <!--         <span class="bold"> Prof. Dr. Matthis Synofzik </span><br> -->
-    <!--         <span class="dim"> University of Tübingen </span> -->
-    <!--       </div> -->
-    <!--     </div> -->
-    <!--     <div class="row jc-start ai-start"> -->
-    <!--       <img class="framed profile-photo" style="height: 5em" -->
-    <!--         src="images/profile-photo-mats-karlsson.jpg.webp" -->
-    <!--         alt="Prof. Dr. Mats Karlsson"> -->
-    <!--       <div> -->
-    <!--         <span class="bold"> Prof. Dr. Mats Karlsson </span><br> -->
-    <!--         <span class="dim"> University of Uppsala </span> -->
-    <!--       </div> -->
-    <!--     </div> -->
-    <!--   </div> -->
-    <!-- </div> -->
+      <table class="smaller">
+        <tr>
+          <th> \(t_{i j}\) </th>
+          <td> Time since baseline for subject \(i\) at visit \(j\) </td>
+          <td> Known </td>
+        </tr>
+        <tr>
+          <th> \(\theta_{i j}\) </th>
+          <td> Disease severity </td>
+          <td> Latent </td>
+        </tr>
+        <tr>
+          <th> \(\tau_i\) </th>
+          <td> Disease onset relative to baseline </td>
+          <td> Random effect </td>
+        </tr>
+        <tr>
+          <th> \(\beta + b_i\) </th>
+          <td> Progression rate </td>
+          <td> Fixed effect (population) + random effect </td>
+        </tr>
+        <tr>
+          <th> \(h\) </th>
+          <td> Hinge or sigmoidal function </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <th> \(u_{i j}\) </th>
+          <td> Per-visit severity baseline </td>
+          <td> Random effect </td>
+        </tr>
+        <tr>
+          <th> \(y_{k i j s}\) </th>
+          <td> Outcome \(k\) in walking segment \(s\) </td>
+          <td> Known </td>
+        </tr>
+        <tr>
+          <th> \(\mu_k, \lambda_k\) </th>
+          <td> Per-outcome intercept and slope (factor loading) </td>
+          <td> Fixed effects </td>
+        </tr>
+        <tr>
+          <th> \(\epsilon_{k i j s}\) </th>
+          <td> Residual error </td>
+          <td> </td>
+        </tr>
+     </table>
+
+     <ul class="small">
+      <li> Genetics-based disease onset estimates as priors? </li>
+      <li> Pre-symptomatic patients? (censoring?) </li>
+      <li> Outcomes not linear in \(\theta\)? </li>
+      <li> Context covariates? (let them affect variance of \(\epsilon\)?) </li>
+     </ul>
+    </div>
 
     <!-- <div class="slide"> -->
-    <!--   <h2> Co-supervisors </h2> -->
-    <!--   <div class="col"> -->
-    <!--     <div class="row jc-start ai-start"> -->
-    <!--       <img class="framed profile-photo" style="height: 5em" -->
-    <!--         src="images/profile-photo-carlo-tacconi.jpeg" -->
-    <!--         alt="Carlo Tacconi"> -->
-    <!--       <div> -->
-    <!--         <span class="bold"> Carlo Tacconi </span><br> -->
-    <!--         <span class="dim"> mHealth Technologies s.r.l., Bologna </span> -->
-    <!--       </div> -->
-    <!--     </div> -->
-    <!--     <div class="row jc-start ai-start"> -->
-    <!--       <img class="framed profile-photo" style="height: 5em" -->
-    <!--         src="images/profile-photo-lorenzo-chiari.png" -->
-    <!--         alt="Prof. Dr. Lorenzo Chiari"> -->
-    <!--       <div> -->
-    <!--         <span class="bold"> Prof. Dr. Lorenzo Chiari </span><br> -->
-    <!--         <span class="dim"> University of Bologna </span> -->
-    <!--       </div> -->
-    <!--     </div> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> PhD Objective </h2> -->
+    <!--   <h3> PhD Objective </h3> -->
     <!--   <div class="row"> -->
     <!--     <img -->
     <!--       class="framed" -->
@@ -800,48 +2193,7 @@
     <!-- </div> -->
 
     <!-- <div class="slide"> -->
-    <!--   <h2> Spinocerebellar Ataxia (SCA) </h2> -->
-
-    <!--   <ul> -->
-    <!--     <li> Inherited neurodegenerative disease </li> -->
-    <!--     <li> Affects the cerebellum and spinal cord </li> -->
-    <!--     <!-1- <li> Impairs coordination and movement </li> -1-> -->
-    <!--     <!-1- <li> &gt;40 identified subtypes </li> -1-> -->
-    <!--     <li> Rare disease: &le;5 people per 100,000 </li> -->
-    <!--   </ul> -->
-
-    <!--   <hr/> -->
-
-    <!--   <div class="row ai-center jc-space-between"> -->
-    <!--     <div class="col ai-start jc-space-between" style="width: 30%"> -->
-    <!--       <ul><li> Increased gait variability </li></ul> -->
-    <!--       <ul><li> Widened base of support </li></ul> -->
-    <!--       <ul><li> Impaired foot placement </li></ul> -->
-    <!--       <ul><li> Loss of trunk control </li></ul> -->
-    <!--     </div> -->
-
-    <!--     <div -->
-    <!--         class="framed ai-center jc-center" -->
-    <!--         style="width: 66vh; height: 50vh; display: flex"> -->
-    <!--       <iframe -->
-    <!--         width="100%" -->
-    <!--         height="100%" -->
-    <!--         src="https://www.youtube-nocookie.com/embed/dnOWLDcUvCU?si=EdckKcqtK18xlJAD&amp;mute=1&amp;controls=0" -->
-    <!--         title="Ataxic gait video" -->
-    <!--         frameborder="0" -->
-    <!--         referrerpolicy="strict-origin-when-cross-origin"> -->
-    <!--       </iframe> -->
-    <!--     </div> -->
-    <!--   </div> -->
-
-    <!-- </div> -->
-
-    <!-- <div class="slide image-fill"> -->
-    <!--   <div id="trajectory-plot-0"> </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Gait features </h2> -->
+    <!--   <h3> Gait features </h3> -->
 
     <!--   <img -->
     <!--     src="images/diagram-lateral-step-deviation-alpha.png" -->
@@ -854,529 +2206,16 @@
     <!--   </ul> -->
     <!-- </div> -->
 
-    <!-- <div class="slide"> -->
-    <!--   <h2> Available data </h2> -->
-
-    <!--   <ul> -->
-    <!--     <li> <span class="bold"> Main dataset: </span> -->
-    <!--       gait recordings from Tübingen </li> -->
-    <!--     <ul> -->
-    <!--       <li> 27 spinocerebellar (pre-)ataxia patients </li> -->
-    <!--       <li> 36 healthy controls </li> -->
-    <!--       <li> Lab-based &amp; real-life </li> -->
-    <!--       <li> Yearly follow-ups over several years </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-
-    <!--   <hr/> -->
-
-    <!--   <ul> -->
-    <!--     <li> Existing lab-based movement recordings (PROSPAX) </li> -->
-    <!--     <ul> -->
-    <!--       <li> ≥25 spastic ataxia patients </li> -->
-    <!--       <li> ≥50 healthy controls </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-
-    <!--   <ul> -->
-    <!--     <li> Planned prospective study </li> -->
-    <!--     <ul> -->
-    <!--       <li> ≥10 ataxia (SCA or AT) patients </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide numberless image-fill"> -->
-    <!--   <div class="row ai-center jc-center"> -->
-    <!--     <div -->
-    <!--         class="col ai-end jc-space-around no-gap" -->
-    <!--         style="width: 45%; height: 100%"> -->
-    <!--       <img -->
-    <!--         height="30%" -->
-    <!--         src="images/sara_pg_lateral_step_deviation_abs_normed_μ_μ_ps.svg" -->
-    <!--         alt="Cross-sectional box plot"> -->
-    <!--       <img -->
-    <!--         height="30%" -->
-    <!--         src="images/sara_pg_stride_length_cv_μ_ps.svg" -->
-    <!--         alt="Cross-sectional box plot"> -->
-    <!--       <img -->
-    <!--         height="30%" -->
-    <!--         src="images/sara_pg_toe_out_angle_σ_μ_ps.svg" -->
-    <!--         alt="Cross-sectional box plot"> -->
-    <!--     </div> -->
-
-    <!--     <div -->
-    <!--         class="col ai-start jc-space-around no-gap" -->
-    <!--         style="width: 45%; height: 100%"> -->
-    <!--       <img -->
-    <!--         height="30%" -->
-    <!--         src="images/sara_pg_lateral_step_deviation_abs_normed_μ_μ_dw.svg" -->
-    <!--         alt="Cross-sectional box plot"> -->
-    <!--       <img -->
-    <!--         height="30%" -->
-    <!--         src="images/sara_pg_stride_length_cv_μ_dw.svg" -->
-    <!--         alt="Cross-sectional box plot"> -->
-    <!--       <img -->
-    <!--         height="30%" -->
-    <!--         src="images/sara_pg_toe_out_angle_σ_μ_dw.svg" -->
-    <!--         alt="Cross-sectional box plot"> -->
-    <!--     </div> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide numberless image-fill"> -->
-    <!--   <img -->
-    <!--     src="images/Δ_edo_o_lateral_step_deviation_abs_normed_μ_μ_ps.svg" -->
-    <!--     alt="Trajectory Plot"> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide numberless image-fill"> -->
-    <!--   <img -->
-    <!--     src="images/pitch_at_initial_contact_μ_μ_ps.svg" -->
-    <!--     alt="Longitudinal Delta Plot"> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide section inverse"> -->
-    <!--   <h2> Discussion </h2> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Composite features </h2> -->
-
-    <!--   <ul> -->
-    <!--     <li> <span class="bold"> Plan: </span> -->
-    <!--       Find the optimal combination of features </li> -->
-    <!--     <li> That fits the expected longitudinal delta the closest </li> -->
-    <!--     <ul> -->
-    <!--       <li> (controls: 0/year, patients: 1/year) </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-    <!--   <ol> -->
-    <!--     <li> Reduce feature space (e.g. factor analysis) </li> -->
-    <!--     <li> Least-squares / SVM / k-NN / … </li> -->
-    <!--   </ol> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Latent variable models </h2> -->
-
-    <!--   <ul> -->
-    <!--     <li> <span class="bold"> Plan: </span> -->
-    <!--       Model the disease progression as a latent variable </li> -->
-    <!--     <li> Model predictions can serve as a test for treatment effect </li> -->
-    <!--   </ul> -->
-
-    <!--   <div> -->
-    <!--     Candidate methods: -->
-    <!--     <ul> -->
-    <!--       <li> Longitudinal Item Response Theory </li> -->
-    <!--       <li> Hierarchical Bayesian Time-Series Models </li> -->
-    <!--     </ul> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Context sensitivity </h2> -->
-
-    <!--   <div class="col ai-start"> -->
-    <!--     <div> <span class="bold"> Plan: </span> -->
-    <!--       Compute context proxies for every walking bout: </div> -->
-    <!--     <ul> -->
-    <!--       <li> Macroscopic characteristics of the walking bout </li> -->
-    <!--       <ul> -->
-    <!--         <li> Gait speed, frequency of turns </li> -->
-    <!--       </ul> -->
-    <!--       <li> Time of day </li> -->
-    <!--       <li> Weather </li> -->
-    <!--       <li> … </li> -->
-    <!--     </ul> -->
-    <!--   </div> -->
-
-    <!--   <div class="col ai-start"> -->
-    <!--     And factor them in: -->
-    <!--     <ul> -->
-    <!--       <li> <span class="bold"> Either: </span> -->
-    <!--         Compute features over strata of context variables </li> -->
-    <!--       <li> <span class="bold"> Or: </span> -->
-    <!--         Model context variables as fixed effects </li> -->
-    <!--     </ul> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Further gait features </h2> -->
-
-    <!--   <div class="col ai-start"> -->
-    <!--     <div> <span class="bold"> Plan: </span> -->
-    <!--       Find further gait features sensitive to ataxia </div> -->
-    <!--     <ul> -->
-    <!--       <li> Polynomial transforms for overall foot trajectory </li> -->
-    <!--       <li> Jerk score </li> -->
-    <!--       <li> …? </li> -->
-    <!--     </ul> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Deliverable 3.1 </h2> -->
-    <!--   <ul> -->
-    <!--     <li> Existing dataset of real-life movement recordings </li> -->
-    <!--     <ul> -->
-    <!--       <li> 27 spinocerebellar (pre-)ataxia patients </li> -->
-    <!--       <li> 36 healthy controls </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-
-    <!--   <ul> -->
-    <!--     <li> Rank and combine gait features for: </li> -->
-    <!--     <ul> -->
-    <!--       <li> Sensitivity to longitudinal change </li> -->
-    <!--       <li> Robustness against variance </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Status of deliverable 3.1 </h2> -->
-    <!--     <div> -->
-    <!--       <span class="bold">Done:</span> -->
-    <!--       <ul> -->
-    <!--         <li> Testing of discriminatory power of gait features </li> -->
-    <!--         <ul> -->
-    <!--           <li> Cross-sectionally (controls vs. patients, patient subgroups) -->
-    <!--             </li> -->
-    <!--           <li> Longitudinally (1- or 2-year follow-ups) </li> -->
-    <!--           <li> In the lab and real-life </li> -->
-    <!--         </ul> -->
-    <!--       </ul> -->
-    <!--     </div> -->
-
-    <!--     <div> -->
-    <!--       <span class="bold">Pending:</span> -->
-    <!--       <ul> -->
-    <!--         <li> Thoroughly "vet" best gait features for reliability </li> -->
-    <!--         <li> Final ranking incl. composite measures </li> -->
-    <!--       </ul> -->
-    <!--     </div> -->
-    <!--   </ul> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Deliverable 3.2 </h2> -->
-    <!--   <div class="row jc-space-between"> -->
-    <!--     <ul> -->
-    <!--       <li> Develop an mHT system </li> -->
-    <!--       <ul> -->
-    <!--         <li> Based on the top features </li> -->
-    <!--         <li> Custom algorithms </li> -->
-    <!--         <li> Sensors/placements choice </li> -->
-    <!--       </ul> -->
-    <!--       <ul class="hence"> -->
-    <!--         <li> <span class="bold">To be discussed</span> </li> -->
-    <!--       </ul> -->
-    <!--     </ul> -->
-
-    <!--     <img -->
-    <!--       class="framed" -->
-    <!--       style="width: 40%" -->
-    <!--       src="images/shoe-sensor-mounting-0-alpha.png" -->
-    <!--       alt="mHT sensor"> -->
-    <!--   </div> -->
-
-    <!--   <ul> -->
-    <!--     <li> Prospective study (n≈10) to validate </li> -->
-    <!--     <ul> -->
-    <!--       <li> Candidate outcome measures </li> -->
-    <!--       <li> Using the developed system </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Deliverable 3.3 </h2> -->
-    <!--   <ul> -->
-    <!--     <li> Narrow down to single-subject level </li> -->
-    <!--     <li> Using n=1 statistics and machine learning </li> -->
-    <!--   </ul> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Secondments </h2> -->
-    <!--   <div class="row ai-start"> -->
-    <!--     <img -->
-    <!--       class="framed" -->
-    <!--       src="images/map-bologna-tuebingen-uppsala.png" -->
-    <!--       alt="Bologna, Tübingen, and Uppsala"> -->
-    <!--     <div class="col jc-space-between ai-start" style="height: 72%"> -->
-    <!--       <ul> -->
-    <!--         <li> Uppsala, Sweden </li> -->
-    <!--         <ul> -->
-    <!--           <li> Nov 2025 - Dec 2025 </li> -->
-    <!--           <ul class="hence"> -->
-    <!--             <li> <span class="bold">Earlier better?</span> </li> -->
-    <!--           </ul> -->
-    <!--         </ul> -->
-    <!--       </ul> -->
-    <!--       <ul> -->
-    <!--         <li> Tübingen, Germany </li> -->
-    <!--         <ul> -->
-    <!--           <li> Sep 2024 - Nov 2024 </li> -->
-    <!--           <li> Three more months in the coming years </li> -->
-    <!--         </ul> -->
-    <!--       </ul> -->
-    <!--     </div> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide numberless image-fill"> -->
-    <!--   <object -->
-    <!--     class="img" -->
-    <!--     type="image/svg+xml" -->
-    <!--     data="images/gantt-chart.svg" -->
-    <!--     width="100%"> -->
-    <!--   </object> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Pertinent training topics </h2> -->
-    <!--   <ul> -->
-    <!--     <li> Inertial measurement unit signal processing </li> -->
-    <!--     <li> n-of-few / n-of-1 statistics </li> -->
-    <!--     <li> Small-data machine learning </li> -->
-    <!--     <li> Mobile application development </li> -->
-    <!--   </ul> -->
-    <!-- </div> -->
-
     <div class="slide section inverse">
       <h2> Thank you! </h2>
 
-      <!-- <div class="smaller ljust"> -->
-      <!--   <span class="bold"> Full reference: </span> <br> -->
-      <!--   Hamdan A, Hooker AC, Chen X, et al. <br> -->
-      <!--   <span class="italic"> Item performance of the scale for the assessment -->
-      <!--     and rating of ataxia in rare and ultra-rare genetic ataxias. </span> -->
-      <!--     <br> -->
-      <!--   CPT Pharmacometrics Syst Pharmacol. 2024;13(8):1327-1340. <br> -->
-      <!--   <a href="https://doi.org/10.1002/psp4.13162">doi:10.1002/psp4.13162</a> -->
-      <!-- </div> -->
+      <div class="smaller ljust"
+          style="position: absolute; top: 2em; right: 2em">
+        <a href="./index.html">Go to index (relative)</a> <br>
+        <a href="https://publik-void.github.io/index.html">
+          Go to index (online)</a>
+      </div>
     </div>
 
-    <!-- Appendix slides, notes… ------------------------------------------- -->
-
-    <!-- <div class="slide numberless image-fill"> -->
-    <!--   <img -->
-    <!--     src="images/longitudinal-delta-plot-stride-length-seemann-cv-ps-pre-sym.svg" -->
-    <!--     alt="Longitudinal Delta Plot"> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide numberless image-fill"> -->
-    <!--   <img -->
-    <!--     src="images/longitudinal-delta-plot-stride-length-apdm-μ-cv-all-μ-ps-pre-sym.svg" -->
-    <!--     alt="Longitudinal Delta Plot"> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide numberless"> -->
-    <!--   <h2> Discussion points </h2> -->
-    <!--   <ol> -->
-    <!--     <li> Reproduced Jens' lab-based analysis </li> -->
-    <!--     <li> Ranking table overview </li> -->
-    <!--     <li> Year selection makes large difference </li> -->
-    <!--     <ul class="hence"> -->
-    <!--       <li> <span class="bold">May - July:</span> -->
-    <!--         Trajectories &amp; n-of-1 (tightly related) </li> -->
-    <!--       <li> <span class="bold">August - October:</span> -->
-    <!--         Uppsala IRT </li> -->
-    <!--       <li> What to consider sufficient prerequisites for the study? </li> -->
-    <!--     </ul> -->
-    <!--     <li> Extended feature set </li> -->
-    <!--     <li> ABC score </li> -->
-    <!--     <ul> -->
-    <!--       <li> Description of 41 items? </li> -->
-    <!--       <li> Clinical overlap with SARA? </li> -->
-    <!--     </ul> -->
-    <!--   </ol> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide numberless"> -->
-    <!--   <h2> Metrics in the ranking tables </h2> -->
-
-    <!--   <table class="small"> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">y1_ess_y1</span>,<br> -->
-    <!--         <span class="mono">y2_ess_y1</span> </th> -->
-    <!--       <td> 1-year est. sample size based on 1- and 2-year comparison -->
-    <!--         </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">pooled_ess</span> </th> -->
-    <!--       <td> 1-year meta-ESS pooled from 1-, 2-, and 3-year comparisons </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">y1±</span>, <span class="mono">y2±</span>, -->
-    <!--         <span class="mono">y3±</span> </th> -->
-    <!--       <td> Sign (<span class="mono">+</span> or <span class="mono">-</span>) -->
-    <!--         of change in the 1-, 2-, and 3-year comparison </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">pooled_ΔΔ_sara_ρ</span>,<br> -->
-    <!--         <span class="mono">pooled_ΔΔ_abc_ρ</span>,<br> -->
-    <!--         <span class="mono">pooled_ΔΔ_inas_ρ</span></th> -->
-    <!--       <td> Spearman correlation of change in SARA, ABC, INAS with -->
-    <!--         change in outcome, pooled from 1-, 2-, and 3-year comparisons </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">y2_ΔΔ_sara_pg_ρ</span> </th> -->
-    <!--       <td> 2-year SARAp&amp;g Spearman correlation </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">hc_&lt;0_r_rb</span>,<br> -->
-    <!--         <span class="mono">&lt;0_≥0&lt;5_r_rb</span>,<br> -->
-    <!--         <span class="mono">≥0&lt;5_≥5_r_rb</span></th> -->
-    <!--       <td> -->
-    <!--         Cross-sectional effect sizes: -->
-    <!--         <ul> -->
-    <!--           <li> HCs vs. patients before disease onset </li> -->
-    <!--           <li> Patients before disease onset vs. up to 5 years into disease -->
-    <!--             </li> -->
-    <!--           <li> Patients up to 5 years into disease vs. more than 5 years -->
-    <!--             </li> -->
-    <!--         </ul> -->
-    <!--       </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">agr</span> </th> -->
-    <!--       <td> Score of agreement in direction of the various effects </td> -->
-    <!--     </tr> -->
-    <!--   </table> -->
-
-    <!--   <div class="small"> -->
-    <!--     Tables are filtered to include the most reliable outcomes, e.g.: -->
-    <!--     <ul> -->
-    <!--       <li> No meaningful effect in HCs </li> -->
-    <!--       <li> Sample large enough </li> -->
-    <!--       <li> … </li> -->
-    <!--     </ul> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide numberless"> -->
-    <!--   <h2> Context strata </h2> -->
-    <!--   <table class="small"> -->
-    <!--     <tr> -->
-    <!--       <th> Keywords </th> -->
-    <!--       <th> Covariate </th> -->
-    <!--       <th> Threshold(s) </th> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">slow</span> / -->
-    <!--         <span class="mono">fast</span> </th> -->
-    <!--       <td> Gait speed </td> -->
-    <!--       <td> 1.2m/s </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">sporadic</span> / -->
-    <!--         <span class="mono">continuous</span> </th> -->
-    <!--       <td> Number of steps in a 1-minute window </td> -->
-    <!--       <td> 45 </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">straight</span> / -->
-    <!--         <span class="mono">curvy</span> </th> -->
-    <!--       <td> Number of turns in a 1-minute window </td> -->
-    <!--       <td> 1 </td> -->
-    <!--     </tr> -->
-    <!--     <tr> -->
-    <!--       <th> <span class="mono">short</span> / -->
-    <!--         <span class="mono">long</span> </th> -->
-    <!--       <td> Walking bout duration </td> -->
-    <!--       <td> 30s </td> -->
-    <!--     </tr> -->
-    <!--   </table> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Trajectory modeling: first steps </h2> -->
-
-    <!--   <ul> -->
-    <!--     <li> Panel models consider relationships: </li> -->
-    <!--     <ul> -->
-    <!--       <li> Between individuals </li> -->
-    <!--       <li> Across time </li> -->
-    <!--       <li> And model both a general and individual trends </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-
-    <!--   <ul> -->
-    <!--     <li> At present: Static fixed-effects panel model </li> -->
-    <!--     <ul> -->
-    <!--       <li> Per-subject intercept </li> -->
-    <!--       <li> No per-subject slope (yet) </li> -->
-    <!--     </ul> -->
-    <!--     <li> One outcome at a time </li> -->
-    <!--   </ul> -->
-
-    <!--   <ul class="hence"> -->
-    <!--     <li> Start from here for exam project </li> -->
-    <!--     <li> Move on to latent variables etc. afterwards </li> -->
-    <!--   </ul> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> "Basis" functions </h2> -->
-    <!--   <div class="col"> -->
-
-    <!--     General baseline on patients and healthy controls: -->
-
-    <!--     <div class="row"> -->
-    <!--       β₀ × -->
-    <!--       <img -->
-    <!--         style="width: 30%" -->
-    <!--         class="framed" -->
-    <!--         src="images/basis-intercept-term.svg" -->
-    <!--         alt="Basis function" /> -->
-    <!--       + β₁ × -->
-    <!--       <img -->
-    <!--         style="width: 30%" -->
-    <!--         class="framed" -->
-    <!--         src="images/basis-linear-term.svg" -->
-    <!--         alt="Basis function" /> -->
-    <!--     </div> -->
-
-    <!--     Onset and saturation, only on patients: -->
-
-    <!--     <div class="row"> -->
-    <!--       β₂ × -->
-    <!--       <img -->
-    <!--         style="width: 30%" -->
-    <!--         class="framed" -->
-    <!--         src="images/basis-softplus-onset.svg" -->
-    <!--         alt="Basis function" /> -->
-    <!--       + β₃ × -->
-    <!--       <img -->
-    <!--         style="width: 30%" -->
-    <!--         class="framed" -->
-    <!--         src="images/basis-softplus-saturation.svg" -->
-    <!--         alt="Basis function" /> -->
-    <!--     </div> -->
-    <!--   </div> -->
-    <!-- </div> -->
-
-    <!-- <div class="slide"> -->
-    <!--   <h2> Discussion points </h2> -->
-
-    <!--   <ul> -->
-    <!--     <li> Include genotype? </li> -->
-    <!--     <li> If so, as 1-dimensional covariate: </li> -->
-    <!--     <ul> -->
-    <!--       <li> Repeat length? </li> -->
-    <!--       <li> Survival curve slope? </li> -->
-    <!--     </ul> -->
-    <!--   </ul> -->
-
-    <!--   <ul> -->
-    <!--     <li> How much attrition bias do we have? </li> -->
-    <!--     <li> "Saturation" could be more severe cases dropping out earlier </li> -->
-    <!--   </ul> -->
-    <!-- </div> -->
   </body>
 </html>

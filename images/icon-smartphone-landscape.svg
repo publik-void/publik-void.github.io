@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="150mm"
+   height="75mm"
+   viewBox="0 0 150 75"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   sodipodi:docname="icon-smartphone-landscape.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.57109007"
+     inkscape:cx="248.64729"
+     inkscape:cy="262.65559"
+     inkscape:window-width="1280"
+     inkscape:window-height="747"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:1.11;stroke-linecap:round;stroke-linejoin:round"
+       id="rect1"
+       width="75"
+       height="150"
+       x="0"
+       y="-150"
+       rx="10"
+       ry="10"
+       inkscape:label="device"
+       transform="rotate(90)" />
+    <rect
+       style="fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:0.944779;stroke-linecap:round;stroke-linejoin:round"
+       id="rect1-3"
+       width="67.992668"
+       height="119.86847"
+       x="3.5036621"
+       y="-134.93423"
+       inkscape:label="screen"
+       transform="rotate(90)" />
+    <circle
+       style="fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:0.933515;stroke-linecap:round;stroke-linejoin:round"
+       id="path1"
+       cx="37.5"
+       cy="-7.5024261"
+       r="5.9157691"
+       inkscape:label="home button"
+       transform="rotate(90)" />
+    <rect
+       style="fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1.11;stroke-linecap:round;stroke-linejoin:round"
+       id="rect2"
+       width="17.821295"
+       height="3.3292532"
+       x="28.589355"
+       y="-144.17917"
+       rx="2"
+       ry="2"
+       inkscape:label="speaker"
+       transform="rotate(90)" />
+  </g>
+</svg>

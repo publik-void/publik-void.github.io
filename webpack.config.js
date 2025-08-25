@@ -3,7 +3,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    "trajectory-plot": path.resolve(__dirname, "src", "trajectory-plot-0.js"),
+    "trajectory-plots": path.resolve(__dirname, "src", "trajectory-plots.js"),
     mathjax: path.resolve(__dirname, "node_modules",
       "mathjax-full/es5/tex-mml-chtml.js")
   },

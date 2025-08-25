@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="context figure cross-sectional-box-plot"
+   width="240"
+   height="160"
+   viewBox="0 0 240 160"
+   preserveAspectRatio="xMidYMid"
+   version="1.1"
+   id="svg112"
+   sodipodi:docname="cross-sectional-box-plot-hc-vs-by-sara-coeff-swings-sensor-acc-dft-z-3-angle-abs-d3-abs-μ-σ-curvy-short-μ-dw.svg"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs112" />
+  <sodipodi:namedview
+     id="namedview112"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.863908"
+     inkscape:cx="128.22521"
+     inkscape:cy="85.841145"
+     inkscape:window-width="1280"
+     inkscape:window-height="747"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g76" />
+  <style
+     id="style1">@page {
+  size: 240px 160px;  margin: 0px;  padding: 0px;}</style>
+  <style
+     id="style2">svg{--background:white;--c0:#4e79a7;--c1:#f28e2c;--c2:#e15759;--c3:#76b7b2;--c4:#59a14f;--c5:#edc949;--c6:#af7aa1;--c7:#ff9da7;--c8:#9c755f;--c9:#bab0ab;font-size:12px}.fill-c0{fill:var(--c0)}.fill-c1{fill:var(--c1)}.fill-c2{fill:var(--c2)}.fill-c3{fill:var(--c3)}.fill-c4{fill:var(--c4)}.fill-c5{fill:var(--c5)}.fill-c6{fill:var(--c6)}.fill-c7{fill:var(--c7)}.fill-c8{fill:var(--c8)}.fill-c9{fill:var(--c9)}.stroke-c0{stroke:var(--c0)}.stroke-c1{stroke:var(--c1)}.stroke-c2{stroke:var(--c2)}.stroke-c3{stroke:var(--c3)}.stroke-c4{stroke:var(--c4)}.stroke-c5{stroke:var(--c5)}.stroke-c6{stroke:var(--c6)}.stroke-c7{stroke:var(--c7)}.stroke-c8{stroke:var(--c8)}.stroke-c9{stroke:var(--c9)}.fill-black{fill:#000}.fill-white{fill:#fff}.fill-gray{fill:gray}.stroke-black{stroke:#000}.stroke-white{stroke:#fff}.stroke-gray{stroke:gray}.weak{opacity:.5}.weaker{opacity:.25}.weakest{opacity:.125}.dashed{stroke-dasharray:2px 2px}.small{font-size:.75em}.smaller{font-size:.6em}text{stroke:none}.mono{font-family:monospace}.figure&gt;.background{fill:var(--background)}.curve{fill:none;stroke-width:1.75px}.assoc,.span{fill:none;stroke-width:1px;stroke-linecap:round}.assoc.thick{stroke-width:calc(1px*1.5)}.span{fill:#aaa;stroke:#aaa}.label,.panel,.span{font-family:sans-serif}.label,.panel{fill:#777}.panel .frame{stroke:#aaa;fill:var(--background);fill-opacity:.5}.grid line,.tick{stroke-width:1px;stroke-linecap:round}.tick.major{font-size:.75em}.grid line{stroke:#ccc;stroke-dasharray:0 2.4px}.grid line.origin{stroke-dasharray:none}</style>
+  <g
+     class="context plot"
+     id="g112">
+    <g
+       class="grid"
+       id="g9">
+      <g
+         class="span x-axis"
+         id="g2" />
+      <g
+         class="span y-axis"
+         id="g8">
+        <g
+           class="tick grid"
+           id="g7">
+          <g
+             id="g3">
+            <line
+               x1="20"
+               y1="105.12977575850705"
+               x2="220"
+               y2="105.12977575850705"
+               id="line2" />
+          </g>
+          <g
+             id="g4">
+            <line
+               x1="20"
+               y1="79.44389684488522"
+               x2="220"
+               y2="79.44389684488522"
+               id="line3" />
+          </g>
+          <g
+             id="g5">
+            <line
+               x1="20"
+               y1="53.75801793126337"
+               x2="220"
+               y2="53.75801793126337"
+               id="line4" />
+          </g>
+          <g
+             id="g6">
+            <line
+               x1="20"
+               y1="28.072139017641547"
+               x2="220"
+               y2="28.072139017641547"
+               id="line5" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       class="content"
+       id="g60">
+      <g
+         id="g52">
+        <g
+           class="box-plot"
+           id="g23">
+          <g
+             class="scatter"
+             id="g10">
+            <circle
+               class="marker fill-c0 weak"
+               cx="59.39393939393939"
+               cy="70.30720998835889"
+               r="2.5"
+               id="circle9" />
+            <circle
+               class="marker fill-c0 weak"
+               cx="59.39393939393939"
+               cy="73.74503659143225"
+               r="2.5"
+               id="circle10" />
+          </g>
+          <path
+             class="area fill-c0 weak"
+             d="M38.182,94.645L80.606,94.645L80.606,106.829L38.182,106.829Z"
+             id="path10" />
+          <g
+             class="span"
+             id="g13">
+            <g
+               class="tick major"
+               id="g12">
+              <g
+                 id="g11">
+                <line
+                   x1="59.39393939393939"
+                   y1="112.61437908496733"
+                   x2="64.39393939393939"
+                   y2="112.61437908496733"
+                   id="line10" />
+                <line
+                   x1="59.39393939393939"
+                   y1="112.61437908496733"
+                   x2="54.39393939393939"
+                   y2="112.61437908496733"
+                   id="line11" />
+              </g>
+            </g>
+            <line
+               x1="59.39393939393939"
+               y1="112.61437908496733"
+               x2="59.39393939393939"
+               y2="106.8288506551378"
+               id="line12" />
+          </g>
+          <g
+             class="span"
+             id="g16">
+            <g
+               class="tick major"
+               id="g15">
+              <g
+                 id="g14">
+                <line
+                   x1="59.39393939393939"
+                   y1="78.76209209444781"
+                   x2="64.39393939393939"
+                   y2="78.76209209444781"
+                   id="line13" />
+                <line
+                   x1="59.39393939393939"
+                   y1="78.76209209444781"
+                   x2="54.39393939393939"
+                   y2="78.76209209444781"
+                   id="line14" />
+              </g>
+            </g>
+            <line
+               x1="59.39393939393939"
+               y1="94.64548801529436"
+               x2="59.39393939393939"
+               y2="78.76209209444781"
+               id="line15" />
+          </g>
+          <g
+             class="span"
+             id="g21">
+            <g
+               class="tick major"
+               id="g20">
+              <g
+                 id="g17">
+                <line
+                   x1="38.18181818181819"
+                   y1="106.8288506551378"
+                   x2="80.60606060606061"
+                   y2="106.8288506551378"
+                   id="line16" />
+              </g>
+              <g
+                 id="g18">
+                <line
+                   x1="38.18181818181819"
+                   y1="103.59232213992705"
+                   x2="80.60606060606061"
+                   y2="103.59232213992705"
+                   id="line17" />
+              </g>
+              <g
+                 id="g19">
+                <line
+                   x1="38.18181818181819"
+                   y1="94.64548801529436"
+                   x2="80.60606060606061"
+                   y2="94.64548801529436"
+                   id="line18" />
+              </g>
+            </g>
+            <line
+               x1="38.18181818181819"
+               y1="106.8288506551378"
+               x2="38.18181818181819"
+               y2="94.64548801529436"
+               id="line20" />
+          </g>
+          <g
+             class="span"
+             id="g22">
+            <line
+               x1="80.60606060606061"
+               y1="106.8288506551378"
+               x2="80.60606060606061"
+               y2="94.64548801529436"
+               id="line21" />
+          </g>
+        </g>
+        <g
+           class="box-plot"
+           id="g37">
+          <g
+             class="scatter"
+             id="g24">
+            <circle
+               class="marker fill-c1 weak"
+               cx="120"
+               cy="62.39264567270949"
+               r="2.5"
+               id="circle23" />
+          </g>
+          <path
+             class="area fill-c1 weak"
+             d="M98.788,89.194L141.212,89.194L141.212,99.763L98.788,99.763Z"
+             id="path24" />
+          <g
+             class="span"
+             id="g27">
+            <g
+               class="tick major"
+               id="g26">
+              <g
+                 id="g25">
+                <line
+                   x1="120"
+                   y1="105.88390273462217"
+                   x2="125"
+                   y2="105.88390273462217"
+                   id="line24" />
+                <line
+                   x1="120"
+                   y1="105.88390273462217"
+                   x2="115"
+                   y2="105.88390273462217"
+                   id="line25" />
+              </g>
+            </g>
+            <line
+               x1="120"
+               y1="105.88390273462217"
+               x2="120"
+               y2="99.7630864090812"
+               id="line26" />
+          </g>
+          <g
+             class="span"
+             id="g30">
+            <g
+               class="tick major"
+               id="g29">
+              <g
+                 id="g28">
+                <line
+                   x1="120"
+                   y1="78.81369150091433"
+                   x2="125"
+                   y2="78.81369150091433"
+                   id="line27" />
+                <line
+                   x1="120"
+                   y1="78.81369150091433"
+                   x2="115"
+                   y2="78.81369150091433"
+                   id="line28" />
+              </g>
+            </g>
+            <line
+               x1="120"
+               y1="89.1938707793487"
+               x2="120"
+               y2="78.81369150091433"
+               id="line29" />
+          </g>
+          <g
+             class="span"
+             id="g35">
+            <g
+               class="tick major"
+               id="g34">
+              <g
+                 id="g31">
+                <line
+                   x1="98.78787878787878"
+                   y1="99.7630864090812"
+                   x2="141.21212121212122"
+                   y2="99.7630864090812"
+                   id="line30" />
+              </g>
+              <g
+                 id="g32">
+                <line
+                   x1="98.78787878787878"
+                   y1="93.98577094458552"
+                   x2="141.21212121212122"
+                   y2="93.98577094458552"
+                   id="line31" />
+              </g>
+              <g
+                 id="g33">
+                <line
+                   x1="98.78787878787878"
+                   y1="89.1938707793487"
+                   x2="141.21212121212122"
+                   y2="89.1938707793487"
+                   id="line32" />
+              </g>
+            </g>
+            <line
+               x1="98.78787878787878"
+               y1="99.7630864090812"
+               x2="98.78787878787878"
+               y2="89.1938707793487"
+               id="line34" />
+          </g>
+          <g
+             class="span"
+             id="g36">
+            <line
+               x1="141.21212121212122"
+               y1="99.7630864090812"
+               x2="141.21212121212122"
+               y2="89.1938707793487"
+               id="line35" />
+          </g>
+        </g>
+        <g
+           class="box-plot"
+           id="g51">
+          <g
+             class="scatter"
+             id="g38">
+            <circle
+               class="marker fill-c2 weak"
+               cx="180.60606060606062"
+               cy="29.156862745098035"
+               r="2.5"
+               id="circle37" />
+          </g>
+          <path
+             class="area fill-c2 weak"
+             d="M159.394,73.367L201.818,73.367L201.818,90.722L159.394,90.722Z"
+             id="path38" />
+          <g
+             class="span"
+             id="g41">
+            <g
+               class="tick major"
+               id="g40">
+              <g
+                 id="g39">
+                <line
+                   x1="180.60606060606062"
+                   y1="104.54097615133134"
+                   x2="185.60606060606062"
+                   y2="104.54097615133134"
+                   id="line38" />
+                <line
+                   x1="180.60606060606062"
+                   y1="104.54097615133134"
+                   x2="175.60606060606062"
+                   y2="104.54097615133134"
+                   id="line39" />
+              </g>
+            </g>
+            <line
+               x1="180.60606060606062"
+               y1="104.54097615133134"
+               x2="180.60606060606062"
+               y2="90.72193146397021"
+               id="line40" />
+          </g>
+          <g
+             class="span"
+             id="g44">
+            <g
+               class="tick major"
+               id="g43">
+              <g
+                 id="g42">
+                <line
+                   x1="180.60606060606062"
+                   y1="57.2691475554086"
+                   x2="185.60606060606062"
+                   y2="57.2691475554086"
+                   id="line41" />
+                <line
+                   x1="180.60606060606062"
+                   y1="57.2691475554086"
+                   x2="175.60606060606062"
+                   y2="57.2691475554086"
+                   id="line42" />
+              </g>
+            </g>
+            <line
+               x1="180.60606060606062"
+               y1="73.36683231872212"
+               x2="180.60606060606062"
+               y2="57.2691475554086"
+               id="line43" />
+          </g>
+          <g
+             class="span"
+             id="g49">
+            <g
+               class="tick major"
+               id="g48">
+              <g
+                 id="g45">
+                <line
+                   x1="159.39393939393938"
+                   y1="90.72193146397021"
+                   x2="201.81818181818184"
+                   y2="90.72193146397021"
+                   id="line44" />
+              </g>
+              <g
+                 id="g46">
+                <line
+                   x1="159.39393939393938"
+                   y1="87.70328604751833"
+                   x2="201.81818181818184"
+                   y2="87.70328604751833"
+                   id="line45" />
+              </g>
+              <g
+                 id="g47">
+                <line
+                   x1="159.39393939393938"
+                   y1="73.36683231872212"
+                   x2="201.81818181818184"
+                   y2="73.36683231872212"
+                   id="line46" />
+              </g>
+            </g>
+            <line
+               x1="159.39393939393938"
+               y1="90.72193146397021"
+               x2="159.39393939393938"
+               y2="73.36683231872212"
+               id="line48" />
+          </g>
+          <g
+             class="span"
+             id="g50">
+            <line
+               x1="201.81818181818184"
+               y1="90.72193146397021"
+               x2="201.81818181818184"
+               y2="73.36683231872212"
+               id="line49" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g59">
+        <g
+           class="span"
+           id="g58">
+          <g
+             class="tick major"
+             id="g54">
+            <g
+               id="g53">
+              <text
+                 class=""
+                 text-anchor="middle"
+                 alignment-baseline="text-top"
+                 dominant-baseline="text-top"
+                 transform="translate(89.69696969696972, 20) rotate(0)"
+                 id="text52"><tspan
+                   x="0"
+                   y="0em"
+                   text-anchor="middle"
+                   alignment-baseline="text-top"
+                   dominant-baseline="text-top"
+                   id="tspan52">*</tspan></text>
+            </g>
+          </g>
+          <g
+             class="tick delimiter"
+             id="g57">
+            <g
+               id="g55">
+              <line
+                 x1="71.51515151515152"
+                 y1="19"
+                 x2="71.51515151515152"
+                 y2="21"
+                 id="line54" />
+            </g>
+            <g
+               id="g56">
+              <line
+                 x1="107.8787878787879"
+                 y1="19"
+                 x2="107.8787878787879"
+                 y2="21"
+                 id="line55" />
+            </g>
+          </g>
+          <line
+             x1="71.51515151515152"
+             y1="19"
+             x2="107.8787878787879"
+             y2="19"
+             id="line57" />
+        </g>
+      </g>
+    </g>
+    <g
+       class="frame"
+       id="g111">
+      <g
+         class="span x-axis"
+         id="g65">
+        <g
+           class="tick major"
+           id="g64">
+          <g
+             id="g61">
+            <line
+               x1="59.3939393939394"
+               y1="7"
+               x2="59.3939393939394"
+               y2="11"
+               id="line60" />
+          </g>
+          <g
+             id="g62">
+            <line
+               x1="120"
+               y1="7"
+               x2="120"
+               y2="11"
+               id="line61" />
+          </g>
+          <g
+             id="g63">
+            <line
+               x1="180.60606060606062"
+               y1="7"
+               x2="180.60606060606062"
+               y2="11"
+               id="line62" />
+          </g>
+        </g>
+        <line
+           x1="20"
+           y1="7"
+           x2="220"
+           y2="7"
+           id="line64" />
+      </g>
+      <g
+         class="span x-axis"
+         id="g78">
+        <g
+           class="tick major"
+           id="g69">
+          <g
+             id="g66">
+            <line
+               x1="59.3939393939394"
+               y1="120"
+               x2="59.3939393939394"
+               y2="116"
+               id="line65" />
+          </g>
+          <g
+             id="g67">
+            <line
+               x1="120"
+               y1="120"
+               x2="120"
+               y2="116"
+               id="line66" />
+          </g>
+          <g
+             id="g68">
+            <line
+               x1="180.60606060606062"
+               y1="120"
+               x2="180.60606060606062"
+               y2="116"
+               id="line67" />
+          </g>
+        </g>
+        <g
+           class="tick label"
+           id="g77">
+          <g
+             id="g76">
+            <text
+               class="small"
+               text-anchor="middle"
+               alignment-baseline="hanging"
+               dominant-baseline="hanging"
+               transform="translate(120, 124) rotate(0)"
+               id="text76"><tspan
+                 x="0"
+                 y="0em"
+                 text-anchor="middle"
+                 alignment-baseline="hanging"
+                 dominant-baseline="hanging"
+                 id="tspan70"
+                 style="font-size:7.73333333px"><tspan
+                   class="mono"
+                   text-anchor="middle"
+                   alignment-baseline="hanging"
+                   dominant-baseline="hanging"
+                   id="tspan69"
+                   style="font-size:7.73333333px">coeff_swings_sensor_acc_dft_z_3_angle_abs_d3_abs_μ</tspan></tspan><tspan
+                 x="0"
+                 y="1em"
+                 text-anchor="middle"
+                 alignment-baseline="hanging"
+                 dominant-baseline="hanging"
+                 id="tspan72"><tspan
+                   class="mono"
+                   text-anchor="middle"
+                   alignment-baseline="hanging"
+                   dominant-baseline="hanging"
+                   id="tspan71">σ</tspan></tspan><tspan
+                 x="0"
+                 y="2em"
+                 text-anchor="middle"
+                 alignment-baseline="hanging"
+                 dominant-baseline="hanging"
+                 id="tspan74"><tspan
+                   class="mono"
+                   text-anchor="middle"
+                   alignment-baseline="hanging"
+                   dominant-baseline="hanging"
+                   id="tspan73">curvy_short</tspan></tspan><tspan
+                 x="0"
+                 y="3em"
+                 text-anchor="middle"
+                 alignment-baseline="hanging"
+                 dominant-baseline="hanging"
+                 id="tspan76"><tspan
+                   class="mono"
+                   text-anchor="middle"
+                   alignment-baseline="hanging"
+                   dominant-baseline="hanging"
+                   id="tspan75">μ</tspan></tspan></text>
+          </g>
+        </g>
+        <line
+           x1="20"
+           y1="120"
+           x2="220"
+           y2="120"
+           id="line77" />
+      </g>
+      <g
+         class="span y-axis"
+         id="g94">
+        <g
+           class="tick minor"
+           id="g88">
+          <g
+             id="g79">
+            <line
+               x1="20"
+               y1="98.70830603010158"
+               x2="22"
+               y2="98.70830603010158"
+               id="line78" />
+          </g>
+          <g
+             id="g80">
+            <line
+               x1="20"
+               y1="92.28683630169613"
+               x2="22"
+               y2="92.28683630169613"
+               id="line79" />
+          </g>
+          <g
+             id="g81">
+            <line
+               x1="20"
+               y1="85.86536657329066"
+               x2="22"
+               y2="85.86536657329066"
+               id="line80" />
+          </g>
+          <g
+             id="g82">
+            <line
+               x1="20"
+               y1="73.02242711647975"
+               x2="22"
+               y2="73.02242711647975"
+               id="line81" />
+          </g>
+          <g
+             id="g83">
+            <line
+               x1="20"
+               y1="66.60095738807429"
+               x2="22"
+               y2="66.60095738807429"
+               id="line82" />
+          </g>
+          <g
+             id="g84">
+            <line
+               x1="20"
+               y1="60.17948765966884"
+               x2="22"
+               y2="60.17948765966884"
+               id="line83" />
+          </g>
+          <g
+             id="g85">
+            <line
+               x1="20"
+               y1="47.33654820285791"
+               x2="22"
+               y2="47.33654820285791"
+               id="line84" />
+          </g>
+          <g
+             id="g86">
+            <line
+               x1="20"
+               y1="40.91507847445246"
+               x2="22"
+               y2="40.91507847445246"
+               id="line85" />
+          </g>
+          <g
+             id="g87">
+            <line
+               x1="20"
+               y1="34.493608746047016"
+               x2="22"
+               y2="34.493608746047016"
+               id="line86" />
+          </g>
+        </g>
+        <g
+           class="tick major"
+           id="g93">
+          <g
+             id="g89">
+            <line
+               x1="20"
+               y1="105.12977575850705"
+               x2="24"
+               y2="105.12977575850705"
+               id="line88" />
+            <text
+               class=""
+               text-anchor="end"
+               alignment-baseline="middle"
+               dominant-baseline="middle"
+               transform="translate(16, 105.12977575850705) rotate(0)"
+               id="text88"><tspan
+                 x="0"
+                 y="0em"
+                 text-anchor="end"
+                 alignment-baseline="middle"
+                 dominant-baseline="middle"
+                 id="tspan88">.02</tspan></text>
+          </g>
+          <g
+             id="g90">
+            <line
+               x1="20"
+               y1="79.44389684488522"
+               x2="24"
+               y2="79.44389684488522"
+               id="line89" />
+            <text
+               class=""
+               text-anchor="end"
+               alignment-baseline="middle"
+               dominant-baseline="middle"
+               transform="translate(16, 79.44389684488522) rotate(0)"
+               id="text89"><tspan
+                 x="0"
+                 y="0em"
+                 text-anchor="end"
+                 alignment-baseline="middle"
+                 dominant-baseline="middle"
+                 id="tspan89">.04</tspan></text>
+          </g>
+          <g
+             id="g91">
+            <line
+               x1="20"
+               y1="53.75801793126337"
+               x2="24"
+               y2="53.75801793126337"
+               id="line90" />
+            <text
+               class=""
+               text-anchor="end"
+               alignment-baseline="middle"
+               dominant-baseline="middle"
+               transform="translate(16, 53.75801793126337) rotate(0)"
+               id="text90"><tspan
+                 x="0"
+                 y="0em"
+                 text-anchor="end"
+                 alignment-baseline="middle"
+                 dominant-baseline="middle"
+                 id="tspan90">.06</tspan></text>
+          </g>
+          <g
+             id="g92">
+            <line
+               x1="20"
+               y1="28.072139017641547"
+               x2="24"
+               y2="28.072139017641547"
+               id="line91" />
+            <text
+               class=""
+               text-anchor="end"
+               alignment-baseline="middle"
+               dominant-baseline="middle"
+               transform="translate(16, 28.072139017641547) rotate(0)"
+               id="text91"><tspan
+                 x="0"
+                 y="0em"
+                 text-anchor="end"
+                 alignment-baseline="middle"
+                 dominant-baseline="middle"
+                 id="tspan91">.08</tspan></text>
+          </g>
+        </g>
+        <line
+           x1="20"
+           y1="120"
+           x2="20"
+           y2="7"
+           id="line93" />
+      </g>
+      <g
+         class="span y-axis"
+         id="g110">
+        <g
+           class="tick minor"
+           id="g104">
+          <g
+             id="g95">
+            <line
+               x1="220"
+               y1="98.70830603010158"
+               x2="218"
+               y2="98.70830603010158"
+               id="line94" />
+          </g>
+          <g
+             id="g96">
+            <line
+               x1="220"
+               y1="92.28683630169613"
+               x2="218"
+               y2="92.28683630169613"
+               id="line95" />
+          </g>
+          <g
+             id="g97">
+            <line
+               x1="220"
+               y1="85.86536657329066"
+               x2="218"
+               y2="85.86536657329066"
+               id="line96" />
+          </g>
+          <g
+             id="g98">
+            <line
+               x1="220"
+               y1="73.02242711647975"
+               x2="218"
+               y2="73.02242711647975"
+               id="line97" />
+          </g>
+          <g
+             id="g99">
+            <line
+               x1="220"
+               y1="66.60095738807429"
+               x2="218"
+               y2="66.60095738807429"
+               id="line98" />
+          </g>
+          <g
+             id="g100">
+            <line
+               x1="220"
+               y1="60.17948765966884"
+               x2="218"
+               y2="60.17948765966884"
+               id="line99" />
+          </g>
+          <g
+             id="g101">
+            <line
+               x1="220"
+               y1="47.33654820285791"
+               x2="218"
+               y2="47.33654820285791"
+               id="line100" />
+          </g>
+          <g
+             id="g102">
+            <line
+               x1="220"
+               y1="40.91507847445246"
+               x2="218"
+               y2="40.91507847445246"
+               id="line101" />
+          </g>
+          <g
+             id="g103">
+            <line
+               x1="220"
+               y1="34.493608746047016"
+               x2="218"
+               y2="34.493608746047016"
+               id="line102" />
+          </g>
+        </g>
+        <g
+           class="tick major"
+           id="g109">
+          <g
+             id="g105">
+            <line
+               x1="220"
+               y1="105.12977575850705"
+               x2="216"
+               y2="105.12977575850705"
+               id="line104" />
+            <text
+               class=""
+               text-anchor="start"
+               alignment-baseline="middle"
+               dominant-baseline="middle"
+               transform="translate(224, 105.12977575850705) rotate(0)"
+               id="text104"><tspan
+                 x="0"
+                 y="0em"
+                 text-anchor="start"
+                 alignment-baseline="middle"
+                 dominant-baseline="middle"
+                 id="tspan104">.02</tspan></text>
+          </g>
+          <g
+             id="g106">
+            <line
+               x1="220"
+               y1="79.44389684488522"
+               x2="216"
+               y2="79.44389684488522"
+               id="line105" />
+            <text
+               class=""
+               text-anchor="start"
+               alignment-baseline="middle"
+               dominant-baseline="middle"
+               transform="translate(224, 79.44389684488522) rotate(0)"
+               id="text105"><tspan
+                 x="0"
+                 y="0em"
+                 text-anchor="start"
+                 alignment-baseline="middle"
+                 dominant-baseline="middle"
+                 id="tspan105">.04</tspan></text>
+          </g>
+          <g
+             id="g107">
+            <line
+               x1="220"
+               y1="53.75801793126337"
+               x2="216"
+               y2="53.75801793126337"
+               id="line106" />
+            <text
+               class=""
+               text-anchor="start"
+               alignment-baseline="middle"
+               dominant-baseline="middle"
+               transform="translate(224, 53.75801793126337) rotate(0)"
+               id="text106"><tspan
+                 x="0"
+                 y="0em"
+                 text-anchor="start"
+                 alignment-baseline="middle"
+                 dominant-baseline="middle"
+                 id="tspan106">.06</tspan></text>
+          </g>
+          <g
+             id="g108">
+            <line
+               x1="220"
+               y1="28.072139017641547"
+               x2="216"
+               y2="28.072139017641547"
+               id="line107" />
+            <text
+               class=""
+               text-anchor="start"
+               alignment-baseline="middle"
+               dominant-baseline="middle"
+               transform="translate(224, 28.072139017641547) rotate(0)"
+               id="text107"><tspan
+                 x="0"
+                 y="0em"
+                 text-anchor="start"
+                 alignment-baseline="middle"
+                 dominant-baseline="middle"
+                 id="tspan107">.08</tspan></text>
+          </g>
+        </g>
+        <line
+           x1="220"
+           y1="120"
+           x2="220"
+           y2="7"
+           id="line109" />
+      </g>
+    </g>
+  </g>
+</svg>
