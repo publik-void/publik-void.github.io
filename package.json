@@ -1,5 +1,5 @@
 {
-  "name": "overview-presentation",
+  "name": "presentations-and-posters",
   "version": "1.0.0",
   "scripts": {
     "serve": "webpack serve",
