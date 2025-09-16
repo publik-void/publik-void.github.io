@@ -205,7 +205,7 @@
     <path
        id="path3"
        d="M 36.152,5.477 H 299.605 V 254.848 H 36.152 Z"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="display:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
        transform="scale(1.3333333)"
        clip-path="url(#clipPath4)" />
     <path

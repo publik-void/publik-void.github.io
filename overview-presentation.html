@@ -250,7 +250,7 @@
     </div>
 
     <div class="slide">
-      <h3> Medicine Made to Measure </h3>
+      <h3 style="font-size: 1.8em"> Medicine Made to Measure (MMM) </h3>
 
       <div class="row">
         <div class="col jc-space-evenly ai-start">
@@ -262,14 +262,17 @@
               <li> 22 participating organisations </li>
             </ul>
           </ul>
+
           <ul>
             <li> Aim: to develop </li>
             <ul>
-              <li> ASO (antisense oligonucleotide) treatments </li>
-              <li> Tailored to single patients of nano-rare diseases </li>
+              <li> Antisense oligonucleotide treatments (ASOs) </li>
+              <li> Tailored to single patients with nano-rare disease mutations
+                </li>
             </ul>
           </ul>
         </div>
+
         <img
           style="width: 15%"
           src="images/logo-mmm.svg"
@@ -305,7 +308,36 @@
     <div class="slide">
       <h3> Rare diseases </h3>
 
-      <p class="todo"> TODO </p>
+      <ul>
+        <li> A <span class="bold">rare disease</span> is any disease with a
+          prevalence of <span class="bold">&lt;0.05%</span>. </li>
+      </ul>
+
+      <ul>
+        <li> There are <span class="bold">&gt;6000</span> rare diseases. </li>
+      </ul>
+
+      <ul>
+        <li> Taken together, their prevalence is <span class="bold">~4%</span>.
+        </li>
+      </ul>
+
+      <ul>
+        <li> <span class="bold">&gt;70%</span> have genetic causes. </li>
+      </ul>
+
+      <ul class="hence">
+        <li> <span class="bold">Nano-rare mutations:</span> Worldwide
+          <span class="bold">&lt;30</span> patients. </li>
+      </ul>
+
+      <p class="small dim rjust">(approximate numbers, for Europe)</p>
+
+      <hr>
+
+      <p class="large cjust">
+        &ldquo;rare individually, common collectively&rdquo;
+      </p>
     </div>
 
     <div class="slide no-number image-fill headless">
@@ -406,20 +438,18 @@
     </div>
 
     <div class="slide">
-      <h3 style="font-size: 1.5em"> Individualized treatments for rare diseases:
+      <h3 style="font-size: 1.4em"> Individualized ASOs for nano-rare mutations:
         <br> Trial design challenges </h3>
 
       <ul>
-        <li> For each disease (or subtype): </li>
-        <ul>
-          <li> Small number of patients worldwide </li>
-          <li> Treatment may be taylor-made and have a slow effect </li>
-        </ul>
+        <li> ASO treatment is taylor-made for the mutation </li>
+        <li> Tiny number of patients worldwide </li>
+        <li> ASO treatment has slow, disease-modifying effect </li>
       </ul>
 
       <ul class="hence">
-        <li> Traditional clinical trial design not feasible </li>
-        <li> Traditional N-of-1 trials not feasible </li>
+        <li> Traditional clinical trial designs infeasible </li>
+        <li> Traditional N-of-1 trial designs infeasible </li>
       </ul>
     </div>
 
@@ -484,7 +514,29 @@
     <div class="slide">
       <h3> Deliverables </h3>
 
-      <p class="todo"> TODO </p>
+      <table>
+        <tr>
+          <th> D3.1 </th>
+          <td>
+            Outcomes of the large cohort study <br>
+            <span class="dim">Completed Jan 2025</span>
+          </td>
+        </tr>
+        <tr>
+          <th> D3.2 </th>
+          <td>
+            Outcomes of focused study <br>
+            <span class="dim">Due May 2027 (postponed)</span>
+          </td>
+        </tr>
+        <tr>
+          <th> D3.3 </th>
+          <td>
+            Robust capture of n-of-1 movement changes <br>
+            <span class="dim">Due Sep 2027</span>
+          </td>
+        </tr>
+      </table>
     </div>
 
     <!-- <div class="slide"> -->
@@ -703,6 +755,12 @@
           <td> <span style="color: limegreen">✓</span> </td>
           <td> <span style="color: crimson">✗</span> </td>
           <td> <span style="color: limegreen">✓</span> </td>
+        </tr>
+        <tr>
+          <th> Stride DMOs </th>
+          <td> 58 </td>
+          <td> 12 </td>
+          <td> 4 </td>
         </tr>
       </table>
 
@@ -1020,7 +1078,6 @@
     <div class="slide image-fill headless">
       <h3> Gait feature extraction summary figure </h3>
 
-      <!-- TODO: Call it walking segment features? -->
       <img
         src="images/gait-feature-extraction.svg"
         alt="Gait feature extraction" />
@@ -1209,7 +1266,7 @@
       <img
         style="height: 100%"
         src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-sara-sim-1-ps.svg"
-        alt="Raw data, lateral step deviation, preferred speed task">
+        alt="Raw data, visit level, lateral step deviation, preferred speed task">
     </div>
 
     <div class="slide">
@@ -1217,7 +1274,7 @@
       <img
         style="height: 100%"
         src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-abc41-ps.svg"
-        alt="Raw data, lateral step deviation, preferred speed task">
+        alt="Raw data, visit level, lateral step deviation, preferred speed task">
     </div>
 
     <div class="slide">
@@ -1225,7 +1282,31 @@
       <img
         style="height: 100%"
         src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-lateral-step-deviation-apdm-abs-normed-μ-μ-all-μ-ps.svg"
-        alt="Raw data, lateral step deviation, preferred speed task">
+        alt="Raw data, visit level, lateral step deviation, preferred speed task">
+    </div>
+
+    <div class="slide">
+      <h3> Data: Per-segment level </h3>
+      <img
+        style="
+          height: 100%;
+          --fade: 5em;
+
+          -webkit-mask-image:
+            linear-gradient(
+              to bottom, #000 0 calc(100% - var(--fade)), transparent),
+            linear-gradient(
+              to right,  #000 0 calc(100% - var(--fade)), transparent);
+          mask-image:
+            linear-gradient(
+              to bottom, #000 0 calc(100% - var(--fade)), transparent),
+            linear-gradient(
+              to right,  #000 0 calc(100% - var(--fade)), transparent);
+
+          -webkit-mask-composite: destination-in;
+          mask-composite: intersect;"
+        src="images/segments-over-time-plot-collapsed-lateral-step-deviation-apdm-abs-normed-μ-μ-sym-dw-subview.svg"
+        alt="Raw data, segment level, lateral step deviation, preferred speed task">
     </div>
 
     <div class="slide">

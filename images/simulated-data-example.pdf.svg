@@ -22,9 +22,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
-     inkscape:zoom="0.50178953"
-     inkscape:cx="287.96934"
-     inkscape:cy="275.0157"
+     inkscape:zoom="0.46888625"
+     inkscape:cx="356.16314"
+     inkscape:cy="326.30515"
      inkscape:window-width="1280"
      inkscape:window-height="747"
      inkscape:window-x="0"
@@ -510,12 +510,13 @@
      id="path70" />
   <g
      clip-path="url(#clip-0)"
-     id="g71">
+     id="g71"
+     style="display:none">
     <path
        fill-rule="nonzero"
-       fill="rgb(100%, 100%, 100%)"
+       fill="#ffffff"
        fill-opacity="1"
-       d="M 29.152344 5.476562 L 505.605469 5.476562 L 505.605469 350.847656 L 29.152344 350.847656 Z M 29.152344 5.476562 "
+       d="M 29.152344,5.476562 H 505.60547 V 350.84766 H 29.152344 Z m 0,0"
        id="path71" />
   </g>
   <g
@@ -4134,10 +4135,11 @@
   </g>
   <path
      fill-rule="nonzero"
-     fill="rgb(100%, 100%, 100%)"
+     fill="#ffffff"
      fill-opacity="1"
-     d="M 516.5625 138.527344 L 570.519531 138.527344 L 570.519531 217.804688 L 516.5625 217.804688 Z M 516.5625 138.527344 "
-     id="path386" />
+     d="m 516.5625,138.52734 h 53.95703 v 79.27735 H 516.5625 Z m 0,0"
+     id="path386"
+     style="display:none" />
   <g
      fill="rgb(0%, 0%, 0%)"
      fill-opacity="1"
