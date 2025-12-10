@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="800" height="520" viewBox="0 0 800 520">
+  <title>Interactive Tilt Function: x · exprel(γ x)</title>
+  <desc>
+    Drag the slider, scroll over the plot to adjust γ, or double-click
+    the plot to reset γ = 0. Toggle "Standardize" to apply the
+    tilt_standardizers(γ) transform so the output has mean 0 and variance 1
+    for x ~ N(0,1). Axes are fixed to [-2, 2] on both x and y.
+  </desc>
+
+  <style>
+    :root { --fg: #222; --muted: #888; --accent: #0057d9; --grid: #e6e6e6; }
+    text { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI,
+                     Roboto, Helvetica, Arial, "Apple Color Emoji",
+                     "Segoe UI Emoji"; font-size: 12px; fill: var(--fg); }
+    .title { font-weight: 600; font-size: 16px; }
+    .subtitle { fill: var(--muted); font-size: 12px; }
+    .axis line, .axis path { stroke: var(--muted); stroke-width: 1; }
+    .grid line { stroke: var(--grid); stroke-width: 1; }
+    .curve { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+    .plot-bg { fill: #fff; }
+    .slider-track { stroke: #ccc; stroke-width: 6; stroke-linecap: round; }
+    .slider-rail { stroke: #ddd; stroke-width: 8; stroke-linecap: round; }
+    .slider-knob { fill: var(--accent); cursor: pointer; }
+    .slider-knob:hover { filter: brightness(0.9); }
+    .toggle { cursor: pointer; }
+    .toggle-rect { fill: #f5f7ff; stroke: #dfe6ff; stroke-width: 1; }
+    .toggle-dot { fill: #fff; stroke: #c8d5ff; stroke-width: 1; }
+    .badge { fill: #f5f7ff; stroke: #dfe6ff; stroke-width: 1; }
+    .badge-text { font-size: 12px; }
+    .noselect { user-select: none; -webkit-user-select: none; }
+    .plot-area { cursor: ew-resize; }
+  </style>
+
+  <!-- Layout constants -->
+  <g id="layout" data-width="800" data-height="520"
+     data-margin-left="64" data-margin-right="24"
+     data-margin-top="28" data-margin-bottom="90"
+     data-xmin="-2" data-xmax="2" data-ymin="-2" data-ymax="2"
+     class="noselect" />
+
+  <!-- Title and subtitle -->
+  <text class="title" x="64" y="22">Tilt: x · exprel(γ x)</text>
+  <text class="subtitle" x="64" y="40">
+    exprel(t) = (exp(t) - 1)/t  (stable eval); toggle standardization via
+    tilt_standardizers(γ).
+  </text>
+
+  <!-- Plot background -->
+  <rect id="plot-bg" class="plot-bg plot-area" x="0" y="0" width="0" height="0" rx="8" ry="8" />
+
+  <!-- Grid and axes groups -->
+  <g id="grid" class="grid"></g>
+  <g id="x-axis" class="axis"></g>
+  <g id="y-axis" class="axis"></g>
+
+  <!-- Function curve -->
+  <path id="tilt-path" class="curve" d=""/>
+
+  <!-- Axis labels -->
+  <text id="xlabel" x="0" y="0">x</text>
+  <text id="ylabel" x="0" y="0" transform="rotate(-90)">y</text>
+
+  <!-- Gamma badge -->
+  <g id="gamma-badge">
+    <rect class="badge" rx="6" ry="6" x="0" y="0" width="140" height="26"/>
+    <text class="badge-text" id="gamma-text" x="8" y="17">γ = 0.000</text>
+  </g>
+
+  <!-- Standardization toggle -->
+  <g id="std-toggle" class="toggle" transform="translate(0,0)">
+    <rect class="toggle-rect" x="0" y="-12" width="96" height="24" rx="12" ry="12"/>
+    <circle id="std-dot" class="toggle-dot" cx="12" cy="0" r="9"/>
+    <text x="36" y="4" class="subtitle" id="std-label">Standardize</text>
+  </g>
+
+  <!-- Slider -->
+  <g id="slider" class="noselect">
+    <line id="slider-rail" class="slider-rail" x1="0" y1="0" x2="0" y2="0"/>
+    <line id="slider-track" class="slider-track" x1="0" y1="0" x2="0" y2="0"/>
+    <circle id="slider-knob" class="slider-knob" cx="0" cy="0" r="9"/>
+    <text id="slider-label" x="0" y="0" class="subtitle">γ</text>
+  </g>
+
+  <script><![CDATA[
+    /* Helper utilities with descriptive names & 2-space indentation */
+
+    function get_layout() {
+      const node = document.getElementById('layout');
+      const get = name => +node.getAttribute(name);
+      return {
+        width: get('data-width'),
+        height: get('data-height'),
+        margin_left: get('data-margin-left'),
+        margin_right: get('data-margin-right'),
+        margin_top: get('data-margin-top'),
+        margin_bottom: get('data-margin-bottom'),
+        xmin: get('data-xmin'),
+        xmax: get('data-xmax'),
+        ymin: get('data-ymin'),
+        ymax: get('data-ymax')
+      };
+    }
+
+    function make_scales(layout) {
+      const plot_width = layout.width - layout.margin_left - layout.margin_right;
+      const plot_height = layout.height - layout.margin_top - layout.margin_bottom;
+      const sx = x => layout.margin_left
+                      + (x - layout.xmin) * plot_width / (layout.xmax - layout.xmin);
+      const sy = y => layout.margin_top + plot_height
+                      - (y - layout.ymin) * plot_height / (layout.ymax - layout.ymin);
+      return { sx, sy, plot_width, plot_height };
+    }
+
+    function exprel(t) {
+      // Stable (exp(t) - 1) / t with polynomial around t ≈ 0
+      const a = Math.abs(t);
+      if (a < 1e-8) return 1 + t * 0.5 + (t * t) / 6;
+      return Math.expm1(t) / t;
+    }
+
+    function tilt(x, gamma) {
+      return x * exprel(gamma * x);
+    }
+
+    function tilt_standardizers(gamma) {
+      const abs2_g = gamma * gamma;
+      const half_abs2_g = 0.5 * abs2_g;
+      const neg_mu = -0.5 * gamma * exprel(half_abs2_g);
+      const inv_sigma = 1 / (Math.exp(half_abs2_g) * Math.sqrt(exprel(abs2_g)));
+      const offset = neg_mu * inv_sigma;
+      return { offset, scale: inv_sigma };
+    }
+
+    function build_path(gamma, layout, scales, standardized, n_points=400) {
+      const { sx, sy } = scales;
+      const xmin = layout.xmin, xmax = layout.xmax;
+      const step = (xmax - xmin) / (n_points - 1);
+      let d = '';
+      const std = tilt_standardizers(gamma);
+      for (let i = 0; i < n_points; i++) {
+        const x = xmin + i * step;
+        let y = tilt(x, gamma);
+        if (standardized) {
+          y = y * std.scale + std.offset;
+        }
+        const X = sx(x), Y = sy(y);
+        if (i === 0) d += 'M' + X.toFixed(2) + ' ' + Y.toFixed(2) + ' ';
+        else d += 'L' + X.toFixed(2) + ' ' + Y.toFixed(2) + ' ';
+      }
+      return d.trim();
+    }
+
+    function draw_axes(layout, scales) {
+      const { sx, sy, plot_width, plot_height } = scales;
+      const x_axis = document.getElementById('x-axis');
+      const y_axis = document.getElementById('y-axis');
+      const grid = document.getElementById('grid');
+
+      x_axis.innerHTML = '';
+      y_axis.innerHTML = '';
+      grid.innerHTML = '';
+
+      // X and Y axis lines at 0
+      const x_line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      x_line.setAttribute('x1', layout.margin_left);
+      x_line.setAttribute('y1', sy(0));
+      x_line.setAttribute('x2', layout.width - layout.margin_right);
+      x_line.setAttribute('y2', sy(0));
+      x_axis.appendChild(x_line);
+
+      const y_line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      y_line.setAttribute('x1', sx(0));
+      y_line.setAttribute('y1', layout.margin_top);
+      y_line.setAttribute('x2', sx(0));
+      y_line.setAttribute('y2', layout.height - layout.margin_bottom);
+      y_axis.appendChild(y_line);
+
+      const ticks = [-2,-1,0,1,2];
+
+      for (const xv of ticks) {
+        const X = sx(xv);
+        const gx = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        gx.setAttribute('x1', X);
+        gx.setAttribute('y1', layout.margin_top);
+        gx.setAttribute('x2', X);
+        gx.setAttribute('y2', layout.height - layout.margin_bottom);
+        grid.appendChild(gx);
+
+        const tick = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        tick.setAttribute('x1', X);
+        tick.setAttribute('y1', sy(0) - 4);
+        tick.setAttribute('x2', X);
+        tick.setAttribute('y2', sy(0) + 4);
+        x_axis.appendChild(tick);
+
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', X);
+        label.setAttribute('y', sy(0) + 18);
+        label.setAttribute('text-anchor', 'middle');
+        label.textContent = xv;
+        x_axis.appendChild(label);
+      }
+
+      for (const yv of ticks) {
+        const Y = sy(yv);
+        const gy = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        gy.setAttribute('x1', layout.margin_left);
+        gy.setAttribute('y1', Y);
+        gy.setAttribute('x2', layout.width - layout.margin_right);
+        gy.setAttribute('y2', Y);
+        grid.appendChild(gy);
+
+        const tick = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        tick.setAttribute('x1', sx(0) - 4);
+        tick.setAttribute('y1', Y);
+        tick.setAttribute('x2', sx(0) + 4);
+        tick.setAttribute('y2', Y);
+        y_axis.appendChild(tick);
+
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', sx(0) - 10);
+        label.setAttribute('y', Y + 4);
+        label.setAttribute('text-anchor', 'end');
+        label.textContent = yv;
+        y_axis.appendChild(label);
+      }
+
+      // Axis labels
+      const xlabel = document.getElementById('xlabel');
+      xlabel.setAttribute('x', layout.margin_left + plot_width / 2);
+      xlabel.setAttribute('y', layout.height - layout.margin_bottom + 40);
+      xlabel.setAttribute('text-anchor', 'middle');
+
+      const ylabel = document.getElementById('ylabel');
+      ylabel.setAttribute('x', layout.margin_left - 46);
+      ylabel.setAttribute('y', layout.margin_top + plot_height / 2);
+      ylabel.setAttribute('text-anchor', 'middle');
+    }
+
+    function init_layout() {
+      const layout = get_layout();
+      const scales = make_scales(layout);
+
+      const bg = document.getElementById('plot-bg');
+      bg.setAttribute('x', layout.margin_left);
+      bg.setAttribute('y', layout.margin_top);
+      bg.setAttribute('width', scales.plot_width);
+      bg.setAttribute('height', scales.plot_height);
+
+      // gamma badge position
+      const gamma_badge = document.getElementById('gamma-badge');
+      gamma_badge.setAttribute('transform',
+        `translate(${layout.width - layout.margin_right - 160},
+                   ${layout.margin_top - 18})`);
+
+      // toggle position (left of badge)
+      const std_toggle = document.getElementById('std-toggle');
+      std_toggle.setAttribute('transform',
+        `translate(${layout.width - layout.margin_right - 280},
+                   ${layout.margin_top - 5})`);
+
+      // slider layout
+      const slider = document.getElementById('slider');
+      const rail = document.getElementById('slider-rail');
+      const track = document.getElementById('slider-track');
+      const knob = document.getElementById('slider-knob');
+      const label = document.getElementById('slider-label');
+
+      const slider_left = layout.margin_left + 6;
+      const slider_right = layout.width - layout.margin_right - 6;
+      const slider_y = layout.height - layout.margin_bottom + 36;
+
+      rail.setAttribute('x1', slider_left);
+      rail.setAttribute('y1', slider_y);
+      rail.setAttribute('x2', slider_right);
+      rail.setAttribute('y2', slider_y);
+
+      track.setAttribute('x1', slider_left);
+      track.setAttribute('y1', slider_y);
+      track.setAttribute('x2', slider_right);
+      track.setAttribute('y2', slider_y);
+
+      knob.setAttribute('cx', slider_left);
+      knob.setAttribute('cy', slider_y);
+
+      label.setAttribute('x', slider_left - 18);
+      label.setAttribute('y', slider_y + 4);
+      label.setAttribute('text-anchor', 'end');
+
+      // axes
+      draw_axes(layout, scales);
+
+      return { layout, scales, slider_left, slider_right, slider_y };
+    }
+
+    function clamp(v, vmin, vmax) {
+      return Math.max(vmin, Math.min(vmax, v));
+    }
+
+    function create_interactions(state) {
+      const { layout, scales, slider_left, slider_right, slider_y } = state;
+      const knob = document.getElementById('slider-knob');
+      const gamma_text = document.getElementById('gamma-text');
+      const tilt_path = document.getElementById('tilt-path');
+      const plot_bg = document.getElementById('plot-bg');
+      const std_toggle = document.getElementById('std-toggle');
+      const std_dot = document.getElementById('std-dot');
+      const std_label = document.getElementById('std-label');
+
+      const gamma_min = -3.0;
+      const gamma_max = 3.0;
+      let gamma = 0.0;
+      let standardized = false;
+
+      function gamma_to_x(g) {
+        const t = (g - gamma_min) / (gamma_max - gamma_min);
+        return slider_left + t * (slider_right - slider_left);
+      }
+
+      function x_to_gamma(x) {
+        const t = clamp((x - slider_left) / (slider_right - slider_left), 0, 1);
+        return gamma_min + t * (gamma_max - gamma_min);
+      }
+
+      function update_path() {
+        tilt_path.setAttribute('d',
+          build_path(gamma, layout, scales, standardized));
+      }
+
+      function update_ui() {
+        gamma_text.textContent = 'γ = ' + gamma.toFixed(3)
+          + (standardized ? '  (std)' : '');
+        knob.setAttribute('cx', gamma_to_x(gamma));
+        // toggle dot position
+        std_dot.setAttribute('cx', standardized ? 84 : 12);
+        std_label.textContent = 'Standardize';
+      }
+
+      function set_gamma(new_gamma) {
+        gamma = clamp(new_gamma, gamma_min, gamma_max);
+        update_path();
+        update_ui();
+      }
+
+      function toggle_standardized() {
+        standardized = !standardized;
+        update_path();
+        update_ui();
+      }
+
+      // pointer interactions
+      let is_dragging = false;
+
+      function handle_pointer_down(evt) {
+        is_dragging = true;
+        const svg = evt.target.ownerSVGElement;
+        const ctm = svg.getScreenCTM();
+        const svg_x = (evt.clientX - ctm.e) / ctm.a;
+        set_gamma(x_to_gamma(svg_x));
+        evt.preventDefault();
+      }
+
+      function handle_pointer_move(evt) {
+        if (!is_dragging) return;
+        const svg = evt.target.ownerSVGElement;
+        const ctm = svg.getScreenCTM();
+        const svg_x = (evt.clientX - ctm.e) / ctm.a;
+        set_gamma(x_to_gamma(svg_x));
+        evt.preventDefault();
+      }
+
+      function handle_pointer_up(evt) {
+        is_dragging = false;
+      }
+
+      // Slider events
+      const slider = document.getElementById('slider');
+      slider.addEventListener('pointerdown', handle_pointer_down);
+      window.addEventListener('pointermove', handle_pointer_move);
+      window.addEventListener('pointerup', handle_pointer_up);
+
+      // Plot wheel to adjust gamma (additive step)
+      plot_bg.addEventListener('wheel', (evt) => {
+        const step = (gamma_max - gamma_min) * 0.01;
+        set_gamma(gamma + (evt.deltaY < 0 ? -step : step));
+        evt.preventDefault();
+      }, { passive: false });
+
+      // Double-click to reset
+      plot_bg.addEventListener('dblclick', () => set_gamma(0.0));
+
+      // Toggle standardization
+      std_toggle.addEventListener('click', toggle_standardized);
+
+      // Initial render
+      set_gamma(gamma);
+    }
+
+    function main() {
+      const state = init_layout();
+      create_interactions(state);
+    }
+
+    // Ensure pointer events are captured properly
+    (function setup() {
+      const svg = document.documentElement;
+      svg.style.touchAction = 'none';
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', main);
+      } else {
+        main();
+      }
+    })();
+  ]]></script>
+</svg>

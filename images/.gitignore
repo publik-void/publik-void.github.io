@@ -1,3 +1,5 @@
 # Don't include the figures from the APDM whitepaper as long as I don't have
 # permission to re-use these pubilcly
 /apdm-whitepaper-*
+
+/skit/*
