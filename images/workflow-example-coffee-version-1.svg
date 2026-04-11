@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1482.3486"
+   height="387.34885"
+   viewBox="0 0 1482.3486 387.34885"
+   role="img"
+   aria-labelledby="title desc"
+   version="1.1"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <title id="title">Coffee workflow version 1</title>
+  <desc id="desc">The original coffee brewing workflow panel extracted from the full diagram.</desc>
+  <defs id="defs3">
+    <linearGradient
+       id="nodeFill"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1">
+      <stop offset="0%" stop-color="rgb(238, 238, 241)" />
+      <stop offset="25%" stop-color="rgb(247, 247, 250)" />
+      <stop offset="100%" stop-color="rgb(247, 247, 250)" />
+    </linearGradient>
+    <marker
+       id="arrowHead"
+       markerWidth="14"
+       markerHeight="10"
+       refX="10"
+       refY="5"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 5 L 0 10 z" fill="rgb(135, 135, 140)" />
+    </marker>
+  </defs>
+  <style id="style3">
+    .panel {
+      fill: rgba(255, 255, 255, 0.1);
+      stroke: rgb(215, 215, 215);
+      stroke-width: 2.5;
+    }
+
+    .title {
+      font-family: &quot;Open Sans&quot;, Arial, sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      fill: rgb(70, 70, 70);
+    }
+
+    .subtitle {
+      font-family: &quot;Noto Serif&quot;, Georgia, serif;
+      font-size: 22px;
+      fill: rgb(80, 90, 100);
+    }
+
+    .node {
+      fill: url(#nodeFill);
+      stroke: rgb(215, 215, 215);
+      stroke-width: 3;
+    }
+
+    .nodeText {
+      font-family: &quot;Open Sans&quot;, Arial, sans-serif;
+      font-size: 25px;
+      font-weight: 600;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      fill: rgb(70, 70, 70);
+    }
+
+    .edge {
+      fill: none;
+      stroke: rgb(135, 135, 140);
+      stroke-width: 4;
+      marker-end: url(#arrowHead);
+    }
+
+    .edgeLabel {
+      font-family: &quot;Noto Serif&quot;, Georgia, serif;
+      font-size: 22px;
+      font-style: italic;
+      fill: rgb(80, 90, 100);
+      text-anchor: middle;
+    }
+  </style>
+  <g transform="translate(-58.825672,-53.825672)">
+  <rect class="panel" x="60.075672" y="55.075672" width="1479.8486" height="384.84885" rx="25.997341" ry="29.003101" id="rect3" style="display:inline" />
+  <text class="title" x="100" y="105" id="text3" style="display:inline">Version 1 — original workflow</text>
+  <text class="subtitle" x="100" y="140" id="text4">
+    Coarser grind and shorter brew time can lead to weak coffee.
+  </text>
+  <rect class="node" x="110" y="235.00008" width="250" height="92" rx="22" ry="22" id="rect4" style="fill:url(#nodeFill)" />
+  <text class="nodeText" x="235" y="281.00006" id="text5">Measure beans</text>
+  <rect class="node" x="460" y="235.00008" width="250" height="92" rx="22" ry="22" id="rect5" style="fill:url(#nodeFill)" />
+  <text class="nodeText" x="585" y="281.00006" id="text6">Grind beans</text>
+  <rect class="node" x="810" y="235.00008" width="250" height="92" rx="22" ry="22" id="rect6" style="fill:url(#nodeFill)" />
+  <text class="nodeText" x="935" y="281.00006" id="text7">Brew coffee</text>
+  <rect class="node" x="1160" y="235.00008" width="250" height="92" rx="22" ry="22" id="rect7" style="fill:url(#nodeFill)" />
+  <text class="nodeText" x="1285" y="281.00006" id="text8">Pour coffee</text>
+  <path class="edge" d="m 235,185.00007 v 50" id="path8" />
+  <text class="edgeLabel" x="235" y="175.00008" id="text9">beans</text>
+  <path class="edge" d="M 360,281.00007 H 460" id="path9" />
+  <text class="edgeLabel" x="410" y="217.99985" id="text10">whole beans</text>
+  <path class="edge" d="m 935,185.00007 v 50" id="path10" />
+  <text class="edgeLabel" x="935" y="175.00008" id="text11">hot water, 2 min</text>
+  <path class="edge" d="M 710,281.00007 H 810" id="path11" />
+  <text class="edgeLabel" x="760" y="217.99985" id="text12">coarse grounds</text>
+  <path class="edge" d="m 1060,281.00007 h 100" id="path12" />
+  <text class="edgeLabel" x="1110" y="217.99985" id="text13">weak brew</text>
+  <path class="edge" d="m 1285,327.00007 v 58" id="path13" />
+  <text class="edgeLabel" x="1285" y="414.00006" id="text14" style="display:inline">weak coffee</text>
+  </g>
+</svg>

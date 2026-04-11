@@ -18,6 +18,7 @@ module.exports = {
     maxEntrypointSize: 5000000
   },
   devServer: {
+    port: 58080,
     static: {
       directory: path.resolve(__dirname),
     },

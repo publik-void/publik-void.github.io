@@ -1576,8 +1576,7 @@
     </div>
 
     <div class="slide section inverse">
-      <h2 style="font-size: 1.5em;"> Evaluation under traditional trial design
-        </h2>
+      <h2> Cross-sectional testing </h2>
     </div>
 
     <div class="slide">
@@ -1619,6 +1618,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Paired-samples testing </h2>
     </div>
 
     <div class="slide no-reveal">
@@ -1698,6 +1701,218 @@
           </ul>
         </ul>
       </ul>
+    </div>
+
+    <div class="slide section inverse">
+      <h2 style="font-size: 1.7em;"> Panel model of outcome trajectories </h2>
+    </div>
+
+    <div class="slide">
+      <h3> Panel model </h3>
+
+      <div class="row">
+        <img
+          width="45%"
+          src="images/softplus_onset.pdf.svg"
+          alt="BOn" />
+        <img
+          width="45%"
+          src="images/softplus_saturation.pdf.svg"
+          alt="BSat" />
+      </div>
+
+      <p class="small"> \[
+        y_{ij} = \beta_1\mathrm{BOn}_{ij} + \beta_2\mathrm{BSat}_{ij} +
+          \beta_3\mathrm{BOn}_{ij}\left(\mathrm{EDO}_\mathrm{o}\right)_{i} +
+          \beta_4\mathrm{BOn}_{ij}\mathrm{Gender}_{i} +
+          \beta_4\mathrm{BOn}_{ij}\mathrm{BMI}_{i}
+      \] </p>
+
+      <ul>
+        <li> Fixed-effects panel model (= linear model with de-meaning) </li>
+        <li> Done as a course exercise </li>
+        <li> Non-parametric bootstrap &amp; Monte Carlo methods employed </li>
+      </ul>
+    </div>
+
+    <div class="slide image-fill headless">
+      <h3> Fixed-effects panel model predictions </h3>
+
+      <img
+        src="images/predictions-lateral_step_deviation_apdm_abs_normed_μ.μ.all.μ.ps.pdf.svg"
+        alt="Fixed-effects panel model: Lateral step deviation" />
+    </div>
+
+    <div class="slide">
+      <h3> Fit results </h3>
+
+      <table style="font-size: 60%">
+        <tr>
+          <th> Outcome (lab-based) </th>
+          <td> <span class="mono"> gait_speed_apdm_μ/μ/all/μ </span> </td>
+          <td> <span class="mono"> stride_length_apdm_μ/cv/all/μ </span> </td>
+        </tr>
+        <tr>
+          <th> \(R^2\) </th>
+          <td> 0.60 </td>
+          <td> 0.50 </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BOn}\) (\(p\)) </th>
+          <td> -0.011 (0.92) </td>
+          <td> 0.0083 (0.32) </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BSat}\) (\(p\))</th>
+          <td> -0.22 (2.2e-07) </td>
+          <td> 0.012 (0.00035) </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BOn} \times \mathrm{Gender}\) (\(p\))</th>
+          <td> -0.095 (0.00028) </td>
+          <td> 0.0044 (0.041) </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BOn} \times \mathrm{BMI}\) (\(p\))</th>
+          <td> -0.0061 (0.10) </td>
+          <td> 6e-04 (0.054) </td>
+        </tr>
+        <tr>
+          <th> \(\mathrm{BOn} \times \mathrm{EDO_o}\) (\(p\))</th>
+          <td> 0.0043 (0.00013) </td>
+          <td> -0.00053 (5.3e-08) </td>
+        </tr>
+        <tr>
+          <th> ESS </th>
+          <td> 60 </td>
+          <td> 106 </td>
+        </tr>
+        <tr>
+          <th> ESS (Seemann et al. 2025) </th>
+          <td> 66 </td>
+          <td> 67 </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="slide">
+      <h3> Simulating outcome data </h3>
+
+      <div class="col ai-start">
+        <p>
+          Data-generating process:
+        </p>
+
+        <ol style="font-size: 90%;">
+          <li> Fix the number of patients and controls. </li>
+          <li> Draw uniform ground-truth time since disease onset for first
+            visit. </li>
+          <li> Scale time since disease onset by log-normal variation to model
+            ground-truth severity. </li>
+          <li> Simulate selection bias by discarding patients above a fixed
+            severity threshold. </li>
+          <li> Simulate normal disease onset estimate error in approximate
+            accordance with Tezenas du Montcel et al. 2014. </li>
+          <li> Draw uniform number of visits per subject. </li>
+          <li> Create time intervals with normal error and extrapolate
+            time-varying variables. </li>
+          <li> Transform ground-truth severity by basis functions imitating
+            soft onset and feature saturation behavior. </li>
+          <li> Add non-normal, serially correlated residuals with differing pre-
+            and post-onset variance. </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Simulating outcome data </h3>
+
+      <img
+        src="images/simulated-data-example.pdf.svg"
+        alt="Simulated data example" />
+    </div>
+
+    <div class="slide">
+      <h3> Assumption violations </h3>
+
+      <div class="row">
+        <img
+          style="width: 35%"
+          src="images/softplus_onset.bias.n_patients-cropped.svg"
+          alt="Bias of BOn" />
+        <img
+          style="width: 35%"
+          src="images/softplus_saturation.bias.n_patients-cropped.svg"
+          alt="Bias of BSat" />
+        <img
+          class="no-increment"
+          style="width: 25%"
+          src="images/fixed-effects-panel-model-assumption-violations-legend.svg"
+          alt="Assumption violations legend" />
+      </div>
+
+      <div>
+        <p> Here: </p>
+        <ul>
+          <li> Simulated data </li>
+          <li> No bootstrapping </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Random-slope modeling </h2>
+    </div>
+
+    <div class="slide">
+      <h3> Model overview </h3>
+
+      <ul>
+        <li> Subject-centered growth model </li>
+        <li> The &ldquo;minimal&rdquo; longitudinal mixed-effects model </li>
+      </ul>
+
+      <p> \[
+        y_{ij} = \beta_0 + \beta_1 \tilde{x}_{ij} + b_{0i} +
+          b_{1i} \tilde{x}_{ij} + \epsilon_{ij}
+      \] </p>
+
+      <p class="small"> \[
+        \begin{pmatrix}
+          b_{0i} \\
+          b_{1i}
+        \end{pmatrix}
+        \sim
+        \mathcal{N}\!\left(
+          \begin{pmatrix}
+            0 \\
+            0
+          \end{pmatrix},
+          \begin{pmatrix}
+            \sigma_{b0}^2 & 0 \\
+            0 & \sigma_{b1}^2
+          \end{pmatrix}
+        \right),
+        \qquad
+        \varepsilon_{ij} \sim \mathcal{N}(0, \sigma^2)
+      \] </p>
+
+      <div>
+        <p> Where: </p>
+        <ul>
+          <li> \(i\) enumerates subjects, \(j\) enumerates visits </li>
+          <li> \(\tilde{x}_{ij} = x_{ij} - \bar{x}_i\) is subject-centered time
+          <ul>
+            <li> (or clinical scale to compare against) </li>
+          </ul>
+          </li>
+          <li> \(\beta_0\) and \(\beta_1\) are the fixed intercept and slope
+            </li>
+          <li> \(b_{0i}\) and \(b_{1i}\) are the random intercept and slope for
+            subject \(i\) </li>
+        </ul>
+      </div>
+
     </div>
 
     <div class="slide no-reveal">
@@ -2108,163 +2323,6 @@
           <li> Longitudinal effects in controls to be non-significant or small
             </li>
           <li> Longitudinal and cross-sectional effects' signs to agree </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="slide section inverse">
-      <h2 style="font-size: 1.7em;"> Panel model of outcome trajectories </h2>
-    </div>
-
-    <div class="slide">
-      <h3> Panel model </h3>
-
-      <div class="row">
-        <img
-          width="45%"
-          src="images/softplus_onset.pdf.svg"
-          alt="BOn" />
-        <img
-          width="45%"
-          src="images/softplus_saturation.pdf.svg"
-          alt="BSat" />
-      </div>
-
-      <p class="small"> \[
-        y_{ij} = \beta_1\mathrm{BOn}_{ij} + \beta_2\mathrm{BSat}_{ij} +
-          \beta_3\mathrm{BOn}_{ij}\left(\mathrm{EDO}_\mathrm{o}\right)_{i} +
-          \beta_4\mathrm{BOn}_{ij}\mathrm{Gender}_{i} +
-          \beta_4\mathrm{BOn}_{ij}\mathrm{BMI}_{i}
-      \] </p>
-
-      <ul>
-        <li> Fixed-effects panel model (= linear model with de-meaning) </li>
-        <li> Done as a course exercise </li>
-        <li> Non-parametric bootstrap &amp; Monte Carlo methods employed </li>
-      </ul>
-    </div>
-
-    <div class="slide image-fill headless">
-      <h3> Fixed-effects panel model predictions </h3>
-
-      <img
-        src="images/predictions-lateral_step_deviation_apdm_abs_normed_μ.μ.all.μ.ps.pdf.svg"
-        alt="Fixed-effects panel model: Lateral step deviation" />
-    </div>
-
-    <div class="slide">
-      <h3> Fit results </h3>
-
-      <table style="font-size: 60%">
-        <tr>
-          <th> Outcome (lab-based) </th>
-          <td> <span class="mono"> gait_speed_apdm_μ/μ/all/μ </span> </td>
-          <td> <span class="mono"> stride_length_apdm_μ/cv/all/μ </span> </td>
-        </tr>
-        <tr>
-          <th> \(R^2\) </th>
-          <td> 0.60 </td>
-          <td> 0.50 </td>
-        </tr>
-        <tr>
-          <th> \(\mathrm{BOn}\) (\(p\)) </th>
-          <td> -0.011 (0.92) </td>
-          <td> 0.0083 (0.32) </td>
-        </tr>
-        <tr>
-          <th> \(\mathrm{BSat}\) (\(p\))</th>
-          <td> -0.22 (2.2e-07) </td>
-          <td> 0.012 (0.00035) </td>
-        </tr>
-        <tr>
-          <th> \(\mathrm{BOn} \times \mathrm{Gender}\) (\(p\))</th>
-          <td> -0.095 (0.00028) </td>
-          <td> 0.0044 (0.041) </td>
-        </tr>
-        <tr>
-          <th> \(\mathrm{BOn} \times \mathrm{BMI}\) (\(p\))</th>
-          <td> -0.0061 (0.10) </td>
-          <td> 6e-04 (0.054) </td>
-        </tr>
-        <tr>
-          <th> \(\mathrm{BOn} \times \mathrm{EDO_o}\) (\(p\))</th>
-          <td> 0.0043 (0.00013) </td>
-          <td> -0.00053 (5.3e-08) </td>
-        </tr>
-        <tr>
-          <th> ESS </th>
-          <td> 60 </td>
-          <td> 106 </td>
-        </tr>
-        <tr>
-          <th> ESS (Seemann et al. 2025) </th>
-          <td> 66 </td>
-          <td> 67 </td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="slide">
-      <h3> Simulating outcome data </h3>
-
-      <div class="col ai-start">
-        <p>
-          Data-generating process:
-        </p>
-
-        <ol style="font-size: 90%;">
-          <li> Fix the number of patients and controls. </li>
-          <li> Draw uniform ground-truth time since disease onset for first
-            visit. </li>
-          <li> Scale time since disease onset by log-normal variation to model
-            ground-truth severity. </li>
-          <li> Simulate selection bias by discarding patients above a fixed
-            severity threshold. </li>
-          <li> Simulate normal disease onset estimate error in approximate
-            accordance with Tezenas du Montcel et al. 2014. </li>
-          <li> Draw uniform number of visits per subject. </li>
-          <li> Create time intervals with normal error and extrapolate
-            time-varying variables. </li>
-          <li> Transform ground-truth severity by basis functions imitating
-            soft onset and feature saturation behavior. </li>
-          <li> Add non-normal, serially correlated residuals with differing pre-
-            and post-onset variance. </li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="slide">
-      <h3> Simulating outcome data </h3>
-
-      <img
-        src="images/simulated-data-example.pdf.svg"
-        alt="Simulated data example" />
-    </div>
-
-    <div class="slide">
-      <h3> Assumption violations </h3>
-
-      <div class="row">
-        <img
-          style="width: 35%"
-          src="images/softplus_onset.bias.n_patients-cropped.svg"
-          alt="Bias of BOn" />
-        <img
-          style="width: 35%"
-          src="images/softplus_saturation.bias.n_patients-cropped.svg"
-          alt="Bias of BSat" />
-        <img
-          class="no-increment"
-          style="width: 25%"
-          src="images/fixed-effects-panel-model-assumption-violations-legend.svg"
-          alt="Assumption violations legend" />
-      </div>
-
-      <div>
-        <p> Here: </p>
-        <ul>
-          <li> Simulated data </li>
-          <li> No bootstrapping </li>
         </ul>
       </div>
     </div>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<!-- VIM_CUSTOM_HTML_SLIDES_FOLDING -->
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+
+    <title> Open Source Software and Workflows </title>
+
+    <link rel="stylesheet" type="text/css"
+      href="submodule-html-slides/styles/normalize/normalize.css">
+
+    <link rel="stylesheet" type="text/css"
+      href="submodule-html-slides/styles/sizing/slides/fit-height-16x9.css">
+
+    <link rel="stylesheet" type="text/css"
+      href="submodule-html-slides/styles/base/base.css">
+
+    <link rel="stylesheet" type="text/css"
+      href="submodule-html-slides/styles/theme-0/theme-0.css">
+
+    <!-- <script src="dist/mathjax.js"></script> -->
+
+    <!-- <script> -->
+    <!--   "use strict"; -->
+
+    <!--   var HtmlSlides = HtmlSlides || {}; -->
+
+    <!--   HtmlSlides.Substitions = {}; -->
+
+    <!--   HtmlSlides.Substitions.makeMobilityLabWhitepaperFigureSubstitution = -->
+    <!--       function(description, page) { -->
+    <!--     const div = document.createElement('div'); -->
+    <!--     div.classList.add('small', 'boxed', 'padded'); -->
+
+    <!--     const p0 = document.createElement('p'); -->
+    <!--     p0.innerHTML = description; -->
+    <!--     div.appendChild(p0); -->
+
+    <!--     const p1 = document.createElement('p'); -->
+    <!--     p1.classList.add('dim'); -->
+    <!--     p1.innerHTML = 'Figure not published in the online version of these ' + -->
+    <!--       'slides for copyright reasons. See the original in the ' + -->
+    <!--       '<a href=\"https://www.apdm.com/wp-content/uploads/2015/05/02' + -->
+    <!--           `-Mobility-Lab-Whitepaper.pdf#page=${page}\">` + -->
+    <!--         '<span class=\"underlined\">' + -->
+    <!--           `APDM Mobility Lab whitepaper, page ${page}` + -->
+    <!--         '</span>' + -->
+    <!--       '</a>' + -->
+    <!--       '.'; -->
+    <!--     div.appendChild(p1); -->
+
+    <!--     return div -->
+    <!--   } -->
+    <!-- </script> -->
+
+    <script src="submodule-html-slides/scripts/set-number-of-slides.js">
+      </script>
+    <script src="submodule-html-slides/scripts/control.js"></script>
+  </head>
+
+  <body>
+    <div class="slide title no-reveal">
+      <div class="row dim jc-space-between">
+        <p class="ljust no-wrap">
+          Lasse Schlör <br>
+          <a href="mailto:lasse-schloer@unibo.it">lasse-schloer@unibo.it</a>
+        </p>
+        <p class="rjust no-wrap">
+          MMM General Assembly <br>
+          2026-04-13
+        </p>
+      </div>
+
+      <h1> Open Source Software and Workflows </h1>
+
+      <div class="col" style="height: 30%">
+        <div class="row jc-space-between">
+          <a class="contain" href="https://www.unibo.it">
+            <img
+              src="images/logo-unibo-icon.svg"
+              alt="University of Bologna logo" />
+          </a>
+          <a class="contain" href="https://mhealthtechnologies.it">
+            <img
+              src="images/logo-mht-alpha.png"
+              alt="mHealth Technologies logo" />
+          </a>
+          <a class="contain" href="https://medicine-made-to-measure.eu">
+            <img
+              src="images/logo-mmm.svg"
+              alt="Medicine Made to Measure logo" />
+          </a>
+        </div>
+
+        <a class="row"
+          style="height: 8em"
+          href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/projects-details/43108390/101120256/HORIZON">
+          <img
+            src="images/flag-eu.svg"
+            alt="EU flag">
+          <div class="col">
+            <p class="dim">
+              Funded by the European Union’s Horizon Europe Marie
+              Skłodowska-Curie Actions scheme, GA no. 101120256.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Open Source </h2>
+    </div>
+
+    <div class="slide">
+      <h3> What does &ldquo;Open Source&rdquo; mean? </h3>
+
+      <div>
+        <p> Open Source means: </p>
+        <ul>
+          <li> The <span class="bold">instructions</span> for making something
+            are <span class="bold">public</span> </li>
+          <li> Anyone is allowed to <span class="bold">use, study, modify, and
+            share</span> them </li>
+        </ul>
+      </div>
+
+      <div>
+        <p> Examples: </p>
+        <ul>
+          <li> Furniture, bicycles, farm tools, prostheses, … </li>
+          <li> Cosmetics, soaps, food products, … </li>
+          <li> Computer hardware </li>
+        </ul>
+      </div>
+
+      <div id="">
+        <p> Antonyms: </p>
+        <ul>
+          <li> Proprietary </li>
+          <li> Closed source </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Free and open source software (FOSS) </h3>
+
+      <div class="large">
+        <p>
+          The <a href="https://www.gnu.org/philosophy/philosophy.html">
+          <span class="bold">Free Software Foundation</span></a> defines four
+          essential freedoms:
+        </p>
+        <ul>
+          <li> To run the program </li>
+          <li> To study and change the program in source code form </li>
+          <li> To redistribute exact copies </li>
+          <li> To distribute modified versions </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Selling FOSS </h3>
+
+      <div class="boxed padded">
+        <p class="cjust"> <span class="bold">&ldquo;Free&rdquo;</span> not as in
+          <span class="bold">&ldquo;free beer&rdquo;</span>, but as in
+          <span class="bold">&ldquo;free speech&rdquo;</span>.
+        </p>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th> Company sells </th>
+            <th> Example </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Support and consulting </td>
+            <td> Red Hat </td>
+          </tr>
+          <tr>
+            <td> Hosted service </td>
+            <td> WordPress.com </td>
+          </tr>
+          <tr>
+            <td> Advanced features </td>
+            <td> GitLab </td>
+          </tr>
+          <tr>
+            <td> Dual licensing </td>
+            <td> MySQL </td>
+          </tr>
+          <tr>
+            <td> Custom development </td>
+            <td> Collabora </td>
+          </tr>
+          <tr>
+            <td> Long-term maintenance </td>
+            <td> Canonical </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Why Open Source? </h2>
+    </div>
+
+    <div class="slide">
+      <h3> Interoperability </h3>
+
+      <ul class="large">
+        <li> Connecting closed tools is
+          <span class="bold">permission-based.</span> </li>
+        <li> Connecting open tools is
+          <span class="bold">possibility-based.</span> </li>
+      </ul>
+
+      <div class="large">
+        <p> Examples of vendor lock-in: </p>
+        <ul>
+          <li> Poor integration of iCloud services on non-Apple devices </li>
+          <li> Kindle e-books only readable in Kindle </li>
+          <li> HP printers refusing third-party cartridges </li>
+          <li> … </li>
+        </ul>
+      </div>
+
+      <ul class="hence large">
+        <li> EU Digital Markets Act </li>
+      </ul>
+    </div>
+
+    <div class="slide headless inverse">
+      <h3> Embrace, extend, extinguish </h3>
+
+      <div class="col">
+        <img
+          class="framed"
+          src="images/article-snippet-embrace-extend-and-extinguish.png"
+          alt="Wikipedia: Embrace, extend, and extinguish">
+      </div>
+    </div>
+
+    <div class="slide headless inverse no-reveal">
+      <h3> Headlines: EU countries pushing for digital autonomy </h3>
+
+      <div class="col">
+        <img
+          class="framed"
+          style="height: 30%;"
+          src="images/headline-los-angeles-times-france-dumps-zoom-and-teams-as-europe-seeks-digital-autonomy-from-the-us.png"
+          alt="Los Angeles Times: France dumps Zoom and Teams as Europe seeks digital autonomy from the U.S.">
+        <img
+          class="framed"
+          style="height: 30%;"
+          src="images/headline-reuters-dutch-parliament-calls-for-end-to-dependence-on-us-software-companies.png"
+          alt="Reuters: Dutch parliament calls for end to dependence on US software companies">
+        <img
+          class="framed"
+          style="height: 30%;"
+          src="images/headline-bloomberg-nordic-edition-northern-nations-start-to-pull-plug-on-us-tech-giants.png"
+          alt="Bloomberg: Nordic Edition: Northern Nations Start to Pull Plug on US Tech Giants">
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Right to repair </h3>
+
+      <ul class="large">
+        <li> Closed tools' lifetime is
+          <span class="bold">vendor-controlled.</span> </li>
+        <li> Open tools are <span class="bold">fixable</span>. </li>
+      </ul>
+
+      <div class="large">
+        <p> Examples of anti-repair design: </p>
+        <ul>
+          <li> Washing machines with sealed tubs </li>
+          <li> Laptops with soldered hardware </li>
+          <li> Wireless earbud batteries </li>
+          <li> … </li>
+        </ul>
+      </div>
+
+      <ul class="hence large">
+        <li> EU Directive on repair of goods </li>
+      </ul>
+    </div>
+
+    <div class="slide headless inverse no-reveal">
+      <h3> Headlines: Planned obsolescence </h3>
+
+      <div class="col">
+        <img
+          class="framed"
+          style="height: 30%;"
+          src="images/headline-bbc-apple-pays-out-over-claims-it-deliberately-slowed-down-iphones.png"
+          alt="BBC: Apple pays out over claims it deliberately slowed down iPhones">
+        <img
+          class="framed"
+          style="height: 30%;"
+          src="images/headline-reuters-deere-settles-us-right-to-repair-lawsuit-with-99-million-fund-repair-commitments.png"
+          alt="Reuters: Deere settles US right-to-repair lawsuit with $99 million fund, repair commitments">
+        <img
+          class="framed"
+          style="height: 30%;"
+          src="images/headline-business-insider-googles-parent-company-is-deliberately-disabling-some-of-its-customers-old-smart-home-devices.png"
+          alt="Business insider: Google's parent company is deliberately disabling some of its customers' old smart-home devices">
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Security, privacy &amp; transparency </h3>
+
+      <div class="boxed padded">
+        <p class="bold serif">
+          &ldquo;We love our phones, but we do not trust them. And love without
+          trust is the definition of an abusive relationship.&rdquo;
+        </p>
+        <p class="italic rjust dim"> &mdash; Maria Farrell </p>
+      </div>
+
+      <ul class="large">
+        <li> Closed source asks for <span class="bold">trust</span>. </li>
+        <li> Open source allows <span class="bold">verification</span>. </li>
+      </ul>
+
+      <ul class="hence large">
+        <li> EU-FOSSA: Free and Open Source Software Auditing </li>
+      </ul>
+    </div>
+
+    <div class="slide headless inverse no-reveal">
+      <h3> Headlines: Security, privacy &amp; transparency </h3>
+
+      <div class="col">
+        <img
+          class="framed"
+          style="height: 30%;"
+          src="images/headline-sparc-sparc-report-urges-action-to-address-concerns-with-sciencedirect-data-privacy-practices.png"
+          alt="SPARC Report Urges Action to Address Concerns with ScienceDirect Data Privacy Practices">
+        <img
+          class="framed"
+          style="height: 30%;"
+          src="images/headline-npr-google-settles-5-billion-privacy-lawsuit-over-tracking-people-using-incognito-mode.png"
+          alt="Google settles $5 billion privacy lawsuit over tracking people using 'incognito mode'">
+        <img
+          class="framed"
+          style="height: 30%;"
+          src="images/headline-bbc-tiktok-fined-345m-over-childrens-data-privacy.png"
+          alt="TikTok fined €345m over children's data privacy">
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Collaboration &amp; extensibility </h3>
+
+      <div class="boxed padded">
+        <p class="bold serif">
+          Further, science is a collaborative effort. The combined results of
+          several people working together is often much more effective than
+          could be that of an individual scientist working alone.
+        </p>
+        <p class="italic rjust dim">
+          &mdash; John Bardeen, Nobel banquet speech
+        </p>
+      </div>
+
+      <ul class="large">
+        <li> Closed tools <span class="bold">limit development
+          participation</span>. </li>
+        <li> Open tools are <span class="bold">shared building blocks</span>.
+          </li>
+      </ul>
+
+      <ul class="hence large">
+        <li> EU Open Source Programme Offices Network </li>
+        <li> EU Open Source Solutions Catalogue </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Reproducibility &amp; replicability </h3>
+
+      <ul class="large">
+        <li> Reproducibility: Same data, same methods </li>
+        <li> Replicability: New data, same question </li>
+      </ul>
+
+      <div class="boxed padded">
+        <p class="bold serif">
+          More than 70% of researchers have tried and failed to reproduce
+          another scientist's experiments, and more than half have failed to
+          reproduce their own experiments.
+        </p>
+        <p class="italic rjust dim"> &mdash; Monya Baker, Nature </p>
+      </div>
+
+      <ul class="large">
+        <li> Closed tools are <span class="bold">black boxes</span>, hiding
+          methodological details. </li>
+        <li> Open tools <span class="bold">expose the full workflow</span>.
+          </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Downsides of open-source software </h3>
+
+      <ul class="large">
+        <li> Funding problems </li>
+        <li> Fragmentation </li>
+        <li> No guaranteed accountability </li>
+        <li> Licensing complexity </li>
+      </ul>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Workflows </h2>
+    </div>
+
+    <div class="slide">
+      <h3> What is a scientific workflow? </h3>
+
+      <ul class="large">
+        <li> A defined sequence of repeatable steps </li>
+        <li> Each step transforms data or materials </li>
+        <li> Outputs from one step feed into further steps </li>
+      </ul>
+
+      <hr>
+
+      <ul class="hence large">
+        <li> Makes analyses repeatable </li>
+        <li> Makes results reproducible </li>
+        <li> Facilitates checking, tracing, sharing, and reusing </li>
+      </ul>
+    </div>
+
+    <div class="slide headless no-number reveal-first">
+      <h3> Workflow example: Coffee </h3>
+
+      <div class="col">
+        <img
+          class="increment"
+          src="images/workflow-example-coffee-version-1.svg"
+          alt="Workflow example: Coffee, version 1">
+        <img
+          class="increment"
+          src="images/workflow-example-coffee-version-2.svg"
+          alt="Workflow example: Coffee, version 2">
+      </div>
+    </div>
+
+    <div class="slide">
+      <h3> Best practices for reproducible workflows </h3>
+
+      <ul class="large">
+        <li> Name things clearly and consistently </li>
+        <li> Reduce hidden dependencies between steps </li>
+        <li> Automate repetitive work if possible </li>
+        <li> Prefer open-source tools where practical </li>
+        <li> Choose suitable, open data formats </li>
+        <li> Keep data traceable and backed up </li>
+        <li> Write documentation: </li>
+        <ul style="font-size: 80%">
+          <li> &ldquo;How must this step be carried out exactly?&rdquo; </li>
+          <li> &ldquo;What does this variable measure?&rdquo; </li>
+          <li> &ldquo;What is this script for?&rdquo; </li>
+        </ul>
+      </ul>
+
+      <ul class="hence large">
+        <li> Future-proof the workflow &ndash; for others and yourself </li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <h3> Version control </h3>
+
+      <div class="large">
+        <p>
+          <img
+            style="height: 1em; vertical-align: middle;"
+            src="images/logo-git.svg"
+            alt="Git logo">
+          tracks changes to files over time:
+        </p>
+        <ul>
+          <li> Trace text, figures, datasets, code </li>
+          <li> See what changed, when, and why </li>
+          <li> Recover earlier versions safely </li>
+          <li> Reduce confusion from many copies
+            (<span class="mono">report_final_v2</span>) </li>
+          <li> Collaborate without overwriting each other's work </li>
+          <li> Keep an online project backup </li>
+        </ul>
+      </div>
+    </div>
+
+    <!--
+      Relevant open source software:
+      - Python/R/Julia
+      - Jupyter
+      - Markup languages (e.g. Markdown + Pandoc)
+      - LaTeX
+      - LaTeX Beamer/reveal.js/Marp
+      - Zotero/JabRef
+      - Linux
+      - Shell scripting (e.g. Bash)
+      - Git (for version control)
+      - GitLab or similar (for collaboration, project management, …)
+      - Docker
+      - Nextflow/Snakemake
+      - NixOS/GNU Guix
+    -->
+
+    <div class="slide">
+      <h3> Computational reproducibility at scale </h3>
+
+      <table>
+        <tbody>
+          <tr>
+            <th> 1. </th>
+            <td>
+              <p class="bold"> Dependency snapshots </p>
+              <p> Freeze package/library versions </p>
+              <p class="dim">
+                <span class="mono">conda</span>,
+                <span class="mono">renv</span>,
+                <span class="mono">requirements.txt</span>, …
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <th> 2. </th>
+            <td>
+              <p class="bold"> Containers </p>
+              <p> Freeze the software environment </p>
+              <p class="dim"> Docker, Apptainer/Singularity, … </p>
+            </td>
+          </tr>
+          <tr>
+            <th> 3. </th>
+            <td>
+              <p class="bold"> System snapshots </p>
+              <p> Freeze the whole system (if containers aren't an option) </p>
+              <p class="dim"> GNU Guix, NixOS, … </p>
+            </td>
+          </tr>
+          <tr>
+            <th> 4. </th>
+            <td>
+              <p class="bold"> Workflow managers </p>
+              <p> Freeze the full workflow </p>
+              <p class="dim"> Nextflow, Snakemake, … </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="slide">
+      <h3> Privacy-enhancing technologies </h3>
+
+      <ul class="large">
+        <li> Federated learning </li>
+        <li> Homomorphic encryption </li>
+        <li> Secure multiparty computation </li>
+        <li> Differential privacy </li>
+      </ul>
+
+      <hr>
+
+      <ul class="large">
+        <li> Emerging methods for privacy-preserving data analysis </li>
+        <li> Allow statistics without sharing raw records </li>
+        <li> Can support open science when open data are impossible </li>
+      </ul>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Thank you! </h2>
+
+      <p>
+        This presentation is open source. Its source code can be found at:
+        <br>
+        <a href="https://github.com/publik-void/publik-void.github.io"
+          class="mono"> https://github.com/publik-void/publik-void.github.io
+        </a>
+      </p>
+
+      <div class="smaller ljust"
+          style="position: absolute; top: 2em; right: 2em">
+        <a href="./index.html">Go to index (relative)</a> <br>
+        <a href="https://publik-void.github.io/index.html">
+          Go to index (online)</a>
+      </div>
+    </div>
+
+  </body>
+</html>
+
