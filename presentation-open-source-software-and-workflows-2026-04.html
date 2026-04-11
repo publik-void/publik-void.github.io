@@ -489,12 +489,78 @@
     </div>
 
     <div class="slide">
-      <h3> Best practices for reproducible workflows </h3>
+      <h3> Future-proofing </h3>
 
-      <p class="large">
-        <span class="bold">Future-proof</span> the workflow &ndash; for others
-        and yourself:
-      </p>
+      <div class="large">
+        <p> Think ahead: </p>
+        <ul>
+          <li> What might the workflow look like a year from now? </li>
+          <li> Could you still understand this workflow a year from now? </li>
+          <li> Could somebody else understand it without your help? </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide no-reveal">
+      <h3> Dataset detective work </h3>
+
+      <table class="mono">
+        <thead>
+          <tr>
+            <th> ID </th>
+            <th> RESP </th>
+            <th> VALUE </th>
+            <th> NEW_VALUE </th>
+            <th> FLAG </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> 001 </td>
+            <td> Y </td>
+            <td></td>
+            <td> N.A. </td>
+            <td> 64 </td>
+          </tr>
+          <tr>
+            <td> 002 </td>
+            <td> Y </td>
+            <td> 12.4 </td>
+            <td> 12.8 </td>
+            <td> 64 </td>
+          </tr>
+          <tr>
+            <td> 003 </td>
+            <td> N </td>
+            <td> 13.1 </td>
+            <td> 13.4 </td>
+            <td> 96 </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="slide no-reveal">
+      <h3> Version control by emotional intensity </h3>
+
+      <table class="mono">
+        <thead>
+          <tr>
+            <th> filename </th>
+            <th> used_for_analysis </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr> <td> results.csv </td> <td> no </td> </tr>
+          <tr> <td> results_v2.csv </td> <td> no </td> </tr>
+          <tr> <td> results_final.csv </td> <td> FALSE </td> </tr>
+          <tr> <td> results_final2.csv </td> <td> no </td> </tr>
+          <tr> <td> results_reallyfinal.csv </td> <td> maybe </td> </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="slide">
+      <h3> Best practices for reproducible workflows </h3>
 
       <ul class="large">
         <li> Name things clearly and consistently </li>
@@ -527,8 +593,7 @@
           <li> Trace text, figures, datasets, code </li>
           <li> See what changed, when, and why </li>
           <li> Recover earlier versions safely </li>
-          <li> Reduce confusion from many copies
-            (<span class="mono">report_final_v2</span>) </li>
+          <li> Reduce confusion from many copies </li>
           <li> Collaborate without overwriting each other's work </li>
           <li> Keep an online project backup </li>
         </ul>
