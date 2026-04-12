@@ -564,19 +564,19 @@
     </div>
 
     <div class="slide">
-      <h3> Closed captioning code </h3>
+      <h3> Eyewitness testimony </h3>
 
       <div class="boxed padded">
-        <pre><code><span style="color: cornflowerblue;"># nobody knows what this does</span>
-<span style="color: cornflowerblue;"># Bob wrote this in 2019</span>
-<span style="color: cornflowerblue;"># ask him if you can find him</span>
+        <pre><code><span class="code-comment"># nobody knows what this does</span>
+<span class="code-comment"># Bob wrote this in 2019</span>
+<span class="code-comment"># ask him if you can find him</span>
 def do_it(x):
   y = []
 
-  <span style="color: cornflowerblue;"># loop over input</span>
-  for i in range(len(x)):
-    <span style="color: cornflowerblue;"># calculate result</span>
-    y.append(h(q(x[i]), y))
+  <span class="code-comment"># loop over input</span>
+  for i, z in enumerate(x):
+    <span class="code-comment"># calculate result</span>
+    y += [h(q(z), y[-1:] or y)]
 
   return y</code></pre>
       </div>
