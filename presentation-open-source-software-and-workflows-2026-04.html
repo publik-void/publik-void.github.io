@@ -469,7 +469,7 @@
       <ul class="hence large">
         <li> Makes analyses repeatable </li>
         <li> Makes results reproducible </li>
-        <li> Facilitates checking, tracing, sharing, and reusing </li>
+        <li> Facilitates checking, tracing, reusing, and sharing </li>
       </ul>
     </div>
 
@@ -489,10 +489,10 @@
     </div>
 
     <div class="slide">
-      <h3> Future-proofing </h3>
+      <h3> Planning a workflow </h3>
 
       <div class="large">
-        <p> Think ahead: </p>
+        <p> Future-proofing: </p>
         <ul>
           <li> What might the workflow look like a year from now? </li>
           <li> Could you still understand this workflow a year from now? </li>
@@ -560,21 +560,40 @@
     </div>
 
     <div class="slide">
+      <h3> Closed captioning </h3>
+
+      <div class="boxed padded">
+        <pre><code># nobody knows what this does
+# Bob wrote this in 2019
+# ask him if you can find him
+def do_it(x):
+  y = []
+
+  # loop over input
+  for i in range(len(x)):
+    # calculate result
+    y.append(h(q(x[i])))
+
+  return y</code></pre>
+      </div>
+    </div>
+
+    <div class="slide">
       <h3> Best practices for reproducible workflows </h3>
 
       <ul class="large">
         <li> Name things clearly and consistently </li>
-        <li> Reduce hidden dependencies between steps </li>
-        <li> Automate repetitive work if possible </li>
-        <li> Prefer open-source tools where practical </li>
-        <li> Choose suitable, open data formats </li>
-        <li> Keep data traceable and backed up </li>
         <li> Write documentation: </li>
         <ul style="font-size: 80%">
           <li> &ldquo;How must this step be carried out exactly?&rdquo; </li>
           <li> &ldquo;What does this variable measure?&rdquo; </li>
           <li> &ldquo;What is this script for?&rdquo; </li>
         </ul>
+        <li> Reduce hidden dependencies between steps </li>
+        <li> Automate repetitive work if possible </li>
+        <li> Prefer open-source tools where practical </li>
+        <li> Choose suitable, open data formats </li>
+        <li> Keep data traceable and backed up </li>
       </ul>
     </div>
 
