@@ -508,10 +508,11 @@
         <thead>
           <tr>
             <th> ID </th>
-            <th> RESP </th>
+            <th> RES </th>
             <th> VALUE </th>
             <th> NEW_VALUE </th>
             <th> FLAG </th>
+            <th> __ETA__ </th>
           </tr>
         </thead>
         <tbody>
@@ -521,6 +522,7 @@
             <td></td>
             <td> N.A. </td>
             <td> 64 </td>
+            <td> 0.1 </td>
           </tr>
           <tr>
             <td> 002 </td>
@@ -528,6 +530,7 @@
             <td> 12.4 </td>
             <td> 12.8 </td>
             <td> 64 </td>
+            <td> 0.1 </td>
           </tr>
           <tr>
             <td> 003 </td>
@@ -535,6 +538,7 @@
             <td> 13.1 </td>
             <td> 13.4 </td>
             <td> 96 </td>
+            <td> 0.1 </td>
           </tr>
         </tbody>
       </table>
@@ -560,21 +564,21 @@
     </div>
 
     <div class="slide">
-      <h3> Closed captioning </h3>
+      <h3> Closed captioning code </h3>
 
       <div class="boxed padded">
-        <pre><code># nobody knows what this does
-# Bob wrote this in 2019
-# ask him if you can find him
-<span style="color: cornflowerblue;">def do_it(x):</span>
-<span style="color: cornflowerblue;">  y = []</span>
+        <pre><code><span style="color: cornflowerblue;"># nobody knows what this does</span>
+<span style="color: cornflowerblue;"># Bob wrote this in 2019</span>
+<span style="color: cornflowerblue;"># ask him if you can find him</span>
+def do_it(x):
+  y = []
 
-  # loop over input
-<span style="color: cornflowerblue;">  for i in range(len(x)):</span>
-    # calculate result
-<span style="color: cornflowerblue;">    y.append(h(q(x[i])))</span>
+  <span style="color: cornflowerblue;"># loop over input</span>
+  for i in range(len(x)):
+    <span style="color: cornflowerblue;"># calculate result</span>
+    y.append(h(q(x[i]), y))
 
-<span style="color: cornflowerblue;">  return y</span></code></pre>
+  return y</code></pre>
       </div>
     </div>
 
