@@ -1086,6 +1086,7 @@
               <ul>
                 <li> Stride-to-stride comparisons </li>
                 <li> Discrete transform coefficients </li>
+                <li> Cumulative (absolute) signal </li>
                 <li> … </li>
               </ul>
             </div>
@@ -1104,6 +1105,7 @@
               <span class="bold">Feature classes</span>
               <ul>
                 <li> Complexity measures </li>
+                <li> Cumulative (absolute) signal </li>
                 <li> … </li>
               </ul>
             </div>
@@ -1493,10 +1495,10 @@
 
     <div class="slide no-reveal">
       <h3> Data: Per-visit level </h3>
-      <img
-        style="height: 100%"
-        src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-sara-sim-1-ps.svg"
-        alt="Raw data, visit level, SARA score">
+      <object
+        style="height: 100%; width: auto;"
+        data="images/plots/tuebingen-apdm-sara-sim-1-Δ-edo-o-or-45-ps-instance-wise-outcome-pair-relationship-pdf-0-page-optimize-pretty-styles-scripts.svg"
+        type="image/svg+xml"></object>
       <p class="small dim"
           style="position: absolute; bottom: 2em; left: 2em">
         SARA scores in healthy subjects simulated (based on Shaafi Kabiri et al.
@@ -1506,18 +1508,15 @@
 
     <div class="slide no-reveal">
       <h3> Data: Per-visit level </h3>
-      <img
-        style="height: 100%"
-        src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-abc41-ps.svg"
-        alt="Raw data, visit level, 41-item ABC score">
-    </div>
-
-    <div class="slide no-reveal">
-      <h3> Data: Per-visit level </h3>
-      <img
-        style="height: 100%"
-        src="images/outcome-pair-relationship-plot-Δ-edo-o-or-45-lateral-step-deviation-apdm-abs-normed-μ-μ-all-μ-ps.svg"
-        alt="Raw data, visit level, lateral step deviation, preferred speed task">
+      <object
+        style="height: 100%; width: auto;"
+        data="images/plots/tuebingen-apdm-lateral-step-deviation-apdm-abs-normed-μ-median-all-median-sara-sim-1-ps-instance-wise-outcome-pair-relationship-pdf-0-page-optimize-pretty-styles-scripts.svg"
+        type="image/svg+xml"></object>
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        SARA scores in healthy subjects simulated (based on Shaafi Kabiri et al.
+        2018)
+      </p>
     </div>
 
     <div class="slide">
@@ -1682,6 +1681,8 @@
 
     <div class="slide">
       <h3> Pooled sample size estimates </h3>
+
+      <p class="todo"> TODO: Focused disease range, new pooling </p>
 
       <ul>
         <p> ESSs are unstable under varying: </p>
@@ -1912,11 +1913,25 @@
             subject \(i\) </li>
         </ul>
       </div>
+    </div>
 
+    <div class="slide image-fill headless no-number">
+      <h3> Random-slope model fit </h3>
+
+      <object
+        style="height: 100%; width: auto;"
+        data="images/plots/tuebingen-apdm-sara-age-estimate-ps-sym-slopes-pdf-0-page-optimize-pretty-styles-scripts.svg"
+        type="image/svg+xml"></object>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Outcome ranking </h2>
     </div>
 
     <div class="slide no-reveal">
       <h3> Outcome ranking </h3>
+
+      <p class="todo"> TODO: Update outcome ranking </p>
 
       <table
           class="mono smallest"
@@ -2274,17 +2289,9 @@
     </div>
 
     <div class="slide">
-      <h3> Outcome ranking (<span class="mono">mobgap</span>) </h3>
-    </div>
-
-    <div class="slide">
-      <h3> Outcome ranking (<span class="mono">gaitmap</span>) </h3>
-
-      <p class="todo"> TODO: Incorporate gaitmap </p>
-    </div>
-
-    <div class="slide">
       <h3> Outcome ranking: Metrics </h3>
+
+      <p class="todo"> TODO: Update metrics </p>
 
       <table class="small">
         <tr>
@@ -2312,6 +2319,8 @@
 
     <div class="slide">
       <h3> Outcome ranking: Filtering </h3>
+
+      <p class="todo"> TODO: Update filtering </p>
 
       <div>
         <p> Require: </p>
@@ -2756,33 +2765,33 @@
       </div>
     </div>
 
-    <div class="slide section inverse">
-      <h2 style="font-size: 1.8em"> Disease progression modeling </h2>
-    </div>
+    <!-- <div class="slide section inverse"> -->
+    <!--   <h2 style="font-size: 1.8em"> Disease progression modeling </h2> -->
+    <!-- </div> -->
 
-    <div class="slide">
-      <h3> Latent disease progression model </h3>
+    <!-- <div class="slide"> -->
+    <!--   <h3> Latent disease progression model </h3> -->
 
-      <div class="small">
-        \[
-          \theta_{i j} = \begin{cases}
-            h \left(
-                \left( \beta + b_i \right) \left( t_{i j} - \tau_i \right)
-              \right) +
-              u_{i j} &amp;
-            i \in \mathrm{patients} \\
+    <!--   <div class="small"> -->
+    <!--     \[ -->
+    <!--       \theta_{i j} = \begin{cases} -->
+    <!--         h \left( -->
+    <!--             \left( \beta + b_i \right) \left( t_{i j} - \tau_i \right) -->
+    <!--           \right) + -->
+    <!--           u_{i j} &amp; -->
+    <!--         i \in \mathrm{patients} \\ -->
 
-            0 &amp;
-            i \in \mathrm{controls}
-              \end{cases}
-        \]
-        \[
-        y_{k i j s} = \nu_k +
-          \lambda_k \theta_{i j} +
-          <!-- \sum_\kappa \alpha_{k \kappa} x_{\kappa i j s} + -->
-          \epsilon_{k i j s}
-        \]
-      </div>
+    <!--         0 &amp; -->
+    <!--         i \in \mathrm{controls} -->
+    <!--           \end{cases} -->
+    <!--     \] -->
+    <!--     \[ -->
+    <!--     y_{k i j s} = \nu_k + -->
+    <!--       \lambda_k \theta_{i j} + -->
+    <!--       <!-1- \sum_\kappa \alpha_{k \kappa} x_{\kappa i j s} + -1-> -->
+    <!--       \epsilon_{k i j s} -->
+    <!--     \] -->
+    <!--   </div> -->
 
       <table class="smaller">
         <tr>
@@ -2842,20 +2851,6 @@
       <p class="todo"> TODO: Update this draft </p>
 
     </div>
-
-    <!-- <div class="slide"> -->
-    <!--   <h3> Gait features </h3> -->
-
-    <!--   <img -->
-    <!--     src="images/diagram-lateral-step-deviation-alpha.png" -->
-    <!--     alt="Lateral Step Deviation"> -->
-
-    <!--   <ul> -->
-    <!--     <li> Currently ~50 features (+ ~2000 transformations) </li> -->
-    <!--     <li> High redundancy </li> -->
-    <!--     <!-1- <li> Further additions likely </li> -1-> -->
-    <!--   </ul> -->
-    <!-- </div> -->
 
     <div class="slide section inverse">
       <h2> Thank you! </h2>
