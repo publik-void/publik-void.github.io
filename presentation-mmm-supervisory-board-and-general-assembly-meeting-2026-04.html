@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<!-- VIM_CUSTOM_HTML_SLIDES_FOLDING -->
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+
+    <title> DC8 / WP3.1: Individually tailored digital-motor outcomes in real
+      life </title>
+
+    <link rel="stylesheet" type="text/css"
+      href="submodule-html-slides/styles/normalize/normalize.css">
+
+    <link rel="stylesheet" type="text/css"
+      href="submodule-html-slides/styles/sizing/slides/fit-height-16x9.css">
+
+    <link rel="stylesheet" type="text/css"
+      href="submodule-html-slides/styles/base/base.css">
+
+    <link rel="stylesheet" type="text/css"
+      href="submodule-html-slides/styles/theme-0/theme-0.css">
+
+    <!-- <script src="dist/trajectory-plots.js"></script> -->
+    <script src="dist/mathjax.js"></script>
+
+    <script src="submodule-html-slides/scripts/set-number-of-slides.js">
+      </script>
+    <script src="submodule-html-slides/scripts/control.js"></script>
+
+    <!-- Outcome ranking colors -->
+    <style>
+      .c-default { } .c-weak { opacity: .5; } .c-neg { color: orange; } .c-pos { color: mediumblue; } .c-0 { color: black; } .c-1 { color: dimgray; } .c-2 { color: navy; } .c-3 { color: royalblue; } .c-4 { color: teal; } .c-5 { color: seagreen; } .c-6 { color: darkgreen; } .c-7 { color: olive; } .c-8 { color: darkgoldenrod; } .c-9 { color: chocolate; } .c-10 { color: sienna; } .c-11 { color: firebrick; } .c-12 { color: crimson; } .c-13 { color: purple; } .c-14 { color: indigo; } .c-15 { color: darkmagenta; }
+    </style>
+  </head>
+
+  <body>
+    <div class="slide title no-reveal">
+      <div class="row dim jc-space-between">
+        <p class="ljust no-wrap">
+          Lasse Schlör <br>
+          <a href="mailto:lasse-schloer@unibo.it">lasse-schloer@unibo.it</a>
+        </p>
+        <p class="rjust no-wrap">
+          MMM SB &amp; GA meeting <br>
+          2026-04-20
+        </p>
+      </div>
+
+      <h1> DC8 / WP3.1: Individually tailored <br> digital-motor outcomes
+        in real life <br> <span class="small dim">Research progress</span> </h1>
+
+      <div class="col" style="height: 30%">
+        <div class="row jc-space-between">
+          <a class="contain" href="https://www.unibo.it">
+            <img
+              src="images/logo-unibo-icon.svg"
+              alt="University of Bologna logo" />
+          </a>
+          <a class="contain" href="https://mhealthtechnologies.it">
+            <img
+              src="images/logo-mht-alpha.png"
+              alt="mHealth Technologies logo" />
+          </a>
+          <a class="contain" href="https://medicine-made-to-measure.eu">
+            <img
+              src="images/logo-mmm.svg"
+              alt="Medicine Made to Measure logo" />
+          </a>
+        </div>
+
+        <a class="row jc-start ai-center"
+          style="height: 2em; gap: 0.25em;"
+          href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/projects-details/43108390/101120256/HORIZON">
+          <img
+            src="images/flag-eu.svg"
+            alt="EU flag">
+          <div class="row jc-start ai-center">
+            <p class="dim small">
+              Funded by the European Union’s Horizon Europe Marie
+              Skłodowska-Curie Actions scheme, GA no. 101120256.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="slide no-reveal">
+      <h3> Supervisors </h3>
+
+      <!-- TODO: Affiliations? -->
+
+      <div class="col">
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 2.5em"
+            src="images/profile-photo-sabato-mellone.png"
+            alt="Dr. Sabato Mellone">
+          <div>
+            <span class="bold"> Dr. Sabato Mellone </span><br>
+            <span class="dim"> University of Bologna </span>
+          </div>
+        </div>
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 2.5em"
+            src="images/profile-photo-matthis-synofzik.jpg"
+            alt="Matthis Synofzik">
+          <div>
+            <span class="bold"> Prof. Dr. Matthis Synofzik </span><br>
+            <span class="dim"> University of Tübingen </span>
+          </div>
+        </div>
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 2.5em"
+            src="images/profile-photo-mats-karlsson.jpg.webp"
+            alt="Prof. Dr. Mats Karlsson">
+          <div>
+            <span class="bold"> Prof. Dr. Mats Karlsson </span><br>
+            <span class="dim"> University of Uppsala </span>
+          </div>
+        </div>
+        <hr>
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 2.5em"
+            src="images/profile-photo-carlo-tacconi.jpeg"
+            alt="Carlo Tacconi">
+          <div>
+            <span class="bold"> Carlo Tacconi </span><br>
+            <span class="dim"> mHealth Technologies s.r.l., Bologna </span>
+          </div>
+        </div>
+        <div class="row jc-start ai-start">
+          <img class="framed profile-photo" style="height: 2.5em"
+            src="images/profile-photo-lorenzo-chiari.png"
+            alt="Prof. Dr. Lorenzo Chiari">
+          <div>
+            <span class="bold"> Prof. Dr. Lorenzo Chiari </span><br>
+            <span class="dim"> University of Bologna </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="slide"> -->
+    <!--   <h3> Deliverables </h3> -->
+
+    <!--   <table> -->
+    <!--     <tbody> -->
+    <!--       <tr> -->
+    <!--         <th> D3.1 </th> -->
+    <!--         <td> -->
+    <!--           Outcomes of the large cohort study <br> -->
+    <!--           <span class="dim">Completed Jan 2025</span> -->
+    <!--         </td> -->
+    <!--       </tr> -->
+    <!--       <tr> -->
+    <!--         <th> D3.2 </th> -->
+    <!--         <td> -->
+    <!--           Outcomes of focused study <br> -->
+    <!--           <span class="dim">Due May 2027 (postponed)</span> -->
+    <!--         </td> -->
+    <!--       </tr> -->
+    <!--       <tr> -->
+    <!--         <th> D3.3 </th> -->
+    <!--         <td> -->
+    <!--           Robust capture of n-of-1 movement changes <br> -->
+    <!--           <span class="dim">Due Sep 2027</span> -->
+    <!--         </td> -->
+    <!--       </tr> -->
+    <!--     </tbody> -->
+    <!--   </table> -->
+    <!-- </div> -->
+
+    <div class="slide image-fill headless no-reveal">
+      <h3> Gait feature extraction summary figure </h3>
+
+      <div class="row">
+        <img
+          style="height: 95%;"
+          src="images/gait-feature-extraction.svg"
+          alt="Gait feature extraction" />
+      </div>
+    </div>
+
+    <div class="slide no-reveal">
+      <h3> Context-sensitive analysis <!--(→ D3.3)--> </h3>
+
+      <object
+        style="height: 110%; width: auto;"
+        data="images/plots/tuebingen-apdm-initial-double-support-apdm-d1-μ-mad-walking-bout-duration-log2-minus-visit-dw-segment-wise-outcome-pair-relationship-pdf-0-page-optimize-pretty-styles-scripts.svg"
+        type="image/svg+xml"></object>
+    </div>
+
+    <div class="slide no-reveal">
+      <h3> Longitudinal progression modeling <!--(→ D3.3)--> </h3>
+
+      <object
+        style="height: 100%; width: auto;"
+        data="images/plots/tuebingen-mobgap-odd-even-ratio-dft-acc-y-strides-d1-hann11-μ-mad-compensated-hc-pre-sym-top-svr-median-age-estimate-dw-sym-slopes-pdf-0-page-optimize-pretty-styles-scripts.svg"
+        type="image/svg+xml"></object>
+    </div>
+
+    <div class="slide no-reveal">
+      <h3>
+        <div class="row ai-center" style="gap: .25em;">
+          <img
+            style="height: 1em"
+            src="images/logo-apdm.png"
+            alt="APDM logo" />
+          features
+        </div>
+      </h3>
+
+      <table class="small mono"><thead><tr><th colspan="1" rowspan="1" data-i-column="0" style="cursor: pointer;">Candidate Outcome</th><th colspan="1" rowspan="1" data-i-column="1" style="cursor: pointer;">ESS</th></tr></thead><tbody id="ranking-body"><tr data-outcome="initial_double_support_apdm_d1_μ/mad_compensated/hc_pre_sym/top_svr/median"><td><span class="c-5">initial_double_support_apdm_d1_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-14">top_svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">112</td></tr><tr data-outcome="sagittal_maximum_angle_apdm_d1_hann5/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-7">sagittal_maximum_angle_apdm_d1_hann5</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">132</td></tr><tr data-outcome="toe_out_angle_apdm_abs_μ/mad_compensated/hc_pre_sym/top_svr/median"><td><span class="c-11">toe_out_angle_apdm_abs_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-14">top_svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">159</td></tr><tr data-outcome="sagittal_maximum_angle_apdm/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-4">sagittal_maximum_angle_apdm</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">170</td></tr><tr data-outcome="cadence_apdm_d2_hann11_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-1">cadence_apdm_d2_hann11_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">191</td></tr><tr data-outcome="terminal_swing_apdm_d1_abs_μ/mad_compensated/hc_pre_sym/top_svr/median"><td><span class="c-15">terminal_swing_apdm_d1_abs_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-14">top_svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">193</td></tr><tr data-outcome="terminal_swing_apdm_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-8">terminal_swing_apdm_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">200</td></tr><tr data-outcome="sagittal_maximum_angle_apdm_d1_abs/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-1">sagittal_maximum_angle_apdm_d1_abs</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">202</td></tr><tr data-outcome="initial_plus_mid_swing_apdm_d1_abs_hann5_μ/median_compensated/hc_pre_sym/top_svr/median"><td><span class="c-14">initial_plus_mid_swing_apdm_d1_abs_hann5_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-14">top_svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">210</td></tr><tr data-outcome="toe_out_angle_apdm_abs_hann11_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-7">toe_out_angle_apdm_abs_hann11_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">231</td></tr></tbody></table>
+
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        ESS: Estimated sample size per trial arm to detect 50%
+        progression reduction in a 2-year randomized controlled trial of
+        early-stage <br>
+        spinocerebellar ataxia with 2 measurements. (Power: 90%, one-sided
+        significance level: 5%.)
+      </p>
+    </div>
+
+    <div class="slide no-reveal">
+      <h3> Clinical scores </h3>
+
+      <table class="mono"><thead><tr><th colspan="1" rowspan="1" data-i-column="0" style="cursor: pointer;">Candidate Outcome</th><th colspan="1" rowspan="1" data-i-column="1" style="cursor: pointer;">ESS</th></tr></thead><tbody id="ranking-body"><tr data-outcome="abc"><td><span class="c-11">abc</span></td><td class="c-default">255</td></tr><tr data-outcome="sara"><td><span class="c-0">sara</span></td><td class="c-default">291</td></tr><tr data-outcome="abc41"><td><span class="c-4">abc41</span></td><td class="c-default">305</td></tr><tr data-outcome="sara_pg"><td><span class="c-0">sara_pg</span></td><td class="c-default">381</td></tr></tbody></table>
+
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        ESS: Estimated sample size per trial arm to detect 50%
+        progression reduction in a 2-year randomized controlled trial of
+        early-stage <br>
+        spinocerebellar ataxia with 2 measurements. (Power: 90%, one-sided
+        significance level: 5%.)
+      </p>
+    </div>
+
+    <div class="slide no-reveal">
+      <h3> Fourier coefficients </h3>
+
+      <table class="small mono"><thead><tr><th colspan="1" rowspan="1" data-i-column="0" style="cursor: pointer;">Candidate Outcome</th><th colspan="1" rowspan="1" data-i-column="1" style="cursor: pointer;">ESS</th></tr></thead><tbody id="ranking-body"><tr data-outcome="coeff2_abs_dft_acc_y_strides_lumbar_d2_hann11d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-11">coeff2_abs_dft_acc_y_strides_lumbar_d2_hann11d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">93</td></tr><tr data-outcome="coeff3_imag_dft_acc_y_strides_lumbar_d2_abs_μ/median_compensated/hc_pre_sym/svr/median"><td><span class="c-9">coeff3_imag_dft_acc_y_strides_lumbar_d2_abs_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">96</td></tr><tr data-outcome="coeff3_imag_dft_acc_y_strides_lumbar_d2_abs_hann5_μ/median_compensated/hc_pre_sym/svr/median"><td><span class="c-12">coeff3_imag_dft_acc_y_strides_lumbar_d2_abs_hann5_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">96</td></tr><tr data-outcome="coeff2_abs_dft_acc_y_strides_lumbar_d1_μ/mad_compensated/hc_pre_sym/top_svr/median"><td><span class="c-10">coeff2_abs_dft_acc_y_strides_lumbar_d1_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-14">top_svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">99</td></tr><tr data-outcome="coeff2_abs_dft_acc_y_strides_lumbar_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-15">coeff2_abs_dft_acc_y_strides_lumbar_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">100</td></tr><tr data-outcome="coeff2_abs_dft_acc_y_strides_lumbar_d2_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-3">coeff2_abs_dft_acc_y_strides_lumbar_d2_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">100</td></tr><tr data-outcome="coeff2_abs_dft_acc_y_strides_lumbar_d1_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-15">coeff2_abs_dft_acc_y_strides_lumbar_d1_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">104</td></tr><tr data-outcome="coeff3_imag_dft_acc_y_strides_lumbar_d1_abs_μ/median_compensated/hc_pre_sym/svr/median"><td><span class="c-12">coeff3_imag_dft_acc_y_strides_lumbar_d1_abs_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">115</td></tr><tr data-outcome="coeff2_abs_dft_acc_y_strides_lumbar_d2_hann5d_μ/mad_compensated/hc_pre_sym/top_svr/median"><td><span class="c-12">coeff2_abs_dft_acc_y_strides_lumbar_d2_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-14">top_svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">115</td></tr><tr data-outcome="coeff3_imag_dft_acc_y_strides_lumbar_d1_abs_hann11d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-0">coeff3_imag_dft_acc_y_strides_lumbar_d1_abs_hann11d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">116</td></tr></tbody></table>
+
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        ESS: Estimated sample size per trial arm to detect 50%
+        progression reduction in a 2-year randomized controlled trial of
+        early-stage <br>
+        spinocerebellar ataxia with 2 measurements. (Power: 90%, one-sided
+        significance level: 5%.)
+      </p>
+    </div>
+
+    <div class="slide no-reveal">
+      <h3> Integrated signal features </h3>
+
+      <table class="small mono"><thead><tr><th colspan="1" rowspan="1" data-i-column="0" style="cursor: pointer;">Candidate Outcome</th><th colspan="1" rowspan="1" data-i-column="1" style="cursor: pointer;">ESS</th></tr></thead><tbody id="ranking-body"><tr data-outcome="cumulative_gyr_y_strides_abs_d2_abs_μ/median_compensated/hc_pre_sym/svr/median"><td><span class="c-0">cumulative_gyr_y_strides_abs_d2_abs_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">134</td></tr><tr data-outcome="cumulative_acc_y_strides_lumbar_abs_d2_abs_hann11_μ/median_compensated/hc_pre_sym/svr/median"><td><span class="c-13">cumulative_acc_y_strides_lumbar_abs_d2_abs_hann11_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">135</td></tr><tr data-outcome="cumulative_gyr_y_strides_abs_d2_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-11">cumulative_gyr_y_strides_abs_d2_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">145</td></tr><tr data-outcome="cumulative_gyr_y_strides_abs_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-7">cumulative_gyr_y_strides_abs_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">145</td></tr><tr data-outcome="cumulative_gyr_y_strides_abs_d2_abs_hann5_μ/median_compensated/hc_pre_sym/svr/median"><td><span class="c-13">cumulative_gyr_y_strides_abs_d2_abs_hann5_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">146</td></tr><tr data-outcome="cumulative_acc_y_strides_lumbar_abs_d2_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-11">cumulative_acc_y_strides_lumbar_abs_d2_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">147</td></tr><tr data-outcome="cumulative_acc_y_strides_lumbar_abs_d2_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-6">cumulative_acc_y_strides_lumbar_abs_d2_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">150</td></tr><tr data-outcome="cumulative_acc_y_strides_lumbar_abs_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-14">cumulative_acc_y_strides_lumbar_abs_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">150</td></tr><tr data-outcome="cumulative_acc_y_strides_lumbar_d2_abs_hann11_μ/median_compensated/hc_pre_sym/svr/median"><td><span class="c-2">cumulative_acc_y_strides_lumbar_d2_abs_hann11_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">152</td></tr><tr data-outcome="cumulative_acc_y_strides_lumbar_abs_d1_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-8">cumulative_acc_y_strides_lumbar_abs_d1_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">152</td></tr></tbody></table>
+
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        ESS: Estimated sample size per trial arm to detect 50%
+        progression reduction in a 2-year randomized controlled trial of
+        early-stage <br>
+        spinocerebellar ataxia with 2 measurements. (Power: 90%, one-sided
+        significance level: 5%.)
+      </p>
+    </div>
+
+    <div class="slide no-reveal">
+      <h3>
+        <img
+          style="height: 1em"
+          src="images/logo-mobilise-d.svg"
+          alt="Mobilise-D logo" />
+        features <!--(→ D3.2)-->
+      </h3>
+
+      <table class="small mono"><thead><tr><th colspan="1" rowspan="1" data-i-column="0" style="cursor: pointer;">Candidate Outcome</th><th colspan="1" rowspan="1" data-i-column="1" style="cursor: pointer;">ESS</th></tr></thead><tbody id="ranking-body"><tr data-outcome="cadence_mobgap_d1_abs_hann5_μ/median_compensated/hc_pre_sym/top_svr/median"><td><span class="c-14">cadence_mobgap_d1_abs_hann5_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-14">top_svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">119</td></tr><tr data-outcome="stride_length_mobgap_normed_d1_abs_hann5d_μ/mad_compensated/hc_pre_sym/top_svr/median"><td><span class="c-13">stride_length_mobgap_normed_d1_abs_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-14">top_svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">137</td></tr><tr data-outcome="stride_length_mobgap_normed_d1_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-4">stride_length_mobgap_normed_d1_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">159</td></tr><tr data-outcome="stride_length_mobgap_d1_abs_hann5_μ/median_compensated/hc_pre_sym/top_svr/median"><td><span class="c-11">stride_length_mobgap_d1_abs_hann5_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-14">top_svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">161</td></tr><tr data-outcome="stride_length_mobgap_d1_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-10">stride_length_mobgap_d1_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">173</td></tr><tr data-outcome="stride_length_mobgap_normed_d2_abs_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-14">stride_length_mobgap_normed_d2_abs_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">196</td></tr><tr data-outcome="stride_length_mobgap_normed_d1_abs_hann11d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-4">stride_length_mobgap_normed_d1_abs_hann11d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">205</td></tr><tr data-outcome="stride_length_mobgap_d2_abs_hann5d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-4">stride_length_mobgap_d2_abs_hann5d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">208</td></tr><tr data-outcome="cadence_mobgap_d1_abs_hann11d_μ/mad_compensated/hc_pre_sym/svr/median"><td><span class="c-15">cadence_mobgap_d1_abs_hann11d_μ</span><span class="c-default">/</span><span class="c-15">mad_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">211</td></tr><tr data-outcome="cadence_mobgap_d1_abs_hann5_μ/median_compensated/hc_pre_sym/svr/median"><td><span class="c-14">cadence_mobgap_d1_abs_hann5_μ</span><span class="c-default">/</span><span class="c-5">median_compensated</span><span class="c-default">/</span><span class="c-14">hc_pre_sym</span><span class="c-default">/</span><span class="c-10">svr</span><span class="c-default">/</span><span class="c-7">median</span></td><td class="c-default">214</td></tr></tbody></table>
+
+      <p class="small dim"
+          style="position: absolute; bottom: 2em; left: 2em">
+        ESS: Estimated sample size per trial arm to detect 50%
+        progression reduction in a 2-year randomized controlled trial of
+        early-stage <br>
+        spinocerebellar ataxia with 2 measurements. (Power: 90%, one-sided
+        significance level: 5%.)
+      </p>
+    </div>
+
+    <div class="slide">
+      <h3> Conclusion </h3>
+
+      <div>
+        <ul>
+          <li> DMOs may outperform clinical scores in early-stage ataxia </li>
+          <li> Context-aware analysis improves reliability and sensitivity of
+            real-life DMOs </li>
+          <ul class="hence">
+            <li> Next up: Reintroduce composite severity scores for further
+              improvement </li>
+          </ul>
+          <li> Proper longitudinal modeling yields realistic ESSs for RCTs </li>
+          <li> Single-arm <span class="italic">N</span>-of-few trials likely
+            require long durations and frequent measurements </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide section inverse">
+      <h2> Thank you! </h2>
+
+      <div class="smaller ljust"
+          style="position: absolute; top: 2em; right: 2em">
+        <a href="./index.html"> Go to index (relative) </a> <br>
+        <a href="https://publik-void.github.io/index.html"> Go to index (online)
+          </a>
+      </div>
+    </div>
+
+  </body>
+</html>
+
